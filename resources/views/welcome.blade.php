@@ -1,6 +1,7 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <body>
-        welcome
-    </body>
-</html>
+@extends('layouts.master')
+
+@section('title', config('app.name').' - Welcome')
+
+@section('content')
+	Welcome
+@stop

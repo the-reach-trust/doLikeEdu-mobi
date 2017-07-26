@@ -6,7 +6,7 @@
 </div>
 
 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-	{{ Form::label('password', 'password', ['class' => 'control-label']) }}
-	{{ Form::password('password',  old('password', (isset($password) ? $password : null)) , ['class' => 'form-control','required']) }}
+	{{ Form::label('password', 'Password', ['class' => 'control-label']) }}
+	{{ Form::password('password', ['class' => 'form-control','required']) }}
 	@include('partials.elems.formerrors', ['tag' => 'password'])
 </div>
