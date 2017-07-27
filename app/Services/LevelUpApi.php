@@ -51,7 +51,7 @@ class LevelUpApi {
         $cachePort = getenv('CACHEPORT');
         $this->_apiUrl = getenv('APIURL');
         $this->_disable_cache = true;
-        $this->_version = '2.0';
+        $this->_version = '1.2.0';
 
         // Enable MemCache support in non-Debug (Production) mode.
         if($this->_disable_cache == false)

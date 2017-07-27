@@ -16,8 +16,8 @@ class CheckLUUser {
      */
     public function handle($request, Closure $next) {
 
-    	$levelup_authenticate = Session::get('levelup_authenticate');
-    	if(empty($levelup_authenticate)){
+    	$levelup_authentication = Session::get('levelup_authentication');
+    	if(empty($levelup_authentication)){
     		$reason = "Not logged in.";
             return response()->view('errors.403', compact('reason'));
     	}

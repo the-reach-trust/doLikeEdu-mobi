@@ -18,16 +18,17 @@ class Controller extends BaseController
 
     protected function LevelUpSetup()
     {
-    	$levelup_authenticate = Session::get('levelup_authenticate');
-    	$levelup_hashcode = Session::get('levelup_hashcode');
-    	if(empty($levelup_authenticate) || empty($levelup_hashcode)){
-    		throw new Exception("Error Processing LevelUpSetup Request", 1);
-    	}
+        $levelup_authentication = Session::get('levelup_authentication');
+        $levelup_hashcode = Session::get('levelup_hashcode');
+        if(empty($levelup_authentication) || empty($levelup_hashcode)){
+            //TODO: rewrite
+            dd($levelup_hashcode);
+        }
 
-    	$levelupapi = new LevelUpApi;
-    	$levelupapi->set_token($levelup_authenticate->token);
+        $levelupapi = new LevelUpApi;
+        $levelupapi->set_token($levelup_authentication->token);
         $levelupapi->set_hashcode($levelup_hashcode);
 
-    	return $levelupapi;
+        return $levelupapi;
     }
 }

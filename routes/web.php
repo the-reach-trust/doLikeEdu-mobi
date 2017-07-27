@@ -46,3 +46,18 @@ Route::get('profile', [
     'as' => 'profile.index',
     'uses' => 'ProfileController@index',
 ]);
+
+Route::get('quizzes', [
+    'as' => 'quizzes.index',
+    'uses' => 'QuizzesController@index',
+]);
+
+Route::get('quizzes/category/{id}', [
+    'as' => 'quizzes.category',
+    'uses' => 'QuizzesController@category',
+]);
+
+Route::get('quizzes/topic/{$category}/{$topic}', [
+    'as' => 'quizzes.topic',
+    'uses' => 'QuizzesController@topic',
+]);

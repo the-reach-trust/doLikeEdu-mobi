@@ -40,10 +40,10 @@ class AuthController extends Controller
         $access_token = $request->mobilenumber.":".$request->password;
         $mode = AccessMode::GUEST_ACCESS;
 
-        $levelup_authenticate = $levelup->authenticate($mode,$access_token);
+        $levelup_authentication = $levelup->authenticate($mode,$access_token);
 
-        Session::put('levelup_authenticate', $levelup_authenticate);
-        Session::put("levelup_hashcode",md5('LevelUp-'.$levelup_authenticate->userid));
+        Session::put('levelup_authentication', $levelup_authentication);
+        Session::put("levelup_hashcode",md5('LevelUp-'.$levelup_authentication->userid));
         Session::put('access_token', $access_token);
         Session::put('mode', $mode);
 
