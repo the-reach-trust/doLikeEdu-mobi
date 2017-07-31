@@ -29,7 +29,20 @@ class AuthController extends Controller
 
     public function register_post(AuthPostRequest $request)
     {
+        $levelup = new LevelUpApi;
 
+        $access_token = $request->mobilenumber.":".$request->password;
+        $mode = AccessMode::GUEST_ACCESS;
+
+        $levelup_authentication = $levelup->authenticate($mode,$access_token);
+
+        Session::put('levelup_authentication', $levelup_authentication);
+        Session::put("levelup_hashcode",md5('LevelUp-'.$levelup_authentication->userid));
+        Session::put('access_token', $access_token);
+        Session::put('mode', $mode);
+
+        Session::flash('flash_success', 'Successfully logged in!');
+        return \Redirect::route('home.index');
     }
 
     public function login()

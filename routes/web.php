@@ -53,6 +53,10 @@ Route::get('profile', [
     'as' => 'profile.index',
     'uses' => 'ProfileController@index',
 ]);
+Route::post('profile', [
+    'as' => 'profile.update',
+    'uses' => 'ProfileController@update',
+]);
 
 Route::get('quizzes', [
     'as' => 'quizzes.index',
