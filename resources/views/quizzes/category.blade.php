@@ -4,6 +4,12 @@
 
 @section('content')
 	<h2> {{$category->name}} </h2>
+
+	@section('content')
+	@foreach ($categories as $category)
+		<a class="{{ $category->category == $category_id ? 'active' : '' }}" title="" href="{{ route('quizzes.category', $category->category) }}">{{ $category->name }}</a> ({{ $category->amount }}) 
+	@endforeach
+
 	<!-- Maybe this is not shown at all ? -->
 	<!--
 	<h3>Topics</h3>

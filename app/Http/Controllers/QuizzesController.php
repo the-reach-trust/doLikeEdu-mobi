@@ -48,10 +48,10 @@ class QuizzesController extends AppController
                                 'count' => $challenge_count);
 
         // Loop through all the categories again and grab the name of the matching id
-        $challengescategories = $this->levelup->get_challengecategories();
+        $categories = $this->levelup->get_challengecategories();
         $category = null;
 
-         foreach($challengescategories as $categorynum){
+         foreach($categories as $categorynum){
             if ($categorynum->category == $category_id){
                 $category = $categorynum;
                 break;
@@ -59,13 +59,12 @@ class QuizzesController extends AppController
         }
 
         $challenges = $this->levelup->get_challenges($challenges_param);
-
         $pages = array();
         foreach ($challenges as $challenge) {
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.category',compact('category_id','category','challengescategories','challenges','pages'));
+        return view('quizzes.category',compact('category_id','category','categories','challenges','pages'));
     }
 
     public function topic($category_id,$topic_id,$offset=0,$sort='popular')
