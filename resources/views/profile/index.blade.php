@@ -17,7 +17,7 @@
 
 		<div class="form-group has-feedback {{ $errors->has('gender') ? 'has-error' : '' }}">
 			{{ Form::label('gender', 'Gender', ['class' => 'control-label']) }}
-			{{ Form::select('gender', AppUser::GENDERS, (isset($gender) ? $gender : null) , ['class' => 'form-control', 'placeholder' => 'Pick one ...']) }}
+			{{ Form::select('gender', AppUser::GENDERS,  old('gender',(isset($gender) ? $gender : null)) , ['class' => 'form-control', 'placeholder' => 'Pick one ...']) }}
 			@include('partials.elems.formerrors', ['tag' => 'gender'])
 		</div>
 
