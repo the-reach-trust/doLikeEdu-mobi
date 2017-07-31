@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PagesController extends Controller
+class PagesController extends AppController
 {
-    public function __construct() {
-        $this->middleware('LUuser');
-    }
-
     /**
      * Display a listing of the resource.
      *

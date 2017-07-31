@@ -181,6 +181,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // custom blade shortcuts
+        App\Providers\BladeServiceProvider::class,
+
     ],
 
     /*

@@ -10,7 +10,7 @@ class AppController extends Controller
     protected $levelup;
 
     public function __construct() {
-        $this->middleware('LUuser');
+        $this->middleware('user.lu');
 
         //Work around to setup levelupAPI
         $this->middleware(function ($request, $next) {

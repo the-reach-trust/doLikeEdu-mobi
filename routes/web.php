@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    if(!empty(Session::get('levelup_authentication'))){return Redirect::to('home');}
     return view('welcome');
 });
 
@@ -37,6 +38,12 @@ Route::post('auth/login', [
     'uses' => 'AuthController@login_post',
 ]);
 
+Route::get('auth/logout', [
+    'as' => 'auth.logout',
+    'uses' => 'AuthController@logout',
+    'logout' => true
+]);
+
 Route::get('home', [
     'as' => 'home.index',
     'uses' => 'HomeController@index',
@@ -60,4 +67,9 @@ Route::get('quizzes/category/{id}', [
 Route::get('quizzes/topic/{$category}/{$topic}', [
     'as' => 'quizzes.topic',
     'uses' => 'QuizzesController@topic',
+]);
+
+Route::get('progress', [
+    'as' => 'progress.index',
+    'uses' => 'ProgressController@index',
 ]);

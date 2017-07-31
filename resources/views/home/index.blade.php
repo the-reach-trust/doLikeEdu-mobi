@@ -5,5 +5,5 @@
 @section('content')
     WELCOME NAME HERE
 
-    {{ dd($content) }}
+    {{ print_r($content) }}
 @stop

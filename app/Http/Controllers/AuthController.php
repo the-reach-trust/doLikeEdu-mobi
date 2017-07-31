@@ -13,6 +13,10 @@ use App\Services\LevelUpApi;
 
 class AuthController extends Controller
 {
+    public function __construct() {
+        $this->middleware('user.guest');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -49,5 +53,9 @@ class AuthController extends Controller
 
         Session::flash('flash_success', 'Successfully logged in!');
         return \Redirect::route('home.index');
+    }
+
+    public function logout(){
+        dd('test');
     }
 }
