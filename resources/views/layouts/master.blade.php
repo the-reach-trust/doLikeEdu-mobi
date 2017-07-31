@@ -16,7 +16,9 @@
 	
 </head>
 <body class="container-fluid">
-	@include ('layouts.nav')
+	@if(Session::has('levelup_authentication'))
+		@include ('layouts.nav')
+	@endif
 
 	<div>
 		@if(Session::has('flash_error'))
@@ -36,6 +38,8 @@
 		@yield ('content')
 	</div>
 	
-	@include('layouts.footer')
+	@if(Session::has('levelup_authentication'))
+		@include('layouts.footer')
+	@endif
 </body>
 </html>

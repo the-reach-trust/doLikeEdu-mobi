@@ -56,6 +56,9 @@ class AuthController extends Controller
     }
 
     public function logout(){
-        dd('test');
+        Session::flush();
+
+        Session::flash('flash_success', 'Successfully logged out!');
+        return \Redirect::to('/');
     }
 }

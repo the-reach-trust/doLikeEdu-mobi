@@ -14,7 +14,8 @@ class ProfileController extends AppController
      */
     public function index()
     {
-        dd('index');
+        //$profile = $levelup->get_profile();
+        return view('profile.index',compact('profile'));
     }
 
     public function store()
