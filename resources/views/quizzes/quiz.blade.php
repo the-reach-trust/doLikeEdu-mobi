@@ -13,6 +13,6 @@
 	Topic: {{ $page->subject }}<br/>
 	<h3>{{ $page->heading }}</h3>
 
-	<!-- quiz content/form ->
+	<!-- quiz content/form -->
 	{!! $page->content !!}
 @stop
