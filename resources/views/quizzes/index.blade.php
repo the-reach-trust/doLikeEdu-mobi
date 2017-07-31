@@ -4,12 +4,13 @@
 
 @section('content')
 	@foreach ($categories as $category)
-		<div>
-			{{ print_r($category) }}
-		</div>
+		<a class="" title="" href="{{ route('quizzes.category', $category->category) }}">{{ $category->name }}</a> ({{ $category->amount }})
 	@endforeach
 
-	@foreach ($challenges_featured as $featchal)
-		{{ print_r($featchal) }}
+	<br/>
+	<h3>Featured Challenges</h3>
+	@foreach ($challenges_featured as $challenge)
+		<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}">
+		<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">{{ $pages[$challenge->content_page]->heading }}</a> ({{ $challenge->remaining_attempts }})<br/>
 	@endforeach
 @stop

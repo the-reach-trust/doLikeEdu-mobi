@@ -64,9 +64,19 @@ Route::get('quizzes/category/{id}', [
     'uses' => 'QuizzesController@category',
 ]);
 
-Route::get('quizzes/topic/{$category}/{$topic}', [
+Route::get('quizzes/topic/{category}/{topic}', [
     'as' => 'quizzes.topic',
     'uses' => 'QuizzesController@topic',
+]);
+
+Route::get('quizzes/quiz/{id}', [
+    'as' => 'quizzes.quiz',
+    'uses' => 'QuizzesController@quiz',
+]);
+
+Route::post('quizzes/quiz/{id}', [
+    'as' => 'quizzes.quiz',
+    'uses' => 'QuizzesController@quiz_post',
 ]);
 
 Route::get('progress', [

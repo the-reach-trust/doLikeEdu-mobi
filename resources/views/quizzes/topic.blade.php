@@ -3,16 +3,14 @@
 @section('title', config('app.name').' - Quiz')
 
 @section('content')
-	{{ $category }}
+	<h3>Topics</h3>
+	@foreach ($category->topics as $topic)
+		<a class="" title="" href="{{ route('quizzes.topic', [$category_id,$topic->topic]) }}">{{ $topic->name }}</a> ({{ $topic->amount }})
+	@endforeach
 
-	{{ print_r($challengescategories) }}
-
+	<h3>Quizzes</h3>
 	@foreach ($challenges as $challenge)
-		<div>
-			<h2> {{ $pages[$challenge->content_page]->heading }} </h2>
-			{{ print_r($challenge) }}
-			{!! $pages[$challenge->content_page]->content !!}
-			<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}">
-		</div>
+		<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}">
+		<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">{{ $pages[$challenge->content_page]->heading }}</a> ({{ $challenge->remaining_attempts }})<br/>
 	@endforeach
 @stop
