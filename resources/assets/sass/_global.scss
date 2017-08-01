@@ -5,6 +5,7 @@ body { background: $app-bg; }
 // Anchors
 
 a:not(.btn) { text-decoration: underline; }
+.navbar-nav li a { text-decoration: none; }
 
 // Buttons
 
@@ -17,5 +18,42 @@ input {
 		border-radius: 9px;
 		border: $white;
 		box-shadow: none;
+	}
+}
+
+// Navigation
+nav {
+	&.navbar {
+		border: 0;
+		li {
+			margin: 4px 0;
+			position: relative;
+			a {
+				padding: 6px;
+			}
+			&.active {
+				&:after {
+					position: absolute;
+					bottom: 0px;
+					left: 6px;
+					content: ' ';
+					display: block;
+					height: 3px;
+					background: $brand-primary;
+					width: calc(100% - 12px);					
+				}
+			}
+			&:first-child {
+				&.active {
+					&:after {
+						left: 0;
+						width: calc(100% - 6px);
+					}
+				}
+				a {
+					padding-left: 0;
+				}
+			}
+		}
 	}
 }

@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="container">
-		<div class="row"></div>
+		<div class="row">
 			<div class="{{ config( 'front.dfltBodyClass' ) }} ">
 				<div>
 					Hello {{ 'name_here' }}

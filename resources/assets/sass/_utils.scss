@@ -5,8 +5,13 @@ $single-px: 1px;
 
 // Colors
 
-$app-bg : #f2f3f7;
 $white: #fff;
+$gray-0: #d8d8d9;
+
+// Color Variables
+
+$app-bg : #f2f3f7;
+$gray: $gray-0;
 
 @for $i from 0 through 20 {
 	.space-#{$i} {  

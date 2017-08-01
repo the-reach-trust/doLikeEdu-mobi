@@ -15,7 +15,7 @@
 
 					@include('partials.forms.auth-login')
 
-					{{ Form::submit('Login', array('class' => 'btn')) }}
+					{{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
 
 					{{ Form::close() }}
 				</div>
