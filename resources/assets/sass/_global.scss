@@ -1,0 +1,21 @@
+// Body
+
+body { background: $app-bg; }
+
+// Anchors
+
+a:not(.btn) { text-decoration: underline; }
+
+// Buttons
+
+.btn { margin-bottom: $min-space * 2; }
+
+// Form
+
+input {
+	&.form-control {
+		border-radius: 9px;
+		border: $white;
+		box-shadow: none;
+	}
+}

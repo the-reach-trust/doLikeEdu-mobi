@@ -1,0 +1,19 @@
+// Variables
+
+$min-space: 5px;
+$single-px: 1px;
+
+// Colors
+
+$app-bg : #f2f3f7;
+$white: #fff;
+
+@for $i from 0 through 20 {
+	.space-#{$i} {  
+		display:block;
+		height: $min-space * $i;
+	}
+	.mt-#{$i} { margin-top: $single-px * $i; }
+	.mb-#{$i} { margin-bottom: $single-px * $i; }
+}
+.space { @extend .space-6; }
