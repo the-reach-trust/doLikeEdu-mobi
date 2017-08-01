@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Session;
 
 use App\Http\Requests\LoginPostRequest;
+use App\Http\Requests\RegisterPostRequest;
 use App\Models\AccessMode;
 use App\Services\LevelUpApi;
 
