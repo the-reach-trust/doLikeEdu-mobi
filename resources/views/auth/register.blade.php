@@ -3,9 +3,10 @@
 @section('title', config('app.name').' - register')
 
 @section('content')
+	<span class="space-10"></span>
     <div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="{{ config( 'front.dfltBodyClass' )}}">
 				<div class="box-body">
 					{{ Form::open([
 						'method' => 'POST',

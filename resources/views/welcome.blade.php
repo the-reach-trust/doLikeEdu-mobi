@@ -5,14 +5,17 @@
 @section('content')
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 text-center">
-				<img src="">
-				<h1>Welcome</h1>
+			<div class="{{ config( 'front.dfltBodyClass' )}} text-center">
+				<figure>
+					<span class="space-10"></span>
+					<img src="https://via.placeholder.com/250x250">
+					<span class="space-5"></span>
+				</figure>
 
+				<h1>Welcome</h1>
 				<span class="space-2"></span>
 
 				<p>Pratice makes perfect.</p>
-
 				<span class="space"></span>
 
 				<a href="{{ route('auth.register') }}" class="btn btn-primary" role="button">Join DoLikeEdu</a>
