@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Session;
 
 use App\Http\Requests\LoginPostRequest;
+use App\Http\Requests\RegisterPostRequest;
 use App\Models\AccessMode;
 use App\Services\LevelUpApi;
 
@@ -27,7 +28,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register_post(AuthPostRequest $request)
+    public function register_post(RegisterPostRequest $request)
     {
         $levelup = new LevelUpApi;
 

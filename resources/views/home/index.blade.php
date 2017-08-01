@@ -25,6 +25,14 @@
         <a href="{{ route('profile.index') }}">Finish your profile</a> <br/>
         <a href="{{ route('quizzes.index') }}">Finish 2 more quizzes</a> <br/>
     </div>
+
+    <hr>
+
+    <!-- hardcodded for testing now -->
+    <div>
+        Need some help or advice ? <br/>
+        <a href="{{ route('pages.page', 1) }}">Click here for <b>TalkTo</b>Edu</a> <br/>
+    </div>
     <!-- Content call -->
     <!--
     {{ print_r($content) }}
