@@ -27,7 +27,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register_post(AuthPostRequest $request)
+    public function register_post(RegisterPostRequest $request)
     {
         $levelup = new LevelUpApi;
 
