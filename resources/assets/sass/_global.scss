@@ -5,7 +5,8 @@ body { background: $app-bg; }
 // Anchors
 
 a:not(.btn) { text-decoration: underline; }
-.navbar-nav li a { text-decoration: none; }
+.navbar-nav li a,
+#footer-wrapper li a { text-decoration: none; }
 
 // Buttons
 
@@ -52,6 +53,53 @@ nav {
 				}
 				a {
 					padding-left: 0;
+				}
+			}
+		}
+	}
+}
+
+// Footer
+#footer-wrapper {
+	background: $brand-secondary;
+	ul {
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+		padding: 14px 0 18px;
+		li {
+			display: inline-block;
+			position: relative;
+			a {
+				color: $white;		
+				&:after {
+					width: 1px;
+					height: 15px;
+					background: $white;
+					display: inline-block;
+					content: ' ';
+					position: relative;
+					top: 3px;
+					margin: 0px 5px 0px 9px;
+				}
+			}			
+			&.active {
+				&:after {
+					position: absolute;
+					bottom: -6px;
+					left: 0px;
+					content: ' ';
+					display: block;
+					height: 2px;
+					background: $white;
+					width: calc(100% - 15px);
+				}
+			}
+			&:last-child {
+				a {
+					&:after {
+						content: none;
+					}
 				}
 			}
 		}
