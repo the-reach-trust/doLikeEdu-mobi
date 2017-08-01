@@ -87,3 +87,8 @@ Route::get('progress', [
     'as' => 'progress.index',
     'uses' => 'ProgressController@index',
 ]);
+
+Route::get('pages/page/{id}', [
+    'as' => 'pages.page',
+    'uses' => 'PagesController@page',
+]);
