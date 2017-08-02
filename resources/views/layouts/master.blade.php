@@ -15,7 +15,7 @@
 	<!-- Custom styles for this template -->
 	
 </head>
-<body class="route-{{ str_replace( '/', '-', ( Request::route()->uri == '/' ) ? 'welcome' : Request::route()->uri ) }}">
+<body class="route-{{ !empty(Request::route()) ? str_replace( '/', '-', ( Request::route()->uri == '/' ) ? 'welcome' : Request::route()->uri ) : 'home' }}">
 	@if(Session::has('levelup_authentication'))
 		@include ('layouts.nav')
 	@endif

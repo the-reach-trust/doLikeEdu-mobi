@@ -126,6 +126,20 @@ class QuizzesController extends AppController
     {
         return redirect()->route('quizzes.result',[$id,rand(0,1)]);
         dd($request);
+        $quiz_result = $this->levelup->answer_challenge($id,$request);
+
+        if($this->levelup->get_last_http_status() == Challenge::CHALLENGE_EXPIRED || $this->levelup->get_last_http_status() == Challenge::CHALLENGE_NOT_FOUND)
+        {
+            //TODO: Handle
+            redirect()->route('quizzes.index');
+        }
+
+        //check if answer is correct
+        if($quiz_result){
+            return redirect()->route('quizzes.result',[$id,true]);
+        }
+
+        return redirect()->route('quizzes.result',[$id,false]);
     }
 
     public function quiz_result($id = 0,$correct = false)
