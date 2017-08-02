@@ -83,6 +83,11 @@ Route::post('quizzes/quiz/{id}', [
     'uses' => 'QuizzesController@quiz_post',
 ]);
 
+Route::get('quizzes/result/{id}/{result}', [
+    'as' => 'quizzes.result',
+    'uses' => 'QuizzesController@quiz_result',
+]);
+
 Route::get('progress', [
     'as' => 'progress.index',
     'uses' => 'ProgressController@index',

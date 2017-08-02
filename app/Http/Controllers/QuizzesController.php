@@ -122,8 +122,36 @@ class QuizzesController extends AppController
         return view('quizzes.quiz',compact('challenge','page'));
     }
 
-    public function quiz_post(FormRequest $request,$id)
+    public function quiz_post(Request $request,$id)
     {
+        return redirect()->route('quizzes.result',[$id,rand(0,1)]);
         dd($request);
+    }
+
+    public function quiz_result($id = 0,$correct = false)
+    {
+        $challenge = $this->levelup->get_challenge($id);
+        $challenge_http_response = $this->levelup->get_last_http_status();
+
+        if($challenge_http_response == Challenge::CHALLENGE_NOT_FOUND || $challenge_http_response == Challenge::CHALLENGE_EXPIRED || $challenge == null)
+        {
+            dd('missing challenge');
+            //redirect(base_url().$this->router->fetch_class().'/index');
+        }
+
+        $page = $this->levelup->get_page($challenge->content_page,false,3600);
+        //Check if page is unpublished
+        if(empty($page) || $this->levelup->get_last_http_status() == Page::PAGE_MISSING)
+        {
+            dd('missing page');
+            //redirect(base_url().'page/missing/'.$challenge->content_page);
+        }
+
+        if($correct)
+        {
+            return view('quizzes.correct',compact('challenge','page'));
+        }
+
+        return view('quizzes.incorrect',compact('challenge','page'));
     }
 }

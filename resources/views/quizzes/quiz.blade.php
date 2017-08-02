@@ -13,6 +13,7 @@
 	Topic: <a href="{{ route('quizzes.topic',[2,1]) }}">{{ $page->subject }} (TODO: Backend to send subject_id)</a><br/>
 	<h3>{{ $page->heading }}</h3>
 
+	{{ csrf_field() }}
 	<!-- quiz content/form -->
 	{!! $page->content !!}
 
