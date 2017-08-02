@@ -18,7 +18,7 @@ class RegisterPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'mobilenumber' => 'required|max:14|regex:/^\d*$/|phone:AUTO,ZA',
+            'mobilenumber' => 'required|max:14|phone:AUTO,NA',
             'password' => 'required|max:100',
         ];
     }
