@@ -3,14 +3,29 @@
 @section('title', config('app.name').' - Welcome')
 
 @section('content')
-	<img src="">
-	<h3>Welcome</h3>
+	<div class="container">
+		<div class="row">
+			<div class="{{ config( 'front.dfltBodyClass' )}} text-center">
+				<figure>
+					<span class="space-10"></span>
+					<img src="https://via.placeholder.com/250x250">
+					<span class="space-5"></span>
+				</figure>
 
-	<p>Pratice makes perfect.</p>
+				<h1>Welcome</h1>
+				<span class="space-2"></span>
 
-	<a href="{{ route('auth.register') }}" class="btn btn-info" role="button">Join DoLikeEdu</a>
+				<p>Pratice makes perfect.</p>
+				<span class="space"></span>
 
-	<p>Have an account?</p>
-	<a href="{{ route('auth.login') }}">Click here to login</a>
-	<br>
+				<a href="{{ route('auth.register') }}" class="btn btn-primary" role="button">Join DoLikeEdu</a>
+
+				<span class="space-2"></span>
+
+				<p class="mb-5">Have an account?</p>
+				<a href="{{ route('auth.login') }}">Click here to login</a>
+				<br>
+			</div>
+		</div>
+	</div>	
 @stop

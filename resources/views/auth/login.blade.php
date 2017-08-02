@@ -3,18 +3,25 @@
 @section('title', config('app.name').' - Login')
 
 @section('content')
-    <div class="box-body">
-        {{ Form::open([
-            'method' => 'POST',
-            'route' => ['auth.login']
-        ]) }}
+	<span class="space-10"></span>
+	<div class="container">
+		<div class="row">
+			<div class="{{ config( 'front.dfltBodyClass' )}}">
+				<div class="box-body">
+					{{ Form::open([
+						'method' => 'POST',
+						'route' => ['auth.login']
+					]) }}
 
-        @include('partials.forms.auth-login')
+					@include('partials.forms.auth-login')
 
-        {{ Form::submit('Login', array('class' => 'btn')) }}
+					{{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
 
-        {{ Form::close() }}
-    </div>
+					{{ Form::close() }}
+				</div>
 
-    <a href="/terms">Terms</a>
+				<a href="/terms">Terms</a>
+			</div>
+		</div>
+	</div>
 @stop
