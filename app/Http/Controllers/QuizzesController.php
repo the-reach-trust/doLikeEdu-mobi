@@ -39,7 +39,7 @@ class QuizzesController extends AppController
 
     public function category($category_id,$offset=0,$sort='popular')
     {
-        $challenge_count = 10;
+        $challenge_count = 15;
         $challenges_param = array(
                                 'type' => "all",
                                 'category' => $category_id,
@@ -64,12 +64,12 @@ class QuizzesController extends AppController
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.category',compact('category_id','category','categories','challenges','pages'));
+        return view('quizzes.category',compact('category_id','category','categories','challenges','pages','offset','challenge_count'));
     }
 
     public function topic($category_id,$topic_id,$offset=0,$sort='popular')
     {
-        $challenge_count = 10;
+        $challenge_count = 15;
         $challenges_param = array(
                                 'type' => "all",
                                 'category' => $category_id,
@@ -96,7 +96,7 @@ class QuizzesController extends AppController
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.topic',compact('category_id','topic_id','category','challengescategories','challenges','pages'));
+        return view('quizzes.topic',compact('category_id','topic_id','category','challengescategories','challenges','pages','offset','challenge_count'));
     }
 
     public function quiz($id)

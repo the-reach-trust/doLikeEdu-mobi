@@ -23,4 +23,15 @@
 		<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}">
 		<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">{{ $pages[$challenge->content_page]->heading }}</a> ({{ $challenge->remaining_attempts }})<br/>
 	@endforeach
+
+	@if(sizeof($challenges) <= $challenge_count)
+		<ul class="pager">
+			@if($offset > 0)
+				<li class="previous"><a href="{{ route('quizzes.category', [$category_id,max($offset-$challenge_count,0) ]) }}">Previous</a></li>
+			@endif
+			@if(sizeof($challenges) == $challenge_count)
+				<li class="next"><a href="{{ route('quizzes.category', [$category_id,max($offset+$challenge_count,0) ]) }}">Next</a></li>
+			@endif
+		</ul>
+	@endif
 @stop

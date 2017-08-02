@@ -9,10 +9,15 @@
 	-->
 
 	<img src="{{ $page->logo }}"><br/>
-	Subject: BACKEND NEEDS UPDATE<br/>
-	Topic: {{ $page->subject }}<br/>
+	Subject: <a href="{{ route('quizzes.category',2) }}">TODO: backend to send category_id</a><br/>
+	Topic: <a href="{{ route('quizzes.topic',[2,1]) }}">{{ $page->subject }} (TODO: Backend to send subject_id)</a><br/>
 	<h3>{{ $page->heading }}</h3>
 
 	<!-- quiz content/form -->
 	{!! $page->content !!}
+
+	<!-- Page info -->
+	<!--
+	{{ print_r($page) }}
+	-->
 @stop

@@ -63,12 +63,12 @@ Route::get('quizzes', [
     'uses' => 'QuizzesController@index',
 ]);
 
-Route::get('quizzes/category/{id}', [
+Route::get('quizzes/category/{id}/{offset?}', [
     'as' => 'quizzes.category',
     'uses' => 'QuizzesController@category',
 ]);
 
-Route::get('quizzes/topic/{category}/{topic}', [
+Route::get('quizzes/topic/{category}/{topic}/{offset?}', [
     'as' => 'quizzes.topic',
     'uses' => 'QuizzesController@topic',
 ]);
