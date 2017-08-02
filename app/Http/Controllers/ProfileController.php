@@ -17,7 +17,9 @@ class ProfileController extends AppController
     public function index()
     {
         //$profile = $levelup->get_profile();
-        return view('profile.index',compact('profile'));
+        $schools = array(1=> 'A School');
+
+        return view('profile.index',compact('profile','schools'));
     }
 
     public function update(Request $request)

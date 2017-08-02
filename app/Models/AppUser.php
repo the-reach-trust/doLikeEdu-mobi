@@ -13,6 +13,10 @@ class AppUser {
     	AppUser::MALE => 'Male'
     ];
 
+    const GRADES = [
+        11 => 11
+    ];
+
     public static function toMarkup($gender) {
         if (is_null($gender)) {
             return '<em>Unknown</em>';
