@@ -106,8 +106,7 @@ class QuizzesController extends AppController
 
         if($challenge_http_response == Challenge::CHALLENGE_NOT_FOUND || $challenge_http_response == Challenge::CHALLENGE_EXPIRED || $challenge == null)
         {
-            dd('missing challenge');
-            //redirect(base_url().$this->router->fetch_class().'/index');
+            return abort(404,'Missing Challenge');
         }
 
         $page = $this->levelup->get_page($challenge->content_page,false,3600);
@@ -115,8 +114,7 @@ class QuizzesController extends AppController
         //Check if page is unpublished
         if(empty($page) || $this->levelup->get_last_http_status() == Page::PAGE_MISSING)
         {
-            dd('missing page');
-            //redirect(base_url().'page/missing/'.$challenge->content_page);
+            return abort(404,'Missing Page');
         }
 
         return view('quizzes.quiz',compact('challenge','page'));
@@ -149,16 +147,14 @@ class QuizzesController extends AppController
 
         if($challenge_http_response == Challenge::CHALLENGE_NOT_FOUND || $challenge_http_response == Challenge::CHALLENGE_EXPIRED || $challenge == null)
         {
-            dd('missing challenge');
-            //redirect(base_url().$this->router->fetch_class().'/index');
+            return abort(404,'Missing Challenge');
         }
 
         $page = $this->levelup->get_page($challenge->content_page,false,3600);
         //Check if page is unpublished
         if(empty($page) || $this->levelup->get_last_http_status() == Page::PAGE_MISSING)
         {
-            dd('missing page');
-            //redirect(base_url().'page/missing/'.$challenge->content_page);
+            return abort(404,'Missing Page');
         }
 
         if($correct)
