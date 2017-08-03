@@ -168,7 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         // Propaganistas/Laravel-Phone
-        Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
+        Propaganistas\LaravelPhone\PhoneServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
 

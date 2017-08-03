@@ -24,7 +24,7 @@ class PagesController extends AppController
         $page = $this->levelup->get_page($id);
         if($this->levelup->get_last_http_status() == Page::PAGE_MISSING)
         {
-            dd('missing page');
+            return abort(404,'Missing Page');
         }
         return view('pages.page',compact('page'));
     }

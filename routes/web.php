@@ -63,12 +63,12 @@ Route::get('quizzes', [
     'uses' => 'QuizzesController@index',
 ]);
 
-Route::get('quizzes/category/{id}', [
+Route::get('quizzes/category/{id}/{offset?}', [
     'as' => 'quizzes.category',
     'uses' => 'QuizzesController@category',
 ]);
 
-Route::get('quizzes/topic/{category}/{topic}', [
+Route::get('quizzes/topic/{category}/{topic}/{offset?}', [
     'as' => 'quizzes.topic',
     'uses' => 'QuizzesController@topic',
 ]);
@@ -81,6 +81,11 @@ Route::get('quizzes/quiz/{id}', [
 Route::post('quizzes/quiz/{id}', [
     'as' => 'quizzes.quiz',
     'uses' => 'QuizzesController@quiz_post',
+]);
+
+Route::get('quizzes/result/{id}/{result}', [
+    'as' => 'quizzes.result',
+    'uses' => 'QuizzesController@quiz_result',
 ]);
 
 Route::get('progress', [

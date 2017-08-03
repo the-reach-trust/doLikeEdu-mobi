@@ -39,7 +39,7 @@ class QuizzesController extends AppController
 
     public function category($category_id,$offset=0,$sort='popular')
     {
-        $challenge_count = 10;
+        $challenge_count = 15;
         $challenges_param = array(
                                 'type' => "all",
                                 'category' => $category_id,
@@ -64,12 +64,12 @@ class QuizzesController extends AppController
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.category',compact('category_id','category','categories','challenges','pages'));
+        return view('quizzes.category',compact('category_id','category','categories','challenges','pages','offset','challenge_count'));
     }
 
     public function topic($category_id,$topic_id,$offset=0,$sort='popular')
     {
-        $challenge_count = 10;
+        $challenge_count = 15;
         $challenges_param = array(
                                 'type' => "all",
                                 'category' => $category_id,
@@ -96,7 +96,7 @@ class QuizzesController extends AppController
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.topic',compact('category_id','topic_id','category','challengescategories','challenges','pages'));
+        return view('quizzes.topic',compact('category_id','topic_id','category','challengescategories','challenges','pages','offset','challenge_count'));
     }
 
     public function quiz($id)
@@ -106,8 +106,7 @@ class QuizzesController extends AppController
 
         if($challenge_http_response == Challenge::CHALLENGE_NOT_FOUND || $challenge_http_response == Challenge::CHALLENGE_EXPIRED || $challenge == null)
         {
-            dd('missing challenge');
-            //redirect(base_url().$this->router->fetch_class().'/index');
+            return abort(404,'Missing Challenge');
         }
 
         $page = $this->levelup->get_page($challenge->content_page,false,3600);
@@ -115,15 +114,54 @@ class QuizzesController extends AppController
         //Check if page is unpublished
         if(empty($page) || $this->levelup->get_last_http_status() == Page::PAGE_MISSING)
         {
-            dd('missing page');
-            //redirect(base_url().'page/missing/'.$challenge->content_page);
+            return abort(404,'Missing Page');
         }
 
         return view('quizzes.quiz',compact('challenge','page'));
     }
 
-    public function quiz_post(FormRequest $request,$id)
+    public function quiz_post(Request $request,$id)
     {
+        return redirect()->route('quizzes.result',[$id,rand(0,1)]);
         dd($request);
+        $quiz_result = $this->levelup->answer_challenge($id,$request);
+
+        if($this->levelup->get_last_http_status() == Challenge::CHALLENGE_EXPIRED || $this->levelup->get_last_http_status() == Challenge::CHALLENGE_NOT_FOUND)
+        {
+            //TODO: Handle
+            redirect()->route('quizzes.index');
+        }
+
+        //check if answer is correct
+        if($quiz_result){
+            return redirect()->route('quizzes.result',[$id,true]);
+        }
+
+        return redirect()->route('quizzes.result',[$id,false]);
+    }
+
+    public function quiz_result($id = 0,$correct = false)
+    {
+        $challenge = $this->levelup->get_challenge($id);
+        $challenge_http_response = $this->levelup->get_last_http_status();
+
+        if($challenge_http_response == Challenge::CHALLENGE_NOT_FOUND || $challenge_http_response == Challenge::CHALLENGE_EXPIRED || $challenge == null)
+        {
+            return abort(404,'Missing Challenge');
+        }
+
+        $page = $this->levelup->get_page($challenge->content_page,false,3600);
+        //Check if page is unpublished
+        if(empty($page) || $this->levelup->get_last_http_status() == Page::PAGE_MISSING)
+        {
+            return abort(404,'Missing Page');
+        }
+
+        if($correct)
+        {
+            return view('quizzes.correct',compact('challenge','page'));
+        }
+
+        return view('quizzes.incorrect',compact('challenge','page'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginPostRequest extends FormRequest
@@ -15,10 +16,10 @@ class LoginPostRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            'mobilenumber' => 'required|max:14|regex:/^\d*$/|phone:AUTO,ZA',
+            'mobilenumber' => 'required|max:14|phone:AUTO,NA',
             'password' => 'required|max:100',
         ];
     }

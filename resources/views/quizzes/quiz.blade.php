@@ -9,10 +9,17 @@
 	-->
 
 	<img src="{{ $page->logo }}"><br/>
-	Subject: BACKEND NEEDS UPDATE<br/>
-	Topic: {{ $page->subject }}<br/>
+	Subject: <a href="{{ route('quizzes.category',$challenge->category) }}"> {{ $challenge->category_name }} </a><br/>
+	Topic: <a href="{{ route('quizzes.topic',[$challenge->category,$challenge->topic]) }}">{{ $challenge->topic_name }}</a><br/>
+	{{ $page->subject }}
 	<h3>{{ $page->heading }}</h3>
 
+	{{ csrf_field() }}
 	<!-- quiz content/form -->
 	{!! $page->content !!}
+
+	<!-- Page info -->
+	<!--
+	{{ print_r($page) }}
+	-->
 @stop
