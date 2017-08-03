@@ -9,8 +9,9 @@
 	-->
 
 	<img src="{{ $page->logo }}"><br/>
-	Subject: <a href="{{ route('quizzes.category',2) }}">TODO: backend to send category_id</a><br/>
-	Topic: <a href="{{ route('quizzes.topic',[2,1]) }}">{{ $page->subject }} (TODO: Backend to send subject_id)</a><br/>
+	Subject: <a href="{{ route('quizzes.category',$challenge->category) }}"> {{ $challenge->category_name }} </a><br/>
+	Topic: <a href="{{ route('quizzes.topic',[$challenge->category,$challenge->topic]) }}">{{ $challenge->topic_name }}</a><br/>
+	{{ $page->subject }}
 	<h3>{{ $page->heading }}</h3>
 
 	{{ csrf_field() }}
