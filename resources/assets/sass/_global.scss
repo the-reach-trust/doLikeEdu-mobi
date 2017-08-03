@@ -22,9 +22,30 @@ a:not(.btn) { text-decoration: underline; }
 	color: #000;
 }
 
-input.form-control,
-select.form-control {
+input.form-control {
 	@extend .input-control;
+}
+
+.select2-container--default {
+	.select2-selection--single {
+		@extend .input-control;
+		height: 34px;
+		.select2-selection__rendered { line-height: 33px; }
+		.select2-selection__arrow b { top: calc(50% + 3px); }
+	}
+}
+.select2-dropdown {
+	border: 0;		
+	&.select2-dropdown--below {
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		padding-bottom: 13px;
+	}
+	&.select2-dropdown--above {
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+		padding-top: 13px;
+	}
 }
 
 // Branding
