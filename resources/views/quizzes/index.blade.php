@@ -13,12 +13,31 @@
 				@endforeach
 
 				<br/>
-				<h3>Featured Challenges</h3>
-				@foreach ($challenges_featured as $challenge)
-					<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}">
-					<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">{{ $pages[$challenge->content_page]->heading }}</a> ({{ $challenge->remaining_attempts }})<br/>
-				@endforeach
-			
+				<h3>Featured quizzes</h3>
+				@if ( !empty( $challenges_featured ) )
+					<table class="list quiz-list">
+						@foreach ($challenges_featured as $challenge)
+							<tr>
+								<td>
+									<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">
+										<figure>
+											<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}" class="img-responsive">
+										</figure>
+									</a>
+								</td>
+								<td>
+									<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">
+										<div>
+											{{ $pages[$challenge->content_page]->heading }} ({{ $challenge->remaining_attempts }})
+										</div>
+									</a>
+								</td>
+							</tr>
+						@endforeach
+					</table>
+				@else
+					<!-- No Quizzes available -->
+				@endif
 			</div>
 		</div>
 	</div>
