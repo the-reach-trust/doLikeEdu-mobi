@@ -17,7 +17,9 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Vendors -->
+	<link rel="stylesheet" href="/css/intlTelInput.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+	<script src="/js/intlTelInput.min.js"></script>
 
 	<!-- App inclusions -->
 	<script src="/js/script.min.js"></script>

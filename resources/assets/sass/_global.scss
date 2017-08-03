@@ -22,9 +22,8 @@ a:not(.btn) { text-decoration: underline; }
 	color: #000;
 }
 
-input.form-control {
-	@extend .input-control;
-}
+input.form-control { @extend .input-control; }
+.intl-tel-input { display: block !important; }
 
 .select2-container--default {
 	.select2-selection--single {
