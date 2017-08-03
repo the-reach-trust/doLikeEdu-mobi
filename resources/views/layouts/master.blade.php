@@ -16,18 +16,20 @@
 	
 </head>
 <body class="route-{{ !empty(Request::route()) ? str_replace( '/', '-', ( Request::route()->uri == '/' ) ? 'welcome' : Request::route()->uri ) : 'home' }}">
-	<div id="branding">
-		<div class="container">
-			<div class="row">
-				<div class="{{ config( 'front.dfltBodyClass' ) }}">
-					<a href="/">
-						<img src="https://via.placeholder.com/100x50">
-						<span><strong>DoLike</strong>Edu</span>
-					</a>
+	@if ( ( Request::route()->uri != '/' ) )
+		<div id="branding">
+			<div class="container">
+				<div class="row">
+					<div class="{{ config( 'front.dfltBodyClass' ) }}">
+						<a href="@if( Session::has('levelup_authentication') ) {{ '/home' }} @else {{ '/' }} @endif">
+							<img src="https://via.placeholder.com/100x50">
+							<span><strong>DoLike</strong>Edu</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	@endif
 
 	@if(Session::has('levelup_authentication'))
 		@include ('layouts.nav')

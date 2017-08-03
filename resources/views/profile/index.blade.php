@@ -44,12 +44,12 @@
 						@include('partials.elems.formerrors', ['tag' => 'password'])
 					</div>
 
-					{{ Form::submit('Save', array('class' => 'btn')) }}
+					{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 					{{ Form::close() }}
 				</div>
 				
-				<h3><a href="{{ route('auth.logout') }}">logout</a></h3>
+				<h3><a href="{{ route('auth.logout') }}" class="btn btn-lg btn-primary">Log Out</a></h3>
 			</div>
 		</div>
 	</div>

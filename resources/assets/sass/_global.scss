@@ -6,7 +6,8 @@ body { background: $app-bg; }
 
 a:not(.btn) { text-decoration: underline; }
 .navbar-nav li a,
-#footer-wrapper li a { text-decoration: none; }
+#footer-wrapper li a,
+#branding a { text-decoration: none; }
 
 // Buttons
 
@@ -14,22 +15,30 @@ a:not(.btn) { text-decoration: underline; }
 
 // Form
 
-input {
-	&.form-control {
-		border-radius: 9px;
-		border: $white;
-		box-shadow: none;
-		color: #000;
-	}
+.input-control {
+	border-radius: 9px;
+	border: $white;
+	box-shadow: none;
+	color: #000;
+}
+
+input.form-control,
+select.form-control {
+	@extend .input-control;
 }
 
 // Branding
 #branding {
 	background: $white;
 	color: $brand-primary;
+	img { margin-right: 5px; }
 }
 
 // Navigation
+.navbar-nav {
+	margin: 0;
+	li { display: inline-block; }	
+}
 nav {
 	&.navbar {
 		border: 0;
@@ -37,7 +46,10 @@ nav {
 			margin: 4px 0;
 			position: relative;
 			a {
-				padding: 6px;
+				padding: 6px 4px;
+				@media screen and ( min-width: $screen-xs ) {
+					padding: 6px;
+				}
 			}
 			&.active {
 				&:after {
