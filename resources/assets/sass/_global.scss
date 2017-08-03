@@ -19,7 +19,14 @@ input {
 		border-radius: 9px;
 		border: $white;
 		box-shadow: none;
+		color: #000;
 	}
+}
+
+// Branding
+#branding {
+	background: $white;
+	color: $brand-primary;
 }
 
 // Navigation

@@ -16,6 +16,16 @@
 	
 </head>
 <body class="route-{{ str_replace( '/', '-', ( Request::route()->uri == '/' ) ? 'welcome' : Request::route()->uri ) }}">
+	<div id="branding">
+		<div class="container">
+			<div class="row">
+				<div class="{{ config( 'front.dfltBodyClass' ) }}">
+					<img src="https://via.placeholder.com/100x50">
+					<span><strong>DoLike</strong>Edu</span>
+				</div>
+			</div>
+		</div>
+	</div>
 	@if(Session::has('levelup_authentication'))
 		@include ('layouts.nav')
 	@endif
