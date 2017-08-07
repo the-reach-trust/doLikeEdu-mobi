@@ -28,7 +28,7 @@
 	
 </head>
 <body class="route-{{ !empty(Request::route()) ? str_replace( '/', '-', ( Request::route()->uri == '/' ) ? 'welcome' : Request::route()->uri ) : 'home' }}">
-	@if ( ( Request::route()->uri != '/' ) )
+	@if ( !empty(Request::route()) ? ( Request::route()->uri != '/' ) : true )
 		<div id="branding">
 			<div class="container">
 				<div class="row">

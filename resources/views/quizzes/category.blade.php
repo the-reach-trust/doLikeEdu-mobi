@@ -21,7 +21,8 @@
 	<h3>Quizzes</h3>
 	@foreach ($challenges as $challenge)
 		<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}">
-		<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">{{ $pages[$challenge->content_page]->heading }}</a> ({{ $challenge->remaining_attempts }})<br/>
+		<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">{{ $pages[$challenge->content_page]->heading }}</a> 
+		{{ $challenge->points_max }} Points {!! ChallengeType::toMarkup($challenge->type) !!}<br/>
 	@endforeach
 
 	@if(sizeof($challenges) <= $challenge_count)
