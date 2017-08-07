@@ -1,7 +1,7 @@
 
 <div class="form-group has-feedback {{ $errors->has('mobilenumber') ? 'has-error' : '' }}">
 	{{ Form::label('mobilenumber', 'What is your cell phone number?', ['class' => 'control-label']) }}
-	{{ Form::text('mobilenumber',  old('mobilenumber', (isset($mobilenumber) ? $mobilenumber : null)) , ['class' => 'form-control','required']) }}
+	{{ Form::tel('mobilenumber',  old('mobilenumber', (isset($mobilenumber) ? $mobilenumber : null)) , ['class' => 'form-control','required']) }}
 	@include('partials.elems.formerrors', ['tag' => 'mobilenumber'])
 </div>
 

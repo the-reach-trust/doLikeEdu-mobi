@@ -3,7 +3,7 @@
 @section('title', config('app.name').' - Login')
 
 @section('content')
-	<span class="space-10"></span>
+	<span class="space-8"></span>
 	<div class="container">
 		<div class="row">
 			<div class="{{ config( 'front.dfltBodyClass' )}}">
