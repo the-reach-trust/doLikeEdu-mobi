@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }}">
+			<div class="{{ get_body_class( Request::route() ) }}">
 				<ul class="nav navbar-nav">
 					<li class="@activeif('home')">
 						<a href="{{ route('home.index') }}">Home</a>

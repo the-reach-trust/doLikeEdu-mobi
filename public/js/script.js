@@ -1,9 +1,13 @@
+var resizeTimer = null;
+
 ( function( $ ) {
 	$( document ).ready( function() {
 		activateSelects();
 		activateTels();
-		removeAlerts();		
+		removeAlerts();
 	});
+
+	// $( window ).resize( windowRezizeActions );
 
 	function activateSelects() {
 		$( 'select' ).select2( { minimumResultsForSearch: Infinity } );
@@ -27,6 +31,13 @@
 				$( this ).remove();
 			});
 		}, removeAlertsInSecs * 1000 );
+	}
+
+	function windowRezizeActions() {
+		window.clearTimeout( resizeTimer );
+		resizeTimer = window.setTimeout( function() {
+			
+		}, 100 );
 	}
 
 })( jQuery );

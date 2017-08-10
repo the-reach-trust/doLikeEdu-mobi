@@ -6,7 +6,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }} ">
+			<div class="{{ get_body_class() }}">
 				<h3>Userid: {{ $userid }}</h3>
 
 				<div class="box-body">

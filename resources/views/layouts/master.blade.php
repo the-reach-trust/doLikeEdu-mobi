@@ -27,12 +27,15 @@
 	<!-- Custom styles for this template -->
 	
 </head>
-<body class="route-{{ !empty(Request::route()) ? str_replace( '/', '-', ( Request::route()->uri == '/' ) ? 'welcome' : Request::route()->uri ) : 'home' }}">
+<body class="{{ get_route_class( Request::route() ) }}">
+
+	@if( config( 'front.frame' ) ) @include( 'partials.frame' ) @endif
+
 	@if ( !empty(Request::route()) ? ( Request::route()->uri != '/' ) : true )
 		<div id="branding">
 			<div class="container">
 				<div class="row">
-					<div class="{{ config( 'front.dfltBodyClass' ) }}">
+					<div class="{{ get_body_class( Request::route() ) }}">
 						<a href="@if( Session::has('levelup_authentication') ) {{ '/home' }} @else {{ '/' }} @endif">
 							<img src="https://via.placeholder.com/100x50">
 							<span><strong>DoLike</strong>Edu</span>
@@ -44,7 +47,7 @@
 	@endif
 
 	@if(Session::has('levelup_authentication'))
-		@include ('layouts.nav')
+		@include( 'layouts.nav' )
 	@endif
 
 	<div>

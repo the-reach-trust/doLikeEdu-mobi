@@ -6,7 +6,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }} ">
+			<div class="{{ get_body_class() }}">
 
 				<div class="box-body">
 					{{ Form::open([

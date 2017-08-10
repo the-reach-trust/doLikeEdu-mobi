@@ -6,7 +6,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="{{ config( 'front.dfltBodyClass' ) }} ">
+		<div class="{{ get_body_class() }}">
 			<p>Terms &amp; Conditions</p>
 			<p>DO LIKE EDU TERMS OF USE</p>
 			<ol>
