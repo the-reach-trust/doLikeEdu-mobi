@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterPostRequest extends FormRequest
+class ProfilePasswordPostRequest extends FormRequest
 {
     public function authorize()
     {
@@ -18,8 +18,7 @@ class RegisterPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'mobilenumber' => 'required|phone:AUTO,NA',
-            'password' => 'required|max:100',
+            'password' => 'required|confirmed',
         ];
     }
 }

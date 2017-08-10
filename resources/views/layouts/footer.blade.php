@@ -5,14 +5,14 @@
 			<div class="{{ config( 'front.dfltBodyClass' ) }}">
 				<nav class="text-center">
 					<ul>
-						<li class="@activeif('home')">
+						<li class="@activeif('home*')">
 							<a href="{{ route('home.index') }}">Home</a>
 						</li>
-						<li class="@activeif('profile')">
+						<li class="@activeif('profile*')">
 							<a href="{{ route('profile.index') }}">Profile</a>
 						</li>
-						<li class="@activeif('terms')">
-							<a href="/terms">Help & Terms</a>
+						<li class="@activeif('terms*')">
+							<a href="/terms">Help &amp; Terms</a>
 						</li>
 						<li>
 							<a href="#">TalkToEdu</a>

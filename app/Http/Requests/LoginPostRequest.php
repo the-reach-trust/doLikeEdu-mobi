@@ -19,7 +19,7 @@ class LoginPostRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'mobilenumber' => 'required|max:14|phone:AUTO,NA',
+            'mobilenumber' => 'required|phone:AUTO,NA',
             'password' => 'required|max:100',
         ];
     }

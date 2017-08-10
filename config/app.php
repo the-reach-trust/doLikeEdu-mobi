@@ -237,6 +237,7 @@ return [
 
         // Models
         'AppUser' => App\Models\AppUser::class,
+        'ChallengeType' => App\Models\ChallengeType::class,
     ],
 
 ];

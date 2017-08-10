@@ -57,6 +57,14 @@ Route::post('profile', [
     'as' => 'profile.update',
     'uses' => 'ProfileController@update',
 ]);
+Route::get('profile/password', [
+    'as' => 'profile.password',
+    'uses' => 'ProfileController@password',
+]);
+Route::post('profile/password', [
+    'as' => 'profile.password',
+    'uses' => 'ProfileController@password_update',
+]);
 
 Route::get('quizzes', [
     'as' => 'quizzes.index',

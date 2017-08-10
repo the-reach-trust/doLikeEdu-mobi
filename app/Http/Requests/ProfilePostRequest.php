@@ -18,7 +18,7 @@ class ProfilePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'mobilenumber' => 'required|max:14|phone:AUTO,NA',
+            'mobilenumber' => 'required|phone:AUTO,NA',
             'password' => 'required|max:100',
         ];
     }

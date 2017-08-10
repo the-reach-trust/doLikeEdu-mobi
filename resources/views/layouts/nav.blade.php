@@ -6,13 +6,13 @@
 					<li class="@activeif('home')">
 						<a href="{{ route('home.index') }}">Home</a>
 					</li>
-					<li class="@activeif('quizzes')">
+					<li class="@activeif('quizzes*')">
 						<a href="{{ route('quizzes.index') }}">Quizzes</a>
 					</li>
-					<li class="@activeif('profile')">
+					<li class="@activeif('profile*')">
 						<a href="{{ route('profile.index') }}">Profile</a>
 					</li>
-					<li class="@activeif('progress')">
+					<li class="@activeif('progress*')">
 						<a href="{{ route('progress.index') }}">Progress</a>
 					</li>
 				</ul>

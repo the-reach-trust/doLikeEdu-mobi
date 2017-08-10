@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', config('app.name').' - Home')
+@section('title', config('app.name').' - Profile')
 
 @section('content')
 
@@ -40,7 +40,7 @@
 
 					<div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
 						{{ Form::label('password', 'Password', ['class' => 'control-label']) }}
-						{{ Form::password('password', ['class' => 'form-control','required']) }}
+						<a href="{{ route('profile.password') }}">Change</a>
 						@include('partials.elems.formerrors', ['tag' => 'password'])
 					</div>
 
