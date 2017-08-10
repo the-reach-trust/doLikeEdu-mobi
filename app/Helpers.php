@@ -21,5 +21,6 @@
 		if ( !empty( $route ) ) {
 			$route_name = str_replace( '/', '-', ( $route->uri == '/' ) ? 'welcome' : $route->uri );
 		}
-		return 'route-' . $route_name; 
+		$determined_class = 'level-1';
+		return 'route-' . $route_name . ' ' . $determined_class; 
 	}
