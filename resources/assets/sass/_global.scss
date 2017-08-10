@@ -176,3 +176,25 @@ nav {
 		}
 	}
 }
+
+// Alerts
+.alert {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: fixed;
+    top: 43px;
+    right: 40px;
+    z-index: 99;
+	-webkit-box-shadow: 1px 1px 20px 2px rgba(1,1,1,0.1);
+	box-shadow: 1px 1px 20px 2px rgba(1,1,1,0.1);
+	
+	+ .alert {
+		$alert-loop-space: 65px;
+		@for $i from 0 through 10 {
+			&:nth-child(#{$i}) {
+				margin-top: $i * $alert-loop-space - 65;
+			}
+		}
+	}
+}

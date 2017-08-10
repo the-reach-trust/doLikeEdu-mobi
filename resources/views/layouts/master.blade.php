@@ -47,22 +47,20 @@
 		@include ('layouts.nav')
 	@endif
 
-	<div class="container">
-		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }}">
-				@if(Session::has('flash_error'))
-				<div class="alert alert-danger">
-					{{ session('flash_error') }}
-				</div>
-				@endif
+	<div>
 
-				@if(Session::has('flash_success'))
-				<div class="alert alert-success">
-					{{ session('flash_success') }}
-				</div>
-				@endif
-			</div>
+		@if(Session::has('flash_error'))
+		<div class="alert alert-danger">
+			{{ session('flash_error') }}
 		</div>
+		@endif
+
+		@if(Session::has('flash_success'))
+		<div class="alert alert-success">
+			{{ session('flash_success') }}
+		</div>
+		@endif
+
 	</div>
 
 	<div>
