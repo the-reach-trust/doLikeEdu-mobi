@@ -27,15 +27,23 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }} ">				
+			<div class="{{ config( 'front.dfltBodyClass' ) }} ">
+				@if($dailys_complete)
 
-				<p>Here's a list of things you can do today to earn points</p>
+					<p>Here's a list of things you can do today to earn points</p>
 
-				<div>
-					<a href="{{ route('quizzes.index') }}">Finish 1 quiz</a> <br/>
-					<a href="{{ route('profile.index') }}">Finish your profile</a> <br/>
-					<a href="{{ route('quizzes.index') }}">Finish 2 more quizzes</a> <br/>
-				</div>
+					<div>
+						<a href="{{ route('quizzes.index') }}">Finish 1 quiz</a> <br/>
+						<a href="{{ route('profile.index') }}">Finish your profile</a> <br/>
+						<a href="{{ route('quizzes.index') }}">Finish 2 more quizzes</a> <br/>
+					</div>
+				@else
+					<p class="text-center">
+						<img src="https://via.placeholder.com/175x200"> <br/>
+						<b>You finished all of today's featured quizzes. Nice work!</b> <br/>
+						<a href="{{ route('quizzes.index') }}">Click here if you want to do a few more.</a>
+					</p>
+				@endif
 
 				<hr>
 

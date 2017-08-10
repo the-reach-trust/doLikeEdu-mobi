@@ -17,6 +17,8 @@ class HomeController extends AppController
         $content = $this->levelup->get_content();
         //$profile = $levelup->get_profile();
 
-        return view('home.index',compact('content','profile'));
+        $dailys_complete = rand(0,1) == 1;
+
+        return view('home.index',compact('content','profile','dailys_complete'));
     }
 }
