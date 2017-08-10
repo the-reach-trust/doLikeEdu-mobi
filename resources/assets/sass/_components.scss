@@ -1,0 +1,21 @@
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Branding  */
+/*--------------------------------------------------------------------------------------*/
+#branding {
+	background: $white;
+	color: $brand-primary;
+	img { margin-right: 5px; }
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Progress Panel  */
+/*--------------------------------------------------------------------------------------*/
+#idprogresspanel {
+	background: $brand-primary;
+	color: $white;
+	position: relative;
+	top: -20px;
+	padding-top: 2px;
+	padding-bottom: 25px;
+	h5 { margin-top: 0; }
+}
