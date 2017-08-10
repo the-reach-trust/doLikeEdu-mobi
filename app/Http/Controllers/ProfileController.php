@@ -9,6 +9,8 @@ use App\Http\Requests\ProfilePasswordPostRequest;
 
 use App\Models\AppUser;
 
+use Session;
+
 class ProfileController extends AppController
 {
     /**
@@ -18,10 +20,12 @@ class ProfileController extends AppController
      */
     public function index()
     {
+        $levelup_authentication = Session::get('levelup_authentication');
+        $userid = $levelup_authentication->userid;
         //$profile = $levelup->get_profile();
         $schools = array(1=> 'A School');
 
-        return view('profile.index',compact('profile','schools'));
+        return view('profile.index',compact('profile','schools','userid'));
     }
 
     public function update(Request $request)
