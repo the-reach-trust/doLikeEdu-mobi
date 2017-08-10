@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
+use App\Http\Requests\ProfilePasswordPostRequest;
+
 use App\Models\AppUser;
 
 class ProfileController extends AppController
@@ -30,5 +32,16 @@ class ProfileController extends AppController
     public function school()
     {
 
+    }
+
+    public function password()
+    {
+        //$profile = $levelup->get_profile();
+        return view('profile.password',compact('profile'));
+    }
+
+    public function password_update(ProfilePasswordPostRequest $request)
+    {
+        dd($request);
     }
 }
