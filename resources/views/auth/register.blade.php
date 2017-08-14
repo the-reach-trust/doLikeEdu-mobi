@@ -15,11 +15,26 @@
 
 					@include('partials.forms.auth-register')
 
-					{{ Form::submit('Register', array('class' => 'btn btn-primary')) }}
+					<span class="space-15"></span>
+					<div class="text-center">
+						{{ Form::submit('Join DoLikeEdu', array('class' => 'btn btn-primary btn-lg')) }}						
+					</div>
 
 					{{ Form::close() }}
+
+					<span class="space-4"></span>
+					<div class="text-center">
+						<p class="mb-0">Have an account?</p>
+						<a href="{{ route('auth.login') }}" class="body-text">Click here to login</a>
+
+						<span class="space-5"></span>
+					</div>
+					<div class="max-width-250 text-center">
+						<p>By pressing 'Join DoLikeEdu' you agree to our <a href="/terms" class="body-text">terms &amp; conditions</a>.
+						</p>
+					</div>
 				</div>
-				<a href="/terms">Terms</a>
+				
 			</div>
 		</div>
 	</div>

@@ -3,9 +3,9 @@
 /*      Body  */
 /*--------------------------------------------------------------------------------------*/
 body {
-	background: $app-bg;
 	font-family: 'PT Sans', sans-serif;
 	font-size: 15px;
+	color: $body-text;
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
@@ -39,6 +39,7 @@ a:not(.btn) { text-decoration: underline; }
 #branding {
 	a { text-decoration: none; }
 }
+a.no-decorate, .no-decorate { text-decoration: none; }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Lists  */
