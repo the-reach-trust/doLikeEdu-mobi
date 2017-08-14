@@ -7,38 +7,7 @@
 }
 nav {
 	&.navbar {
-		border: 0;
-		li {
-			margin: 4px 0;
-			position: relative;
-			a {
-				padding: 6px 4px;
-				@media screen and ( min-width: $screen-xs ) {
-					padding: 6px;
-				}
-			}
-			&.active {
-				&:after {
-					position: absolute;
-					bottom: 0px;
-					left: 6px;
-					content: ' ';
-					display: block;
-					height: 3px;
-					background: $brand-primary;
-					width: calc(100% - 12px);					
-				}
-			}
-			&:first-child {
-				a { padding-left: 0; }
-				&.active {
-					&:after {
-						left: 0;
-						width: calc(100% - 6px);
-					}
-				}				
-			}
-		}
+		border: 0;		
 	}
 }
 

@@ -10,23 +10,41 @@
 
 			@if( config( 'front.progressiveDesktop' ) ) @include( 'partials.progresspanel.lg' ) @endif
 			<div class="{{ get_body_class( Request::route(), true ) }}">
-				@if($dailys_complete)
-					<p class="text-center">
-						<img src="https://via.placeholder.com/175x200"> <br/>
-						<b>You finished all of today's featured quizzes. Nice work!</b> <br/>
+				@if( false && $dailys_complete )
+					<div class="text-center">
+						<img src="images/icon-balloon.png" width="200"> <br/>
+						<p class="h2">You finished all of today's featured quizzes. Nice work!</p>
 						<a href="{{ route('quizzes.index') }}">Click here if you want to do a few more.</a>
-					</p>
+					</div>
 				@else
-					<p>Here's a list of things you can do today to earn points</p>
-
-					<div>
-						<a href="{{ route('quizzes.index') }}">Finish 1 quiz</a> <br/>
-						<a href="{{ route('profile.index') }}">Finish your profile</a> <br/>
-						<a href="{{ route('quizzes.index') }}">Finish 2 more quizzes</a> <br/>
+					<p class="text-center">Here's a list of things you can do today to earn points.</p>
+					<span class="space-2"></span>
+					<div class="list earn-points">
+						<a href="{{ route('quizzes.index') }}">
+							<figure>
+								@if( true ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+								@else &nbsp; @endif
+							</figure>
+							<span class="h2">Finish 1 quiz</span>
+						</a>
+						<a href="{{ route('profile.index') }}">
+							<figure>
+								@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+								@else &nbsp; @endif
+							</figure>
+							<span class="h2">Finish your profile</span>
+						</a>
+						<a href="{{ route('quizzes.index') }}">
+							<figure>
+								@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+								@else &nbsp; @endif
+							</figure>
+							<span class="h2">Finish 2 more quizzes</span>
+						</a>
 					</div>
 				@endif
 
-				<hr>
+				<span class="space-5"></span>
 
 				<!-- hardcodded for testing now -->
 				<div class="text-center">

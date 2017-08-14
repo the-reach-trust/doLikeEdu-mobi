@@ -5,6 +5,11 @@
 	background: $white;
 	color: $brand-primary;
 	img { margin-right: 5px; }
+	.row > div {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		font-size: $font-size-5;
+	}
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
@@ -24,9 +29,11 @@
 	width: 264px;
 	padding-top: 4px;
 	position: fixed;
-	top: 90px;
-	height: calc(100% - 142px);
-	left: calc(50% - 472px);
+	top: 117px;
+	height: calc(100% - 170px);
+	left: calc(50% - 473px);
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/

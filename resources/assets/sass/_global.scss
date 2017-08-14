@@ -1,8 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:700|PT+Sans:400,700');
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Body  */
 /*--------------------------------------------------------------------------------------*/
-body { background: $app-bg; }
+body {
+	background: $app-bg;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 15px;
+}
 
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Headers  */
+/*--------------------------------------------------------------------------------------*/
+
+h1, .h1 {
+	font-weight: 700;	
+	font-family: 'Oswald', sans-serif;
+	font-size: $font-size-5;
+}
+h2, h3, h4, h5, h6,
+.h2, .h3, .h4, .h5, .h6 {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 700;
+}
+h2, .h2 { font-size: $font-size-4; }
+h3, .h3 { font-size: $font-size-3; }
+h4, .h4 { font-size: $font-size-2; }
+h5, .h5 { font-size: $font-size-2; }
+h6, .h6 { font-size: $font-size-2; }
+h5, h6, .h5, .h6 { font-weight: 400; }
 
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
@@ -40,6 +65,45 @@ a:not(.btn) { text-decoration: underline; }
 				a {
 					color: inherit;
 					text-decoration: none;
+				}
+			}
+		}
+	}
+	&.earn-points {
+		border: 1px solid $black;
+		border-radius: 8px;
+		background: $white;
+		padding: 10px 20px;
+		a { 
+			display: block;
+			text-decoration: none;
+			padding: 15px 2px;
+			position: relative;
+			&:hover { color: $brand-primary; }
+			&:not(:last-child) { border-bottom: 1px solid $black; }
+			&:after {
+				content: "\f054";
+				font-family: FontAwesome;
+				color: #999;
+				position: absolute;
+				right: 0px;
+				top: 0.9em;
+				font-size: 1.2em;
+			}
+			figure {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				border: 2px solid $brand-primary;
+				position: relative;
+				top: 1px;
+				margin-right: 5px;
+				i {
+					font-size: 1.35em;
+					position: relative;
+					top: -2px;
+					left: -1px;
 				}
 			}
 		}

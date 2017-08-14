@@ -17,6 +17,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Vendors -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/intlTelInput.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
 	<script src="/js/intlTelInput.min.js"></script>
@@ -35,9 +36,9 @@
 		<div id="branding">
 			<div class="container">
 				<div class="row">
-					<div class="{{ get_body_class( Request::route() ) }}">
+					<div class="{{ get_body_class( Request::route() ) }} text-center">
 						<a href="@if( Session::has('levelup_authentication') ) {{ '/home' }} @else {{ '/' }} @endif">
-							<img src="https://via.placeholder.com/100x50">
+							<img src="images/badge-main-transparent-header.png" width="42">
 							<span><strong>DoLike</strong>Edu</span>
 						</a>
 					</div>

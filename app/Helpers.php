@@ -10,7 +10,7 @@
 		}
 
 		if ( config( 'front.progressiveDesktop' ) ) {
-			if ( $sidebar ) return 'col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-4';
+			if ( $sidebar ) return 'col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-7 col-lg-offset-4';
 			else return config( 'front.progBodyClass' );
 		}
 		else return config( 'front.dfltBodyClass' );

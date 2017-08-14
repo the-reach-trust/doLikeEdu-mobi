@@ -2,23 +2,104 @@ body {
 	@each $theme in $themes {
 		&.#{nth( $theme, 1 )} {
 
-			// Set up Variables here
-			$color-1: nth( $theme, 2 );
-			$color-2: nth( $theme, 3 );
-			$hover-state: nth( $theme, 4 );
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      Variables here  */
+			/*--------------------------------------------------------------------------------------*/
 
-			// Added componemts and classes here
+			$color-primary: nth( $theme, 2 );
+			$color-secondary: nth( $theme, 3 );
+			$color-background: nth( $theme, 4 );
+			$color-accent: nth( $theme, 5 );
+			$color-footer: nth( $theme, 6 );
+			$color-font-primary: nth( $theme, 7 );
+			$color-font-input: nth( $theme, 8 );
+			$color-buttons: nth( $theme, 9 );
+			$hover-state: nth( $theme, 10 );
+
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      Style here  */
+			/*--------------------------------------------------------------------------------------*/
+
+			h1 { color: $color-accent; }
+			.navbar-default {
+				background: $color-secondary;
+				a {
+					color: $color-background;					
+				}
+			}
 
 			#idprogresspanel {
-				background: $color-1;
-			}
-			@if $hover-state == "background" {
-				
-			}
-			@else if $hover-state = "underline" {
-				
+				background: $color-primary;
 			}
 
+			@if $hover-state == "background" {
+				.navbar-default {
+					@media screen and ( max-width: $screen-xs  ) {
+						li {
+							width: 25%;
+							display: block;
+							text-align: center;
+							float: left;
+						}
+					}
+					@media screen and ( min-width: ( $screen-xs + 1 ) ) {
+						a {
+							padding: 12px 20px;
+						}
+					}
+					a:hover, a:focus {
+						color: $color-primary;
+						font-weight: bold;
+						background: $color-accent;
+					}
+					.active {						
+						a, a:hover, a:focus {
+							color: $color-primary;
+							font-weight: bold;
+							background: $color-accent;
+						}
+					}
+				}	
+			}
+			@else if $hover-state = "underline" {
+				nav.navbar {
+					li {
+						margin: 4px 0;
+						position: relative;
+						a {
+							padding: 6px 4px;
+							@media screen and ( min-width: $screen-xs ) {
+								padding: 6px;
+							}
+						}
+						&.active {
+							&:after {
+								position: absolute;
+								bottom: 0px;
+								left: 6px;
+								content: ' ';
+								display: block;
+								height: 3px;
+								background: $brand-primary;
+								width: calc(100% - 12px);					
+							}
+						}
+						&:first-child {
+							a { padding-left: 0; }
+							&.active {
+								&:after {
+									left: 0;
+									width: calc(100% - 6px);
+								}
+							}				
+						}
+					}
+				}
+			}
+
+			#footer-wrapper {
+				background: $color-footer;
+			}
 		}
 	}
 }
