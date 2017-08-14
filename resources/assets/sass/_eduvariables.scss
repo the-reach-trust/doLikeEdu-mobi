@@ -32,16 +32,16 @@ $gray: $gray-0;
 /*--------------------------------------------------------------------------------------*/
 
 $themes: (
-		'level-1'			
-		#2a919b
-		#47B1B6
-		#ffffff
-		#d7de5c
-		#1c6468
-		#565d67
-		#979fa5
-		#fc636b
-		"background"
+		'level-1' // level name			
+		#2a919b // primary
+		#47B1B6 // secondary
+		#ffffff // background
+		#d7de5c // accent
+		#1c6468 // footer
+		#565d67 // body text
+		#979fa5 // input
+		#fc636b // buttons
+		"style-a" // style
 	,
 		'level-2'
 		#2a919b
@@ -52,5 +52,16 @@ $themes: (
 		#565d67
 		#979fa5
 		#fc636b
-		"background"
+		"style-b"
+	,
+		'level-3' // level name			
+		#9B076D // primary
+		#B70887 // secondary
+		#ffffff // background
+		#EFA511 // accent
+		#68034c // footer
+		#651228 // body text
+		#969EA4 // input
+		#FC636B // buttons
+		"style-a" // style
 );
