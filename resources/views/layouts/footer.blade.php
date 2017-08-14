@@ -1,8 +1,8 @@
 <span class="space"></span>
-<footer id="footer-wrapper">
+<footer id="footer-wrapper" @if( config( 'front.progressiveDesktop' ) ) class="sticky" @endif>
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }}">
+			<div class="{{ get_body_class() }}">
 				<nav class="text-center">
 					<ul>
 						<li class="@activeif('home*')">

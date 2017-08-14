@@ -6,7 +6,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }} ">
+			<div class="{{ get_body_class() }}">
 				<h3>Featured quizzes</h3>
 				@if ( !empty( $challenges_featured ) )
 					<table class="list quiz-list">

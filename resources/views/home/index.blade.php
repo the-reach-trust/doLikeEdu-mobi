@@ -3,57 +3,53 @@
 @section('title', config('app.name').' - Home')
 
 @section('content')
-	<div id="idprogresspanel">
-		<div class="container">
-			<div class="row">
-				<div class="{{ config( 'front.dfltBodyClass' ) }}">
-					<div class="text-center">
-						<h1>{{ $dailys_complete ? 'Well done, ' : 'Hello' }} {{ 'name_here' }}</h1>
-						@if($dailys_complete)
-							<p>You finished all of today's featured quizzes. Nice work!</p>
-						@else
-							<p>You're flying through the list!</p>
-						@endif
-						<div class="row">
-							<div class="col-md-4"><h3>{{ '1' }}</h3></div>
-							<div class="col-md-4"><h3>{{ '1' }}</h3></div>
-							<div class="col-md-4"><h3>{{ '100' }}</h3></div>
-						</div>
-						<div class="row">
-							<div class="col-md-4"><h5>QUIZ</h5></div>
-							<div class="col-md-4"><h5>POINTS</h5></div>
-							<div class="col-md-4"><h5>LEVEL</h5></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' ) }} ">
-				@if($dailys_complete)
-					<p class="text-center">
-						<img src="https://via.placeholder.com/175x200"> <br/>
-						<b>You finished all of today's featured quizzes. Nice work!</b> <br/>
-						<a href="{{ route('quizzes.index') }}">Click here if you want to do a few more.</a>
-					</p>
-				@else
-					<p>Here's a list of things you can do today to earn points</p>
+	@include( 'partials.progresspanel.max-md' )
 
-					<div>
-						<a href="{{ route('quizzes.index') }}">Finish 1 quiz</a> <br/>
-						<a href="{{ route('profile.index') }}">Finish your profile</a> <br/>
-						<a href="{{ route('quizzes.index') }}">Finish 2 more quizzes</a> <br/>
+	<div class="container page-container">
+		<div class="row">
+
+			@if( config( 'front.progressiveDesktop' ) ) @include( 'partials.progresspanel.lg' ) @endif
+			<div class="{{ get_body_class( Request::route(), true ) }}">
+				@if( $dailys_complete )
+					<div class="text-center">
+						<img src="images/icon-balloon.png" width="200"> <br/>
+						<p class="h2">You finished all of today's featured quizzes. Nice work!</p>
+						<a href="{{ route('quizzes.index') }}" class="theme-primary">Click here if you want to do a few more.</a>
+					</div>
+				@else
+					<p class="text-center">Here's a list of things you can do today to earn points.</p>
+					<span class="space-2"></span>
+					<div class="list earn-points">
+						<a href="{{ route('quizzes.index') }}">
+							<figure>
+								@if( true ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+								@else &nbsp; @endif
+							</figure>
+							<span class="h2">Finish 1 quiz</span>
+						</a>
+						<a href="{{ route('profile.index') }}">
+							<figure>
+								@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+								@else &nbsp; @endif
+							</figure>
+							<span class="h2">Finish your profile</span>
+						</a>
+						<a href="{{ route('quizzes.index') }}">
+							<figure>
+								@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+								@else &nbsp; @endif
+							</figure>
+							<span class="h2">Finish 2 more quizzes</span>
+						</a>
 					</div>
 				@endif
 
-				<hr>
+				<span class="space-5"></span>
 
 				<!-- hardcodded for testing now -->
 				<div class="text-center">
 					Need some help or advice ? <br/>
-					<a href="{{ route('pages.page', 1) }}">Click here for <b>TalkTo</b>Edu</a> <br/>
+					<a href="{{ route('pages.page', 1) }}" class="theme-body-text">Click here for <b>TalkTo</b>Edu</a> <br/>
 				</div>
 				<!-- Content call -->
 				<!--

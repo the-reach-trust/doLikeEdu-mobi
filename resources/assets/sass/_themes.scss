@@ -1,0 +1,140 @@
+body {
+	@each $theme in $themes {
+		&.#{nth( $theme, 1 )} {
+
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      Variables here  */
+			/*--------------------------------------------------------------------------------------*/
+
+			$color-primary: nth( $theme, 2 );
+			$color-secondary: nth( $theme, 3 );
+			$color-background: nth( $theme, 4 );
+			$color-accent: nth( $theme, 5 );
+			$color-footer: nth( $theme, 6 );
+			$color-body-text: nth( $theme, 7 );
+			$color-input: nth( $theme, 8 );
+			$color-buttons: nth( $theme, 9 );
+			$hover-state: nth( $theme, 10 );			
+
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      Styles here  */
+			/*--------------------------------------------------------------------------------------*/
+
+			@if $hover-state == "style-a" {
+				/*----------------------------------------ARDCOZA---------------------------------------*/
+				/*      Style A here  */
+				/*--------------------------------------------------------------------------------------*/
+				.navbar-default {
+					@media screen and ( max-width: $screen-xs  ) {
+						li {
+							width: 25%;
+							display: block;
+							text-align: center;
+							float: left;
+						}
+					}
+					@media screen and ( min-width: ( $screen-xs + 1 ) ) {
+						a { padding: 12px 20px; }
+					}
+					a:hover, a:focus {
+						color: $color-primary;
+						font-weight: bold;
+						background: $color-accent;
+					}
+					.active {						
+						a, a:hover, a:focus {
+							color: $color-primary;
+							font-weight: bold;
+							background: $color-accent;
+						}
+					}
+				}
+				
+				h1 { color: $color-accent; }
+				.navbar-default {
+					background: $color-secondary;
+					a {
+						color: $color-background;					
+					}
+				}
+	
+				#idprogresspanel { background: $color-primary; }
+				#footer-wrapper { background: $color-footer; }
+	
+				.earn-points {
+					figure {
+						border-color: $color-accent;
+						i { color: $color-accent;  }
+					}					
+				}
+				&.route-home {					
+					.page-container {
+						color: $color-body-text;
+						a {
+							color: $color-primary;
+						}
+					}
+				}
+			}
+			@else if $hover-state = "style-b" {
+				/*----------------------------------------ARDCOZA---------------------------------------*/
+				/*      Style B here  */
+				/*--------------------------------------------------------------------------------------*/
+				nav.navbar {
+					li {
+						margin: 4px 0;
+						position: relative;
+						a {
+							padding: 6px 4px;
+							@media screen and ( min-width: $screen-xs ) {
+								padding: 6px;
+							}
+						}
+						&.active {
+							&:after {
+								position: absolute;
+								bottom: 0px;
+								left: 6px;
+								content: ' ';
+								display: block;
+								height: 3px;
+								background: $brand-primary;
+								width: calc(100% - 12px);					
+							}
+						}
+						&:first-child {
+							a { padding-left: 0; }
+							&.active {
+								&:after {
+									left: 0;
+									width: calc(100% - 6px);
+								}
+							}				
+						}
+					}
+				}
+			}
+
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      Utility Classes  */
+			/*--------------------------------------------------------------------------------------*/
+			.theme-primary 			{ color: $color-primary !important; }			
+			.theme-secondary 		{ color: $color-secondary !important; }			
+			.theme-background 		{ color: $color-background !important; }
+			.theme-accent 			{ color: $color-accent !important; }			
+			.theme-footer 			{ color: $color-footer !important; }			
+			.theme-body-text 		{ color: $color-body-text !important; }			
+			.theme-input 			{ color: $color-input !important; }			
+			.theme-buttons 			{ color: $color-buttons !important; }
+			.bg-theme-buttons 		{ background: $color-buttons !important; }
+			.bg-theme-primary 		{ background: $color-primary !important; }
+			.bg-theme-secondary 	{ background: $color-secondary !important; }
+			.bg-theme-background 	{ background: $color-background !important; }
+			.bg-theme-accent 		{ background: $color-accent !important; }
+			.bg-theme-footer 		{ background: $color-footer !important; }
+			.bg-theme-body-text 	{ background: $color-body-text !important; }
+			.bg-theme-input 		{ background: $color-input !important; }	
+			
+		}
+	}
+}

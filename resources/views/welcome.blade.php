@@ -5,7 +5,7 @@
 @section('content')
 	<div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' )}} text-center">
+			<div class="{{ get_body_class() }} text-center">
 				<figure>
 					<span class="space-10"></span>
 					<img src="https://via.placeholder.com/250x250">

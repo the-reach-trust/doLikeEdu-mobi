@@ -6,7 +6,7 @@
 	<span class="space-10"></span>
     <div class="container">
 		<div class="row">
-			<div class="{{ config( 'front.dfltBodyClass' )}}">
+			<div class="{{ get_body_class( Request::route() ) }}">
 				<div class="box-body">
 					{{ Form::open([
 						'method' => 'POST',
