@@ -17,10 +17,21 @@
 	}
 
 	function get_route_class( $route = null ) {
-		$route_name = 'home';
+		$route_name = 'not-identified';
+		$determined_class = '';
+
+		$level_exceptions = array(
+			'/', 'auth/login', 'auth/register'
+		);
+
 		if ( !empty( $route ) ) {
 			$route_name = str_replace( '/', '-', ( $route->uri == '/' ) ? 'welcome' : $route->uri );
+
+			if ( !in_array( $route->uri, $level_exceptions ) ) {
+				$determined_class = 'level-1';
+			}
 		}
-		$determined_class = 'level-1';
+		
+		
 		return 'route-' . $route_name . ' ' . $determined_class; 
 	}
