@@ -26,12 +26,16 @@
 						@include('partials.elems.formerrors', ['tag' => 'password_confirmation'])
 					</div>
 
+					<div class="space-3"></div>
+
 					{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 					{{ Form::close() }}
 				</div>
-			</div>
+			</div>			
+
 		</div>
 	</div>
+	<div class="space-5"></div>
     
 @stop

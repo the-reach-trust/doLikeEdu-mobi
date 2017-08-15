@@ -24,8 +24,8 @@
 				</div>
 
 				<span class="space-4"></span>
-				<div class="max-width-150 text-center">
-					<p>Review our <a href="/terms" class="body-text">terms &amp; conditions here.</a></p>
+				<div class="max-width-250 text-center">
+					<p>By pressing 'Login' you agree to our <a href="/terms" class="body-text">terms &amp; conditions</p>
 				</div>
 			</div>
 		</div>
