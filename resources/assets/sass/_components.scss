@@ -29,7 +29,7 @@
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
-/*      Progress Panel  */
+/*      Panels  */
 /*--------------------------------------------------------------------------------------*/
 #idprogresspanel, #idprogresspanel-alt,
 #quizcategoriespanel {
@@ -38,13 +38,12 @@
 	padding-bottom: 25px;
 	h5 { margin-top: 0; }
 }
+#idprogresspanel, #quizcategoriespanel { margin-top: -20px; }
+#idprogresspanel { margin-bottom: 20px; }
 #quizcategoriespanel {
 	padding-bottom: 0;
 }
-#idprogresspanel, #quizcategoriespanel {
-	position: relative;
-	top: -20px;
-}
+
 #idprogresspanel-alt {
 	width: 264px;
 	padding-top: 4px;
@@ -95,5 +94,20 @@
 	#frame-desktop {
 		&:after { left: calc(50% + 585px); }
 		&:before { right: calc(50% + 585px); }
+	}
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Backgrounds  */
+/*--------------------------------------------------------------------------------------*/
+.bg-circular {
+	background-image: url("/images/circular-temp.svg");
+	background-size: cover;
+}
+.pattern-title {
+	@extend .bg-circular;
+	border-bottom: 1px solid $gray;
+	h1 {
+		margin: 14px 0;
 	}
 }

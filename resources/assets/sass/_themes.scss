@@ -58,7 +58,9 @@ body {
 					}
 				}
 	
-				#idprogresspanel, #idprogresspanel-alt { background: $color-primary; }
+				#idprogresspanel,
+				#idprogresspanel-alt,
+				#quizcategoriespanel { background: $color-primary; }
 				#footer-wrapper { background: $color-footer; }
 	
 				.list {
@@ -74,13 +76,19 @@ body {
 							a { color: $color-background; }
 						}
 					}
+					&.quiz-list {
+						tr {							
+							&:hover { background: $color-accent; }
+							td {
+								&:last-child { color: $color-primary; }
+							}
+						}
+					}
 				}
 				&.route-home {					
 					.page-container {
 						color: $color-body-text;
-						a {
-							color: $color-primary;
-						}
+						a { color: $color-primary; }
 					}
 				}
 			}
