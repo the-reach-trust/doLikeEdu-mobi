@@ -61,11 +61,19 @@ body {
 				#idprogresspanel, #idprogresspanel-alt { background: $color-primary; }
 				#footer-wrapper { background: $color-footer; }
 	
-				.earn-points {
-					figure {
-						border-color: $color-accent;
-						i { color: $color-accent;  }
-					}					
+				.list {
+					&.earn-points {
+						figure {
+							border-color: $color-accent;
+							i { color: $color-accent;  }
+						}	
+					}
+					&.quiz-categories {
+						li {
+							figure { background: $color-background;	}
+							a { color: $color-background; }
+						}
+					}
 				}
 				&.route-home {					
 					.page-container {

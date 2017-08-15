@@ -109,6 +109,33 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 			}
 		}
 	}
+	&.quiz-categories {
+		text-align: center;
+		li {		
+			max-width: 28%;
+			margin: 0 2%;
+			display: inline-block;
+			width: 150px;
+			margin-bottom: 20px;
+			figure {
+				border-radius: 50%;
+				position: relative;
+				margin-bottom: 8px;
+				&:before {
+					content: ' ';
+					height: 0;
+					padding-top: 100%;
+					display: block;
+				}
+				img { 
+					width: 60%;
+					position: absolute;
+					top: 20%;
+					left: 20%;
+				}
+			}
+		}
+	}
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/

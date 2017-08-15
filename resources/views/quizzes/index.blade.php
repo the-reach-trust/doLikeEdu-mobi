@@ -4,9 +4,24 @@
 
 @section('content')
 
+	<div id="quizcategoriespanel">
+		<div class="container">
+			<div class="row">
+				<div class="{{ get_body_class() }}">
+					<h1>Quiz categories</h1>
+					<span class="space-4"></span>
+					<ul class="list quiz-categories">
+						@foreach ($categories as $category)
+							@include( 'quizzes.list-category' )
+						@endforeach
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="{{ get_body_class() }}">
+			<div class="{{ get_body_class() }}">				
 				<h3>Featured quizzes</h3>
 				@if ( !empty( $challenges_featured ) )
 					<table class="list quiz-list">
@@ -33,12 +48,7 @@
 				@else
 					<!-- No Quizzes available -->
 				@endif
-
-				<h3>Quiz categories</h3>
-				@foreach ($categories as $category)
-					<img src="https://via.placeholder.com/25x25" alt="{{ $category->name}}">
-					<a class="" title="" href="{{ route('quizzes.category', $category->category) }}">{{ $category->name }}</a> ({{ $category->amount }})
-				@endforeach
+				
 			</div>
 		</div>
 	</div>

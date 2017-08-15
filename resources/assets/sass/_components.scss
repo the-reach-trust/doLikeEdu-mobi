@@ -31,13 +31,17 @@
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Progress Panel  */
 /*--------------------------------------------------------------------------------------*/
-#idprogresspanel, #idprogresspanel-alt {
+#idprogresspanel, #idprogresspanel-alt,
+#quizcategoriespanel {
 	background: $brand-primary;
 	color: $white;
 	padding-bottom: 25px;
 	h5 { margin-top: 0; }
 }
-#idprogresspanel {
+#quizcategoriespanel {
+	padding-bottom: 0;
+}
+#idprogresspanel, #quizcategoriespanel {
 	position: relative;
 	top: -20px;
 }
