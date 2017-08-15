@@ -100,12 +100,8 @@
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Backgrounds  */
 /*--------------------------------------------------------------------------------------*/
-.bg-circular {
-	background-image: url("/images/circular-temp.svg");
-	background-size: cover;
-}
 .pattern-title {
-	@extend .bg-circular;
+	@extend .bg-pattern;
 	border-bottom: 1px solid $gray;
 	h1 {
 		margin: 14px 0;

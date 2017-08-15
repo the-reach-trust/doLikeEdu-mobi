@@ -52,6 +52,7 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 		width: 100%;
 		tr {
 			border-bottom: 1px solid $gray;
+			&:last-child { border-bottom: 0; }
 			td {
 				&:first-child { width: 80px; }		
 				figure {
@@ -103,10 +104,10 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 				top: 1px;
 				margin-right: 5px;
 				i {
-					font-size: 1.35em;
+					font-size: 1.4em;
 					position: relative;
-					top: -2px;
-					left: 0px;
+					top: -3px;
+					left: -1px;
 				}
 			}
 		}
@@ -134,6 +135,34 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 					position: absolute;
 					top: 20%;
 					left: 20%;
+				}
+			}
+		}
+	}
+	&.progress-list {
+		li {
+			display: block;
+			padding: 20px;
+			margin-bottom: 10px;
+			border: 1px solid $gray;
+			h2 { margin: 0 0 4px; }
+			p { margin-bottom: 0; }
+			.progress {
+				margin: 13px 0 0;
+				height: 11px;
+				-webkit-box-shadow: none;
+				-moz-box-shadow: none;
+				-o-box-shadow: none;
+				box-shadow: none;
+				border-top-right-radius: 12px;
+				border-bottom-right-radius: 12px;
+				.progress-bar {
+					border-bottom: 0;
+					border-radius: 12px;
+					-webkit-box-shadow: none;
+					-moz-box-shadow: none;
+					-o-box-shadow: none;
+					box-shadow: none;
 				}
 			}
 		}

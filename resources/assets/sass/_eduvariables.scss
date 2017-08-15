@@ -43,19 +43,9 @@ $themes: (
 		#979fa5 // input
 		#fc636b // buttons
 		"style-a" // style
+		"circular"
 	,
-		'level-2'
-		#2a919b
-		#47B1B6
-		#ffffff
-		#d7de5c
-		#1c6468
-		#565d67
-		#979fa5
-		#fc636b
-		"style-b"
-	,
-		'level-3' // level name			
+		'level-2' // level name			
 		#9B076D // primary
 		#B70887 // secondary
 		#ffffff // background
@@ -65,4 +55,29 @@ $themes: (
 		#969EA4 // input
 		#FC636B // buttons
 		"style-a" // style
+		"circular"
+	,
+		'level-3'
+		#565D67
+		#969EA4
+		#ffffff
+		#FC636B
+		#FC636B
+		#565d67
+		#969EA4
+		#fc636b
+		"style-a"
+		"circular"
+	,
+		'level-4'
+		#2a919b
+		#47B1B6
+		#ffffff
+		#d7de5c
+		#1c6468
+		#565d67
+		#979fa5
+		#fc636b
+		"style-b"
+		"circular"
 );

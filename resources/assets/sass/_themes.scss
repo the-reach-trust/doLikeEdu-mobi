@@ -14,23 +14,31 @@ body {
 			$color-body-text: nth( $theme, 7 );
 			$color-input: nth( $theme, 8 );
 			$color-buttons: nth( $theme, 9 );
-			$hover-state: nth( $theme, 10 );			
+			$hover-state: nth( $theme, 10 );
+			$pattern: nth( $theme, 11 );		
 
 			/*----------------------------------------ARDCOZA---------------------------------------*/
 			/*      Styles here  */
 			/*--------------------------------------------------------------------------------------*/
+
+			@if $pattern == "circular" {
+				.bg-pattern {
+					background-image: url("/images/circular-temp.svg");
+					background-size: cover;
+				}
+			}
 
 			@if $hover-state == "style-a" {
 				/*----------------------------------------ARDCOZA---------------------------------------*/
 				/*      Style A here  */
 				/*--------------------------------------------------------------------------------------*/
 				.navbar-default {
-					@media screen and ( max-width: $screen-xs  ) {
-						li {
+					li {
+						float: left;
+						@media screen and ( max-width: $screen-xs  ) {
 							width: 25%;
 							display: block;
-							text-align: center;
-							float: left;
+							text-align: center;							
 						}
 					}
 					@media screen and ( min-width: ( $screen-xs + 1 ) ) {
@@ -81,6 +89,16 @@ body {
 							&:hover { background: $color-accent; }
 							td {
 								&:last-child { color: $color-primary; }
+							}
+						}
+					}
+					&.progress-list {
+						li {
+							background: $color-background;
+							.progress { 
+								.progress-bar {
+									background: $color-accent;
+								}
 							}
 						}
 					}
