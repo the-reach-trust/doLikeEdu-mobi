@@ -12,7 +12,7 @@
 							<a href="{{ route('profile.index') }}">Profile</a>
 						</li>
 						<li class="@activeif('terms*')">
-							<a href="/terms">Help &amp; Terms</a>
+							<a href="{{ route('help.index') }}">Help &amp; Terms</a>
 						</li>
 						<li>
 							<a href="#">TalkToEdu</a>

@@ -6,8 +6,8 @@
 @endif
 <div class="row">
 	<div class="col-xs-4"><p class="h1">{{ '1' }}</p></div>
-	<div class="col-xs-4"><p class="h1">{{ '1' }}</p></div>
-	<div class="col-xs-4"><p class="h1">{{ '100' }}</p></div>
+	<div class="col-xs-4"><p class="h1">{{ $points->level }}</p></div>
+	<div class="col-xs-4"><p class="h1">{{ $points->points }}</p></div>
 </div>
 <div class="row">
 	<div class="col-xs-4"><h5>QUIZZES</h5></div>

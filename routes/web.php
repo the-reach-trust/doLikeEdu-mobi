@@ -16,9 +16,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/terms', function () {
-    return view('terms');
-});
+Route::get('/help',[
+    'as' => 'help.index',
+    function () {
+        return view('help.index');
+    }
+]);
+Route::get('/terms',[
+    'as' => 'help.terms',
+    function () {
+        return view('help.terms');
+    }
+]);
+Route::get('/thebasics', [
+    'as' => 'help.about',
+    function () {
+        return view('help.basics');
+    }
+]);
+Route::get('/userAccounts', [
+    'as' => 'help.accounts',
+    function () {
+        return view('help.accounts');
+    }
+]);
 
 Route::get('auth/register', [
     'as' => 'auth.register',

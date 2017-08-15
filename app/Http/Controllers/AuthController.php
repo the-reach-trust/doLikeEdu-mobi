@@ -65,6 +65,13 @@ class AuthController extends Controller
         Session::put('access_token', $access_token);
         Session::put('mode', $mode);
 
+        //TODO: Faking it for now
+        $points = (object) array('points' => 0);
+        $points->tokens = 0;
+        $points->level = 1;
+
+        Session::put('levelup_points', $points);
+
         Session::flash('flash_success', 'Successfully logged in!');
         return \Redirect::route('home.index');
     }
