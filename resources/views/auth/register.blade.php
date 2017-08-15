@@ -15,7 +15,7 @@
 
 					@include('partials.forms.auth-register')
 
-					<span class="space-15"></span>
+					<span class="space-7"></span>
 					<div class="text-center">
 						{{ Form::submit('Join DoLikeEdu', array('class' => 'btn btn-primary btn-lg')) }}						
 					</div>

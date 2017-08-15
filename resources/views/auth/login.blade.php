@@ -3,7 +3,7 @@
 @section('title', config('app.name').' - Login')
 
 @section('content')
-	<span class="space-8"></span>
+	<span class="space-15"></span>
 	<div class="container">
 		<div class="row">
 			<div class="{{ get_body_class( Request::route() ) }}">
@@ -15,7 +15,7 @@
 
 					@include('partials.forms.auth-login')
 
-					<span class="space-15"></span>
+					<span class="space-12"></span>
 					<div class="text-center">
 						{{ Form::submit('Login', array('class' => 'btn btn-primary btn-lg')) }}
 					</div>
