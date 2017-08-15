@@ -12,6 +12,10 @@
 						<span class="h2">The Basics</span>
 					</a>
 
+					<a href="{{ route('help.accounts') }}">
+						<span class="h2">User Accounts</span>
+					</a>
+
 					<a href="{{ route('help.terms') }}">
 						<span class="h2">Terms</span>
 					</a>

@@ -34,6 +34,12 @@ Route::get('/thebasics', [
         return view('help.basics');
     }
 ]);
+Route::get('/userAccounts', [
+    'as' => 'help.accounts',
+    function () {
+        return view('help.accounts');
+    }
+]);
 
 Route::get('auth/register', [
     'as' => 'auth.register',

@@ -38,7 +38,6 @@
 				@foreach ($categories as $category)
 					<img src="https://via.placeholder.com/25x25" alt="{{ $category->name}}">
 					<a class="" title="" href="{{ route('quizzes.category', $category->category) }}">{{ $category->name }}</a> ({{ $category->amount }})
-					}
 				@endforeach
 			</div>
 		</div>
