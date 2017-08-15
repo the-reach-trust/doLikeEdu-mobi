@@ -15,12 +15,18 @@
 
 					@include('partials.forms.auth-login')
 
-					{{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
+					<span class="space-15"></span>
+					<div class="text-center">
+						{{ Form::submit('Login', array('class' => 'btn btn-primary btn-lg')) }}
+					</div>
 
 					{{ Form::close() }}
 				</div>
 
-				<a href="/terms">Terms</a>
+				<span class="space-4"></span>
+				<div class="max-width-150 text-center">
+					<p>Review our <a href="/terms" class="body-text">terms &amp; conditions here.</a></p>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -6,15 +6,39 @@
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Forms  */
 /*--------------------------------------------------------------------------------------*/
+.placeholder { color: $input !important; }
 .input-control {
-	border-radius: 9px;
-	border: $white;
 	box-shadow: none;
-	color: $black;
+	border-radius: 2px;
+	border-color: $input;
+	color: $brand-primary;
+	font-weight: 700;
+	font-size: $font-size-2;
+	height: 46px;
+	padding-top: 5px;
+	&::placeholder { @extend .placeholder; }
+	&::-webkit-input-placeholder { @extend .placeholder; }	
+	&:-ms-input-placeholder { @extend .placeholder; }
+	&:-moz-placeholder { @extend .placeholder; }	
+}
+label {
+	font-weight: 400;
+	color: $brand-primary;
 }
 
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Telephone fields  */
+/*--------------------------------------------------------------------------------------*/
 input.form-control { @extend .input-control; }
 .intl-tel-input { display: block !important; }
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag {
+	background: inherit;
+	border-right: 1px solid $input;
+	font-weight: 700;
+}
+.intl-tel-input.separate-dial-code .selected-dial-code {
+	color: $brand-primary;
+}
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Selects  */
@@ -22,13 +46,21 @@ input.form-control { @extend .input-control; }
 .select2-container--default {
 	.select2-selection--single {
 		@extend .input-control;
-		height: 34px;
-		.select2-selection__rendered { line-height: 33px; }
-		.select2-selection__arrow b { top: calc(50% + 3px); }
+		//height: 34px;
+		.select2-selection__rendered {
+			line-height: 33px;
+			color: $brand-primary;
+			&[title^="select"] {
+				color: $input;
+			}
+		}
+		.select2-selection__arrow {
+			top: 7px;
+			b { top: calc(50% + 3px); }
+		}
 	}
 }
 .select2-dropdown {
-	border: 0;		
 	&.select2-dropdown--below {
 		border-bottom-right-radius: 10px;
 		border-bottom-left-radius: 10px;
