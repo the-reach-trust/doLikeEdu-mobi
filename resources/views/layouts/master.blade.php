@@ -38,7 +38,7 @@
 				<div class="row">
 					<div class="{{ get_body_class( Request::route() ) }} text-center">
 						<a href="@if( Session::has('levelup_authentication') ) {{ '/home' }} @else {{ '/' }} @endif">
-							<img src="images/badge-main-transparent-header.png" width="42">
+							<img src="/images/badge-main-transparent-header.png" width="42">
 							<span><strong>DoLike</strong>Edu</span>
 						</a>
 					</div>

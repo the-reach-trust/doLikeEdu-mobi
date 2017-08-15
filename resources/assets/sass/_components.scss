@@ -12,6 +12,22 @@
 	}
 }
 
+#affiliates {
+	display: table;
+	> div {
+		display: table-cell;
+		vertical-align: middle;
+		&:first-child { width: 21%; }
+		&:last-child { 
+			width: 38%;
+			img {
+				margin-right: 0;
+				margin-left: auto;
+			}
+		}
+	}
+}
+
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Progress Panel  */
 /*--------------------------------------------------------------------------------------*/

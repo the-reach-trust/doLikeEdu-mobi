@@ -23,19 +23,19 @@
 
 					<div class="form-group has-feedback {{ $errors->has('gender') ? 'has-error' : '' }}">
 						{{ Form::label('gender', 'Are you a boy or a girl?', ['class' => 'control-label']) }}
-						{{ Form::select('gender', AppUser::GENDERS,  old('gender',(isset($gender) ? $gender : null)) , ['class' => 'form-control', 'placeholder' => 'Pick one ...']) }}
+						{{ Form::select('gender', AppUser::GENDERS,  old('gender',(isset($gender) ? $gender : null)) , ['class' => 'form-control', 'placeholder' => 'select your gender']) }}
 						@include('partials.elems.formerrors', ['tag' => 'gender'])
 					</div>
 
 					<div class="form-group has-feedback {{ $errors->has('grade') ? 'has-error' : '' }}">
 						{{ Form::label('grade', 'What grade are you in?', ['class' => 'control-label']) }}
-						{{ Form::select('grade', AppUser::GRADES,  old('grade',(isset($grade) ? $grade : null)) , ['class' => 'form-control', 'placeholder' => 'Pick one ...']) }}
+						{{ Form::select('grade', AppUser::GRADES,  old('grade',(isset($grade) ? $grade : null)) , ['class' => 'form-control', 'placeholder' => 'select your grade']) }}
 						@include('partials.elems.formerrors', ['tag' => 'grade'])
 					</div>
 
 					<div class="form-group has-feedback {{ $errors->has('school') ? 'has-error' : '' }}">
 						{{ Form::label('school', 'What school do you go to', ['class' => 'control-label']) }}
-						{{ Form::select('school', $schools,  old('school',(isset($school) ? $school : null)) , ['class' => 'form-control', 'placeholder' => 'Pick one ...']) }}
+						{{ Form::select('school', $schools,  old('school',(isset($school) ? $school : null)) , ['class' => 'form-control', 'placeholder' => 'select your school']) }}
 						@include('partials.elems.formerrors', ['tag' => 'school'])
 					</div>
 
