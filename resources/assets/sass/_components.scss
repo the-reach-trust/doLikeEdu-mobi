@@ -29,18 +29,21 @@
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
-/*      Progress Panel  */
+/*      Panels  */
 /*--------------------------------------------------------------------------------------*/
-#idprogresspanel, #idprogresspanel-alt {
+#idprogresspanel, #idprogresspanel-alt,
+#quizcategoriespanel {
 	background: $brand-primary;
 	color: $white;
 	padding-bottom: 25px;
 	h5 { margin-top: 0; }
 }
-#idprogresspanel {
-	position: relative;
-	top: -20px;
+#idprogresspanel, #quizcategoriespanel { margin-top: -20px; }
+#idprogresspanel { margin-bottom: 20px; }
+#quizcategoriespanel {
+	padding-bottom: 0;
 }
+
 #idprogresspanel-alt {
 	width: 264px;
 	padding-top: 4px;
@@ -91,5 +94,16 @@
 	#frame-desktop {
 		&:after { left: calc(50% + 585px); }
 		&:before { right: calc(50% + 585px); }
+	}
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Backgrounds  */
+/*--------------------------------------------------------------------------------------*/
+.pattern-title {
+	@extend .bg-pattern;
+	border-bottom: 1px solid $gray;
+	h1 {
+		margin: 14px 0;
 	}
 }

@@ -1,4 +1,3 @@
-<span class="space"></span>
 <footer id="footer-wrapper" @if( config( 'front.progressiveDesktop' ) ) class="sticky" @endif>
 	<div class="container">
 		<div class="row">

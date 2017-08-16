@@ -14,23 +14,31 @@ body {
 			$color-body-text: nth( $theme, 7 );
 			$color-input: nth( $theme, 8 );
 			$color-buttons: nth( $theme, 9 );
-			$hover-state: nth( $theme, 10 );			
+			$hover-state: nth( $theme, 10 );
+			$pattern: nth( $theme, 11 );		
 
 			/*----------------------------------------ARDCOZA---------------------------------------*/
 			/*      Styles here  */
 			/*--------------------------------------------------------------------------------------*/
+
+			@if $pattern == "circular" {
+				.bg-pattern {
+					background-image: url("/images/circular-temp.svg");
+					background-size: cover;
+				}
+			}
 
 			@if $hover-state == "style-a" {
 				/*----------------------------------------ARDCOZA---------------------------------------*/
 				/*      Style A here  */
 				/*--------------------------------------------------------------------------------------*/
 				.navbar-default {
-					@media screen and ( max-width: $screen-xs  ) {
-						li {
+					li {
+						float: left;
+						@media screen and ( max-width: $screen-xs  ) {
 							width: 25%;
 							display: block;
-							text-align: center;
-							float: left;
+							text-align: center;							
 						}
 					}
 					@media screen and ( min-width: ( $screen-xs + 1 ) ) {
@@ -58,21 +66,47 @@ body {
 					}
 				}
 	
-				#idprogresspanel, #idprogresspanel-alt { background: $color-primary; }
+				#idprogresspanel,
+				#idprogresspanel-alt,
+				#quizcategoriespanel { background: $color-primary; }
 				#footer-wrapper { background: $color-footer; }
 	
-				.earn-points {
-					figure {
-						border-color: $color-accent;
-						i { color: $color-accent;  }
-					}					
+				.list {
+					&.earn-points {
+						figure {
+							border-color: $color-accent;
+							i { color: $color-accent;  }
+						}	
+					}
+					&.quiz-categories {
+						li {
+							figure { background: $color-background;	}
+							a { color: $color-background; }
+						}
+					}
+					&.quiz-list {
+						tr {							
+							&:hover { background: $color-accent; }
+							td {
+								&:last-child { color: $color-primary; }
+							}
+						}
+					}
+					&.progress-list {
+						li {
+							background: $color-background;
+							.progress { 
+								.progress-bar {
+									background: $color-accent;
+								}
+							}
+						}
+					}
 				}
 				&.route-home {					
 					.page-container {
 						color: $color-body-text;
-						a {
-							color: $color-primary;
-						}
+						a { color: $color-primary; }
 					}
 				}
 			}
