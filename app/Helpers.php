@@ -43,7 +43,7 @@ function get_route_class( $route = null ) {
 
 function get_user_level() {
 	$points = Session::get('levelup_points');
-	if ( $points && property_exists( $points, 'level' ) ) return 4; //$points->level;
+	if ( $points && property_exists( $points, 'level' ) ) return $points->level;
 	else return "1";
 }
 
