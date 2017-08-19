@@ -1,0 +1,29 @@
+@media screen and ( min-width: $screen-lg ) {
+	body {
+		&.desktop {
+			#page {
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 76px;
+				height: calc(100% - 126px);				
+				overflow-y: scroll;
+				.container { width: auto; }
+				> .inner {
+					position: absolute;
+					top: 0;
+					height: 100%;
+					left: calc(50% - 250px);
+					right: 10.5%;
+				}
+			}
+			@media screen and ( min-width: $screen-lg ) {
+				#branding {
+					border-bottom: 3px solid $brand-primary;
+				}
+			}
+			.navbar.navbar-default { display: none; }
+			#quizcategoriespanel { margin-top: 0; }
+		}
+	}
+}

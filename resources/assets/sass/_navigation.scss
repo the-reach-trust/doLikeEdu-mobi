@@ -3,11 +3,29 @@
 /*--------------------------------------------------------------------------------------*/
 .navbar-nav {
 	margin: 0;
-	li { display: inline-block; }	
+	> li {
+		display: block;
+		float: left;
+		@media screen and ( max-width: $screen-xs  ) {
+			width: 25%;
+			display: block;
+			text-align: center;							
+		}
+		> a {			
+			@media screen and ( min-width: ( $screen-xs + 1 ) ) {
+				padding: 12px 20px; 
+			}
+
+		}
+		&.active { a {font-weight: bold; } }
+		a { &:hover, &:focus { font-weight: bold; } }
+	}	
 }
 nav {
 	&.navbar {
-		border: 0;		
+		border: 0;
+		margin-bottom: 0;
+		i { display: none; }
 	}
 }
 
@@ -59,9 +77,11 @@ nav {
 		}
 	}
 	&.sticky {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		@media screen and ( min-width: $screen-lg ) {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
 	}
 }

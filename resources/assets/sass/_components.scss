@@ -3,7 +3,7 @@
 /*--------------------------------------------------------------------------------------*/
 #branding {
 	background: $white;
-	color: $brand-primary;
+	color: $brand-primary;	
 	img { margin-right: 5px; }
 	.row > div {
 		padding-top: 12px;
@@ -35,24 +35,58 @@
 #quizcategoriespanel {
 	background: $brand-primary;
 	color: $white;
-	padding-bottom: 25px;
+	padding-bottom: 0px;
 	h5 { margin-top: 0; }
-}
-#idprogresspanel, #quizcategoriespanel { margin-top: -20px; }
-#idprogresspanel { margin-bottom: 20px; }
-#quizcategoriespanel {
-	padding-bottom: 0;
 }
 
 #idprogresspanel-alt {
-	width: 264px;
-	padding-top: 4px;
-	position: fixed;
-	top: 117px;
-	height: calc(100% - 170px);
-	left: calc(50% - 473px);
-	padding-left: 15px;
-	padding-right: 15px;
+	z-index: 1;
+	width: 320px;
+    padding-top: 4px;
+    position: fixed;
+    top: 76px;
+    height: calc(100% - 128px);
+    left: calc(50% - 570px);
+    padding-left: 15px;
+    padding-right: 15px;
+	ul {
+		margin-top: 24px;
+		list-style: none;
+		padding-left: 0;
+		border-top: 1px solid rgba(255,255,255,0.35);
+		li {	
+			border-bottom: 1px solid rgba(255,255,255,0.35);
+			&:last-child { border-bottom: 0; }
+			a {
+				color: $white;
+				text-decoration: none;
+				letter-spacing: 1px;
+				font-size: 1.05em;
+				display: block;
+				padding: 15px 10px;
+				color: darken( $white, 5% );
+				i {
+					width: 30px;
+					text-align: center;
+					border: 1px solid;
+					border-radius: 11px;
+					height: 30px;
+					padding-top: 6px;
+					margin-right: 13px;
+				}
+			}
+			&.active {
+				a {
+					color: $white;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+#quizinfopanel {
+	
 }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/

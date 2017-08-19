@@ -33,119 +33,111 @@ body {
 				/*      Style A here  */
 				/*--------------------------------------------------------------------------------------*/
 				.navbar-default {
-					li {
-						float: left;
-						@media screen and ( max-width: $screen-xs  ) {
-							width: 25%;
-							display: block;
-							text-align: center;							
+					background: $color-secondary;
+					a {
+						color: $color-background;
+						&:hover, &:focus {
+							color: $color-primary;
+							background: $color-accent;
 						}
-					}
-					@media screen and ( min-width: ( $screen-xs + 1 ) ) {
-						a { padding: 12px 20px; }
-					}
-					a:hover, a:focus {
-						color: $color-primary;
-						font-weight: bold;
-						background: $color-accent;
-					}
+					}									
 					.active {						
 						a, a:hover, a:focus {
-							color: $color-primary;
-							font-weight: bold;
+							color: $color-primary;							
 							background: $color-accent;
 						}
 					}
 				}
 				
 				h1 { color: $color-accent; }
-				.navbar-default {
-					background: $color-secondary;
-					a {
-						color: $color-background;					
-					}
-				}
 	
 				#idprogresspanel,
 				#idprogresspanel-alt,
-				#quizcategoriespanel { background: $color-primary; }
-				#footer-wrapper { background: $color-footer; }
-	
-				.list {
-					&.earn-points {
-						figure {
-							border-color: $color-accent;
-							i { color: $color-accent;  }
-						}	
-					}
-					&.quiz-categories {
-						li {
-							figure { background: $color-background;	}
-							a { color: $color-background; }
-						}
-					}
-					&.quiz-list {
-						tr {							
-							&:hover { background: $color-accent; }
-							td {
-								&:last-child { color: $color-primary; }
-							}
-						}
-					}
-					&.progress-list {
-						li {
-							background: $color-background;
-							.progress { 
-								.progress-bar {
-									background: $color-accent;
-								}
-							}
-						}
-					}
-				}
-				&.route-home {					
-					.page-container {
-						color: $color-body-text;
-						a { color: $color-primary; }
-					}
-				}
+				#quizcategoriespanel,
+				#quizinfopanel { background: $color-primary; }		
 			}
-			@else if $hover-state = "style-b" {
+			@else if $hover-state = "style-b" {				
 				/*----------------------------------------ARDCOZA---------------------------------------*/
 				/*      Style B here  */
 				/*--------------------------------------------------------------------------------------*/
 				nav.navbar {
-					li {
-						margin: 4px 0;
-						position: relative;
-						a {
-							padding: 6px 4px;
-							@media screen and ( min-width: $screen-xs ) {
-								padding: 6px;
-							}
-						}
-						&.active {
-							&:after {
-								position: absolute;
-								bottom: 0px;
-								left: 6px;
-								content: ' ';
-								display: block;
-								height: 3px;
-								background: $brand-primary;
-								width: calc(100% - 12px);					
-							}
-						}
-						&:first-child {
-							a { padding-left: 0; }
-							&.active {
-								&:after {
-									left: 0;
-									width: calc(100% - 6px);
-								}
-							}				
+					background: $color-secondary;
+					li.active a,
+					a:hover, a:focus {
+						&:after {
+							position: absolute;
+							bottom: -4px;
+							left: 0px;
+							content: ' ';
+							display: block;
+							height: 4px;
+							background: $color-accent;
+							width: 100%;
 						}
 					}
+				}
+				#idprogresspanel,
+				#idprogresspanel-alt,
+				#quizcategoriespanel,
+				#quizinfopanel {
+					background: $color-background;
+					color: $white;
+				}
+				#quizinfopanel {
+					padding: 20px 0;
+					a { color: $white; }
+					figure {
+						margin-right: 16px;
+					}					
+				}
+				$color-background: $white;
+			}	
+
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      Generic  */
+			/*--------------------------------------------------------------------------------------*/
+			#footer-wrapper { background: $color-footer; }
+			.list {
+				&.earn-points {
+					figure {
+						border-color: $color-accent;
+						i { color: $color-accent;  }
+					}	
+				}
+				&.quiz-categories {
+					li {
+						figure { background: $color-background;	}
+						a { color: $color-background; }
+					}
+				}
+				&.quiz-list {
+					tr {							
+						&:hover { background: $color-accent; }
+						td {
+							&:last-child { color: $color-primary; }
+						}
+					}
+				}
+				&.progress-list {
+					li {
+						background: $color-background;
+						.progress { 
+							.progress-bar {
+								background: $color-accent;
+							}
+						}
+					}
+				}
+			}
+
+			[id="page"] {
+				color: $color-body-text;
+				a:not(.btn), label { color: $color-primary; }
+			}
+			.select2-container--default .select2-selection--single .select2-selection__rendered {
+				color: $color-primary;
+				&[title^="select"] {
+					color: $color-input;
 				}
 			}
 
