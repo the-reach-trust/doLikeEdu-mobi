@@ -24,7 +24,7 @@ class HomeController extends AppController
         //TODO: Faking it for now
         $points = (object) array('points' => 0);
         $points->tokens = 0;
-        $points->level = 1;
+        $points->level = mt_rand(1,4);
 
         Session::put('levelup_points', $points);
 
