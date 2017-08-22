@@ -3,18 +3,7 @@
 		<div class="row">
 			<div class="{{ get_body_class( Request::route() ) }}">
 				<ul class="nav navbar-nav">
-					<li class="@activeif('home')">
-						<a href="{{ route('home.index') }}">Home</a>
-					</li>
-					<li class="@activeif('quizzes*')">
-						<a href="{{ route('quizzes.index') }}">Quizzes</a>
-					</li>
-					<li class="@activeif('profile*')">
-						<a href="{{ route('profile.index') }}">Profile</a>
-					</li>
-					<li class="@activeif('progress*')">
-						<a href="{{ route('progress.index') }}">Progress</a>
-					</li>
+					@include( 'layouts.nav-items' )
 				</ul>
 			</div>
 		</div>

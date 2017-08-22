@@ -17,7 +17,9 @@ class HomeController extends AppController
     public function index()
     {
         $content = $this->levelup->get_content();
-        //$profile = $levelup->get_profile();
+		//$profile = $levelup->get_profile();
+		
+		//TODO: Please Not Chris, I needed the points and dailys complete on other pages, so I'm calling it from a global function in Helpers.php for now.
 
         //TODO: Faking it for now
         $points = (object) array('points' => 0);

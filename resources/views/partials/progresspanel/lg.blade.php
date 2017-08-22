@@ -1,5 +1,20 @@
-<div id="idprogresspanel-alt" class="visible-lg">
-	<div class="text-center">
-		@include( 'partials.progresspanel.content' )
+@if( config( 'front.progressiveDesktop' ) ) 
+	<div id="idprogresspanel-alt" class="visible-lg">	
+		<div class="text-center">
+			@include( 'partials.progresspanel.content' )
+		</div>
+		<ul>
+			@include( 'layouts.nav-items' )
+			<li class="@activeif('help*')">
+				<a href="{{ route('help.index') }}">
+					<i class="fa fa-info" aria-hidden="true"></i>Help &amp; Terms</a>
+				</li>
+			</li>
+			<li>
+				<a href="#">
+					<i class="fa fa-bullhorn" aria-hidden="true"></i>TalkToEdu
+				</a>
+			</li>
+		</ul>
 	</div>
-</div>
+@endif

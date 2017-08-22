@@ -40,6 +40,7 @@ a:not(.btn) { text-decoration: underline; }
 	a { text-decoration: none; }
 }
 a.no-decorate, .no-decorate { text-decoration: none; }
+#branding a { &:hover { color: $brand-primary; } }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Lists  */
