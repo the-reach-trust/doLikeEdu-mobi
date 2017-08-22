@@ -14,7 +14,7 @@
 							<a href="{{ route('help.index') }}">Help &amp; Terms</a>
 						</li>
 						<li>
-							<a href="#">TalkToEdu</a>
+							<a href="{{ route('pages.index') }}">TalkToEdu</a>
 						</li>
 					</ul>
 				</nav>

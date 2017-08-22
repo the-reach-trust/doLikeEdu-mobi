@@ -19,7 +19,7 @@ class PagesController extends AppController
         dd('index');
     }
 
-    public function page($id)
+    public function page($id=25)
     {
         $page = $this->levelup->get_page($id);
         if($this->levelup->get_last_http_status() == Page::PAGE_MISSING)

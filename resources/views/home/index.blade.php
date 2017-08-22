@@ -55,7 +55,7 @@
 						<!-- hardcodded for testing now -->
 						<div class="text-center">
 							Need some help or advice ? <br/>
-							<a href="{{ route('pages.page', 1) }}" class="theme-body-text">Click here for <b>TalkTo</b>Edu</a> <br/>
+							<a href="{{ route('pages.index') }}" class="theme-body-text">Click here for <b>TalkTo</b>Edu</a> <br/>
 						</div>
 						<!-- Content call -->
 						<!--
