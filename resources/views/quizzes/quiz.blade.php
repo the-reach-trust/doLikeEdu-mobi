@@ -23,9 +23,9 @@
 								</figure>
 								<div class="pull-left">
 									<strong>Subject:</strong>
-									<a href="{{ route('quizzes.category',$challenge->category) }}"> {{ $challenge->category_name }} </a><br/>
+									<a href="{{ route('quizzes.category',$challenge->category) }}" class="no-decorate"> {{ $challenge->category_name }} </a><br/>
 									<strong>Topic:</strong>
-									<a href="{{ route('quizzes.topic',[$challenge->category,$challenge->topic]) }}">{{ $challenge->topic_name }}</a><br/>
+									<a href="{{ route('quizzes.topic',[$challenge->category,$challenge->topic]) }}" class="no-decorate">{{ $challenge->topic_name }}</a><br/>
 									{{ $page->subject }}	
 								</div>				
 							</div>		
