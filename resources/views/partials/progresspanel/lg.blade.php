@@ -11,7 +11,7 @@
 				</li>
 			</li>
 			<li>
-				<a href="#">
+				<a href="{{ route('pages.index') }}">
 					<i class="fa fa-bullhorn" aria-hidden="true"></i>TalkToEdu
 				</a>
 			</li>

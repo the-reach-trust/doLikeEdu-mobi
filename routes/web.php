@@ -122,6 +122,11 @@ Route::get('progress', [
     'uses' => 'ProgressController@index',
 ]);
 
+Route::get('pages/', [
+    'as' => 'pages.index',
+    'uses' => 'PagesController@page',
+]);
+
 Route::get('pages/page/{id}', [
     'as' => 'pages.page',
     'uses' => 'PagesController@page',
