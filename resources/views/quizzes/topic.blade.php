@@ -17,7 +17,7 @@
 							<span class="space-4"></span>
 							<ul class="list quiz-categories">
 								@foreach ($category->topics as $topic)
-									@include( 'quizzes.list-category' )
+									@include( 'quizzes.list-topic' )
 								@endforeach
 							</ul>
 						</div>

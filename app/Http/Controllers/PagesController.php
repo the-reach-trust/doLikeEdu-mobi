@@ -22,10 +22,16 @@ class PagesController extends AppController
     public function page($id=25)
     {
         $page = $this->levelup->get_page($id);
+        $page_next = null;
+
+        if($page->child == null && isset($page->parent) && $page->parent != null)
+        {
+            $page_next = Page::get_next_page($this->levelup, $page->parent, $page->id);
+        }
         if($this->levelup->get_last_http_status() == Page::PAGE_MISSING)
         {
             return abort(404,'Missing Page');
         }
-        return view('pages.page',compact('page'));
+        return view('pages.page',compact('page','page_next'));
     }
 }
