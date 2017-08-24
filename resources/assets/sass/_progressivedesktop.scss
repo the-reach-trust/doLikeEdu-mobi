@@ -16,6 +16,11 @@
 					left: calc(50% - 250px);
 					right: 10.5%;
 				}
+				&.wider {
+					> .inner {
+						left: calc(50% - 235px);
+					}
+				}
 			}
 			@media screen and ( min-width: $screen-lg ) {
 				#branding {

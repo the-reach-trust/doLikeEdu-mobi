@@ -113,6 +113,17 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 			}
 		}
 	}
+	&.earn-points-image {
+		img { margin-right: 12px; }
+		span {
+			position: relative;
+			top: 2px;
+		}
+		a {
+			&:after { top: 1.3em; }
+		}
+
+	}
 	&.quiz-categories {
 		text-align: center;
 		li {		

@@ -1,4 +1,4 @@
-@if( config( 'front.progressiveDesktop' ) ) 
+@if( config( 'front.progressiveDesktop' ) && Session::has( 'levelup_authentication' ) ) 
 	<div id="idprogresspanel-alt" class="visible-lg">	
 		<div class="text-center">
 			@include( 'partials.progresspanel.content' )

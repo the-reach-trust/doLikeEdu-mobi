@@ -81,21 +81,21 @@ body {
 				#quizcategoriespanel,
 				#quizinfopanel {
 					background: $color-background;
-					color: $white;
-				}
-				#quizinfopanel {
-					padding: 20px 0;
-					a { color: $white; }
-					figure {
-						margin-right: 16px;
-					}					
-				}
+				}				
 				$color-background: $white;
 			}	
 
 			/*----------------------------------------ARDCOZA---------------------------------------*/
 			/*      Generic  */
 			/*--------------------------------------------------------------------------------------*/
+			#quizinfopanel {
+				color: $white;
+				padding: 20px 0;
+				a { color: $white; }
+				figure {
+					margin-right: 16px;
+				}					
+			}
 			#footer-wrapper { background: $color-footer; }
 			.list {
 				&.earn-points {
