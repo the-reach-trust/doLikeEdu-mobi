@@ -44,7 +44,21 @@
                     </div>
                 </div>
             </div>
-            <div class="space-12"></div>
+
+            @if(!empty($page_next) )
+                <span class="space"></span>
+                <div class="container">
+                    <div class="row">
+                        <div class="{{ get_body_class() }}">
+                            <div class="btn-group">
+                                <a href="{{ route('pages.page', $page_next->id) }}" class="btn btn-default next">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            <span class="space"></span>
         </div>
     </div>
 
