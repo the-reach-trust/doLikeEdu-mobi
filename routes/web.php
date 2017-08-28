@@ -116,6 +116,10 @@ Route::get('quizzes/result/{id}/{result}', [
     'as' => 'quizzes.result',
     'uses' => 'QuizzesController@quiz_result',
 ]);
+Route::get('quizzes/page/{id}', [
+    'as' => 'quizzes.page',
+    'uses' => 'QuizzesController@page',
+]);
 
 Route::get('progress', [
     'as' => 'progress.index',
