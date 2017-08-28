@@ -45,6 +45,19 @@
 
 					</div>
 				</div>
+				@if(!empty($page->child) && $challenge->remaining_attempts != 0) <!-- TODO: == when using real user !-->
+				<div class="row">
+					<!-- Should normaly only be one page/solution !-->
+                        <div class="list">
+                            @foreach ($page->child as $child)
+                                <a href="{{ route('quizzes.page', $child->id) }}">
+                                    <span class="h2">{{ $child->heading }}</span>
+                                </a>
+                                @break
+                            @endforeach
+                        </div>
+				</div>
+				@endif
 			</div>
 		</div>
 	</div>
