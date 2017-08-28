@@ -23,7 +23,7 @@
                             @else
                                 <!-- TODO: TRY AGAIN GOES HERE -->
                             @endif
-                            <a href="{{ route('quizzes.page', $challenge->id) }}">try again ?</a>
+                            <a href="{{ route('quizzes.quiz', $challenge->id) }}">try again ?</a>
                         </div>
 
                         <div>
