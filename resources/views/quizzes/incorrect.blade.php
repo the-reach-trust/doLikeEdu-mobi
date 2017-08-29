@@ -8,26 +8,24 @@
         <div class="inner">
             <div class="space"></div>
             <div class="container">
-                <div class="row">
+                <div class="row text-center">
                     <div class="{{ get_body_class( Request::route(), true ) }}">
-                        <h1>{{ $page->heading }}: Incorrect </h1>
+                        <h1>Keep Trying...</h1>
                         <span class="space-3"></span>
 
                         @include( 'partials.progresspanel.lg' )
 
                         <div>
-                            That is the incorrect answer
-
                             @if( $challenge->remaining_attempts != 0)
-                                No attempts left you get <b>{{ '50' }}</b> points!
+                                No attempts left you get <b>{{ '50' }}</b> points!<br/>
+                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-danger"> More {{ $challenge->category_name }} Quizzes </a><br/>
                             @else
                                 <!-- TODO: TRY AGAIN GOES HERE -->
                             @endif
-                            <a href="{{ route('quizzes.quiz', $challenge->id) }}">try again ?</a>
-                        </div>
-
-                        <div>
-                            <a href="{{ route('quizzes.category', $challenge->category) }}"> More {{ $challenge->category_name }} Quizzes </a>
+                            It's okay, it happens sometimes.<br/>
+                            You have {{ '1' }} more try left. Good luck!<br/>
+                            <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-danger">Try Again</a><br/>
+                            <a href="#">Learn more about this on Khan Academy</a>
                         </div>
 
                         <!-- Should normaly only be one page/solution !-->
@@ -35,7 +33,7 @@
                             <div class="list">
                                 @foreach ($page->child as $child)
                                     <a href="{{ route('quizzes.page', $child->id) }}">
-                                        <span class="h2">{{ $child->heading }}</span>
+                                        {{ $child->heading }} / Click here to see the full solution
                                     </a>
                                     @break
                                 @endforeach
