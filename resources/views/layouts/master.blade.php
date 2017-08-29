@@ -15,7 +15,7 @@
 	<meta property="og:title" content="Learn with {{ getenv('APP_NAME') }}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{ URL::to('/') }}" />
-	<meta property="og:image" content="/images/badge-main-transparent-large.png" />
+	<meta property="og:image" content="{{ URL::to('/') }}/images/badge-main-transparent-large.png" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:description" content="Ace your schoolwork!" />
 
