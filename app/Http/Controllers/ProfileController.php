@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 use App\Http\Requests\ProfilePasswordPostRequest;
+use App\Http\Requests\ProfilePostRequest;
 
 use App\Models\AppUser;
 
@@ -28,9 +29,10 @@ class ProfileController extends AppController
         return view('profile.index',compact('profile','schools','userid'));
     }
 
-    public function update(Request $request)
+    public function update(ProfilePostRequest $request)
     {
-        dd($request);
+        //dd($request);
+        return view('profile.complete');
     }
 
     public function school()
