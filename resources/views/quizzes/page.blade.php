@@ -30,6 +30,16 @@
                                 {!! $page->content !!}
                             </div>
                         @endif
+                        @if(!empty($page->child))
+                            <div class="list earn-points earn-points-image">
+                                @foreach ($page->child as $child)
+                                    <a href="{{ route('quizzes.page', $child->id) }}">
+                                        @if(!empty($child->logo)) <img src="{{ $child->logo }}" width="40"> @endif
+                                        <span class="h2">{{ $child->heading }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
