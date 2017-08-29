@@ -3,10 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="Ace your schoolwork!" />
 
 	<title>@yield('title', config('app.name', ''))</title>
+
+	<link rel="shortcut icon" href="/images/favicon_32.ico" type="image/x-icon">
+	<link rel="icon" href="/images/favicon_32.png" sizes="32x32">
+
+	<!-- Open Meta Graph data -->
+	<meta property="og:site_name" content="{{ getenv('APP_NAME') }}" />
+	<meta property="og:title" content="Learn with {{ getenv('APP_NAME') }}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{{ URL::to('/') }}" />
+	<meta property="og:image" content="/images/badge-main-transparent-large.png" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:description" content="Ace your schoolwork!" />
 
 	<!-- Select 2 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
