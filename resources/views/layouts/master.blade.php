@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Ace your schoolwork!" />
+	<meta name="description" content="DoLikeEdu is a mobile learning service brought to Namibian learners by the Government of Namibia." />
 
 	<title>@yield('title', config('app.name', ''))</title>
 
@@ -17,7 +17,7 @@
 	<meta property="og:url" content="{{ URL::to('/') }}" />
 	<meta property="og:image" content="{{ URL::to('/') }}/images/badge-main-transparent-large.png" />
 	<meta property="og:locale" content="en_US" />
-	<meta property="og:description" content="Ace your schoolwork!" />
+	<meta property="og:description" content="DoLikeEdu is a mobile learning service brought to Namibian learners by the Government of Namibia." />
 
 	<!-- Select 2 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
