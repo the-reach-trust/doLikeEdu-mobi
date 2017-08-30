@@ -8,7 +8,7 @@
 	<title>@yield('title', config('app.name', ''))</title>
 
 	<link rel="shortcut icon" href="/images/favicon_32.ico" type="image/x-icon">
-	<link rel="icon" href="/images/favicon_32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon_32.ico" sizes="32x32">
 
 	<!-- Open Meta Graph data -->
 	<meta property="og:site_name" content="{{ getenv('APP_NAME') }}" />
