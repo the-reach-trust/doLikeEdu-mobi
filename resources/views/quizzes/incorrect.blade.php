@@ -16,25 +16,30 @@
 
                         <div class="text-center">
                             <img src="/images/cloud.png" width="200"> <br/>
-                            <p class="h2">Keep Trying...</p>
+                            <h1>Keep Trying...</h1>
 
-                            @if( $challenge->remaining_attempts != 0)
-                                No attempts left you get <b>{{ '50' }}</b> points!<br/>
-                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-danger"> More {{ $challenge->category_name }} Quizzes </a><br/>
+                            <span class="space"></span>
+
+                            @if( $challenge->remaining_attempts != 0 && (rand( 0, 1 ) == 1 ) ) <!-- TODO: == when using real user !-->
+                                No attempts left you get <b>{{ '50' }}</b> points!
+                                <span class="space"></span>
+                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-danger btn-block"> More {{ $challenge->category_name }} Quizzes </a><br/>
                             @else
-                                <!-- TODO: TRY AGAIN GOES HERE -->
+                                It's okay, it happens sometimes.<br/>
+                                You have {{ '1' }} more try left. Good luck!<br/>
+                                <span class="space"></span>
+                                <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-lg btn-danger btn-block">Try Again</a>
                             @endif
-                            It's okay, it happens sometimes.<br/>
-                            You have {{ '1' }} more try left. Good luck!<br/>
-                            <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-danger">Try Again</a><br/>
-                            <a href="#" class="theme-primary">Learn more about this on Khan Academy</a>
 
+                            <span class="space"></span>
+
+                            <a href="#" class="theme-primary">Learn more about this on Khan Academy</a>
                             <!-- Should normaly only be one page/solution !-->
-                            @if(!empty($page->child) && $challenge->remaining_attempts != 0) <!-- TODO: == when using real user !-->
+                            @if(!empty($page->child) && $challenge->remaining_attempts != 0 ) <!-- TODO: == when using real user !-->
                                 <div class="list">
                                     @foreach ($page->child as $child)
                                         <a href="{{ route('quizzes.page', $child->id) }}" class="theme-primary">
-                                            {{ $child->heading }} / Click here to see the full solution
+                                            Click here to see the full solution
                                         </a>
                                         @break
                                     @endforeach

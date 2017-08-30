@@ -16,21 +16,29 @@
 
                         <div class="text-center">
                                 <img src="/images/crown.png" width="200"> <br/>
-                                <p class="h2">That is the right answer... You get <b>{{ '50' }}</b> points!</p>
+                                <h1> Congrats </h1>
+
+                                <span class="space-3"></span>
+
+                                <div>That is the right answer... You get <b>{{ '50' }}</b> points!</div>
+
+                                <span class="space"></span>
+
+                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-danger btn-block"> More {{ $challenge->category_name }} Quizzes </a>
+
+                                <span class="space"></span>
 
                                 <!-- Should normaly only be one page/solution !-->
                                 @if(!empty($page->child) && $challenge->remaining_attempts != 0) <!-- TODO: == when using real user !-->
                                     <div class="list">
                                         @foreach ($page->child as $child)
                                             <a href="{{ route('quizzes.page', $child->id) }}" class="theme-primary">
-                                                {{ $child->heading }} / Click here to see the full solution
+                                                Click here to see the full solution
                                             </a>
                                             @break
                                         @endforeach
                                     </div>
                                 @endif
-
-                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-danger"> More {{ $challenge->category_name }} Quizzes </a>
                         </div>
                     </div>
                 </div>
