@@ -105,8 +105,8 @@ class AuthController extends Controller
         if(!is_null($profile) ){
             $levelup->set_profile($profile);
         }
-        $points = $this->levelupapi->get_points();
-        $profile = $this->levelupapi->get_profile();
+        $points = $levelup->get_points();
+        $profile = $levelup->get_profile();
         Session::put('levelup_points', $points);
         Session::put('levelup_firstname', $profile->firstname);
     }
