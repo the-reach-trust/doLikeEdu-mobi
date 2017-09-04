@@ -150,7 +150,7 @@ class LevelUpApi {
         if ($this->http_status != 200) {
             // Problem with API call, we received an HTTP status code other than 200
             $this->error = TRUE;
-            error_log($url.': http_status'.$this->http_status .' result - '.$result);
+            error_log($url.': http_status'.$this->http_status .' result - '.$result.' curl_info'.$this->curl_info);
         }
         $this->result = (($decode === TRUE) && (is_json($result) === TRUE)) ? json_decode($result) : $result;
     }

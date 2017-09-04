@@ -42,6 +42,10 @@ class ProfileController extends AppController
         $profile['schoolcode']      = (int)$request->schoolcode;
 
         $this->levelup->set_profile($profile);
+        if($this->levelup->get_last_http_status() != HttpCodes::HTTP_OK){
+            Session::flash('flash_error', 'Error with updating profile please try again!');
+            return redirect()->back()->withInput();
+        }
         return view('profile.complete');
     }
 
