@@ -239,7 +239,69 @@ class LevelUpApi {
     }
 
     /**
-     *   Used to register a new account or re-activate an existing account.
+     *  "Mode" (Integer) indicates the type of authentication mechanism that will be used:
+     *  "Credentials" (String) are the authentication credentials applicable to the "mode".
+     *  @return if users exsists
+     */
+    public function authcheck($mode,$credentials){
+        if(!is_int ($mode))
+        {
+            throw new Exception('Unsupported mode');
+        }
+        $url = $this->_apiUrl ."authcheck";
+
+        $credentials = trim($credentials);
+
+        $this->_headers = array();
+        $this->_headers[] = 'LU-Ver: Mobi/'. $this->_version;
+        $this->_headers[] = "Content-Type: application/json";
+        $this->_headers[] = 'LU-Cookie: '. $this->_browser_token;
+        $this->_headers[] = 'X-Forwarded-For: '. $this->_ip;
+
+        $params = array(
+            'mode'              => $mode,
+            'credentials'       => $credentials
+        );
+
+        $this->_call_api($url, 'POST', json_encode($params));
+
+        $result = $this->result;
+
+        return $result;
+    }
+
+    /**
+     *   Used to register a user.
+     */
+    public function register($mode,$credentials){
+        if(!is_int ($mode))
+        {
+            throw new Exception('Unsupported mode');
+        }
+        $url = $this->_apiUrl ."register";
+
+        $credentials = trim($credentials);
+
+        $this->_headers = array();
+        $this->_headers[] = 'LU-Ver: Mobi/'. $this->_version;
+        $this->_headers[] = "Content-Type: application/json";
+        $this->_headers[] = 'LU-Cookie: '. $this->_browser_token;
+        $this->_headers[] = 'X-Forwarded-For: '. $this->_ip;
+
+        $params = array(
+            'mode'              => $mode,
+            'credentials'       => $credentials
+        );
+
+        $this->_call_api($url, 'POST', json_encode($params));
+
+        $result = $this->result;
+
+        return $result;
+    }
+
+    /**
+     *   Used to login or re-activate an existing account.
      */
     public function authenticate($mode,$credentials)
     {

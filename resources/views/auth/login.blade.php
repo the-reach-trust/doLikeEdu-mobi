@@ -24,6 +24,12 @@
 				</div>
 
 				<span class="space-4"></span>
+					<div class="text-center">
+						<p class="mb-0">Need an account?</p>
+						<a href="{{ route('auth.register') }}" class="body-text">Click here to register</a>
+
+						<span class="space-5"></span>
+					</div>
 				<div class="max-width-250 text-center">
 					<p>By pressing 'Login' you agree to our <a href="/terms" class="body-text">terms &amp; conditions</p>
 				</div>

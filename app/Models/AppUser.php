@@ -26,4 +26,11 @@ class AppUser {
 
         return Gender::GENDERS[$gender];
     }
+
+    public static function exists($levelup, $mode, $identifier){
+        if($levelup->authcheck($mode,$identifier)->userid == null){
+            return false;
+        }
+        return true;
+    }
 }

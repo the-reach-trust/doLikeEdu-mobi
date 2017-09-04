@@ -26,7 +26,7 @@
                                 <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-danger btn-block"> More {{ $challenge->category_name }} Quizzes </a><br/>
                             @else
                                 It's okay, it happens sometimes.<br/>
-                                You have {{ '1' }} more try left. Good luck!<br/>
+                                You have <b>{{ '1' }}</b> more try left. Good luck!<br/>
                                 <span class="space"></span>
                                 <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-lg btn-danger btn-block">Try Again</a>
                             @endif

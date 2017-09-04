@@ -1,4 +1,4 @@
-<h1>{{ get_dailys_complete() ? 'Well done, ' : 'Hello' }} {{ 'name_here' }}</h1>
+<h1>{{ get_dailys_complete() ? 'Well done, ' : 'Hello' }} {{ get_firstname() }}</h1>
 @if( get_dailys_complete() )
 	<p>You finished all of today's featured quizzes. Nice work!</p>
 @else
