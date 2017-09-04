@@ -37,9 +37,10 @@ class ProfileController extends AppController
     public function update(ProfilePostRequest $request)
     {
         $profile['firstname']   = $request->firstname;
+        $profile['lastname']   = $request->lastname;
         $profile['gender']      = (int)$request->gender;
         //$profile['grade']       = (int)$request->grade; TODO: no grade in api yet
-        $profile['schoolcode']      = (int)$request->schoolcode;
+        $profile['schoolcode']  = (int)$request->schoolcode;
 
         $this->levelup->set_profile($profile);
         if($this->levelup->get_last_http_status() != HttpCodes::HTTP_OK){

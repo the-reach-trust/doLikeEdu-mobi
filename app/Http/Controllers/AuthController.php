@@ -48,7 +48,10 @@ class AuthController extends Controller
             return redirect()->back()->withInput();
         }
 
-        $profile = array('firstname' => $request->fullname);
+        $profile = array(
+                            'firstname' => $request->firstname,
+                            'lastname' => $request->lastname,
+                        );
         $this->levelup_setup($levelup_authentication,$access_token,$mode,$profile);
 
         Session::flash('flash_success', 'Successfully created an account!');

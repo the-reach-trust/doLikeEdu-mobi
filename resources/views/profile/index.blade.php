@@ -23,9 +23,15 @@
 							]) }}
 
 							<div class="form-group has-feedback {{ $errors->has('firstname') ? 'has-error' : '' }}">
-								{{ Form::label('firstname', 'What is your first and last name?', ['class' => 'control-label']) }}
+								{{ Form::label('firstname', 'What is your first name?', ['class' => 'control-label']) }}
 								{{ Form::text('firstname',  old('firstname', (isset($profile) ? $profile->firstname : null)) , ['class' => 'form-control','required']) }}
 								@include('partials.elems.formerrors', ['tag' => 'firstname'])
+							</div>
+
+							<div class="form-group has-feedback {{ $errors->has('lastname') ? 'has-error' : '' }}">
+								{{ Form::label('lastname', 'What is your last name?', ['class' => 'control-label']) }}
+								{{ Form::text('lastname',  old('lastname', (isset($profile) ? $profile->lastname : null)) , ['class' => 'form-control','required']) }}
+								@include('partials.elems.formerrors', ['tag' => 'lastname'])
 							</div>
 
 							<div class="form-group has-feedback {{ $errors->has('gender') ? 'has-error' : '' }}">

@@ -35,10 +35,11 @@ class ProfilePostRequest extends FormRequest
             $schools[$school->schoolcode] = $school->school;
         }
         return [
-            'firstname' => 'required|min:6|max:100',
-            'gender' => 'required|numeric|in:' . implode(',', array_keys(AppUser::GENDERS)),
-            'grade' => 'required|numeric|in:' . implode(',', array_keys(AppUser::GRADES)),
-            'schoolcode' => 'required|numeric|in:' . implode(',', array_keys($schools))
+            'firstname' => 'required|min:3|max:50',
+            'lastname' => 'required|min:3|max:50',
+            'gender' => 'numeric|in:' . implode(',', array_keys(AppUser::GENDERS)),
+            'grade' => 'numeric|in:' . implode(',', array_keys(AppUser::GRADES)),
+            'schoolcode' => 'numeric|in:' . implode(',', array_keys($schools))
         ];
     }
 }
