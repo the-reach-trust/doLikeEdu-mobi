@@ -74,7 +74,7 @@ class AuthController extends Controller
         $levelup_authentication = $levelup->authenticate($mode,$access_token);
 
         if($levelup->get_last_http_status() != HttpCodes::HTTP_OK){
-            Session::flash('flash_error', 'Error with creating account please try again!');
+            Session::flash('flash_error', 'Error with authorizing account please try again!');
             return redirect()->back()->withInput();
         }
 

@@ -3,7 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 use App\Models\AppUser;
+use App\Services\LevelUpApi;
+
+use Session;
+use Log;
 
 class ProfilePostRequest extends FormRequest
 {
@@ -18,11 +23,22 @@ class ProfilePostRequest extends FormRequest
      */
     public function rules()
     {
+        $levelupapi = new LevelUpApi;
+        $levelup_authentication = Session::get('levelup_authentication');
+        $levelup_hashcode = Session::get('levelup_hashcode');
+        $levelupapi->set_token($levelup_authentication->token);
+        $levelupapi->set_hashcode($levelup_hashcode);
+        $schools_api = $levelupapi->get_location_school('NA','NA');
+
+        $schools = [];
+        foreach ($schools_api as $school) {
+            $schools[$school->schoolcode] = $school->school;
+        }
         return [
-            'name' => 'required|min:6|max:100',
-            'gender' => 'required|in:' . implode(',', array_keys(AppUser::GENDERS)),
+            'firstname' => 'required|min:6|max:100',
+            'gender' => 'required|numeric|in:' . implode(',', array_keys(AppUser::GENDERS)),
             'grade' => 'required|numeric|in:' . implode(',', array_keys(AppUser::GRADES)),
-            'school' => 'required|numeric'
+            'schoolcode' => 'required|numeric|in:' . implode(',', array_keys($schools))
         ];
     }
 }

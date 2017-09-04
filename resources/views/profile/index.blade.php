@@ -22,28 +22,28 @@
 								'route' => ['profile.update']
 							]) }}
 
-							<div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
-								{{ Form::label('name', 'What is your first and last name?', ['class' => 'control-label']) }}
-								{{ Form::text('name',  old('name', (isset($name) ? $name : null)) , ['class' => 'form-control','required']) }}
-								@include('partials.elems.formerrors', ['tag' => 'name'])
+							<div class="form-group has-feedback {{ $errors->has('firstname') ? 'has-error' : '' }}">
+								{{ Form::label('firstname', 'What is your first and last name?', ['class' => 'control-label']) }}
+								{{ Form::text('firstname',  old('firstname', (isset($profile) ? $profile->firstname : null)) , ['class' => 'form-control','required']) }}
+								@include('partials.elems.formerrors', ['tag' => 'firstname'])
 							</div>
 
 							<div class="form-group has-feedback {{ $errors->has('gender') ? 'has-error' : '' }}">
 								{{ Form::label('gender', 'Are you a boy or a girl?', ['class' => 'control-label']) }}
-								{{ Form::select('gender', AppUser::GENDERS,  old('gender',(isset($gender) ? $gender : null)) , ['class' => 'form-control', 'placeholder' => 'select your gender', 'data-width' => '100%']) }}
+								{{ Form::select('gender', AppUser::GENDERS,  old('gender',(isset($profile->gender) ? $profile->gender : null)) , ['class' => 'form-control', 'placeholder' => 'select your gender', 'data-width' => '100%']) }}
 								@include('partials.elems.formerrors', ['tag' => 'gender'])
 							</div>
 
 							<div class="form-group has-feedback {{ $errors->has('grade') ? 'has-error' : '' }}">
 								{{ Form::label('grade', 'What grade are you in?', ['class' => 'control-label']) }}
-								{{ Form::select('grade', AppUser::GRADES,  old('grade',(isset($grade) ? $grade : null)) , ['class' => 'form-control', 'placeholder' => 'select your grade', 'data-width' => '100%']) }}
+								{{ Form::select('grade', AppUser::GRADES,  old('grade',(isset($profile) ? null : null)) , ['class' => 'form-control', 'placeholder' => 'select your grade', 'data-width' => '100%']) }}
 								@include('partials.elems.formerrors', ['tag' => 'grade'])
 							</div>
 
-							<div class="form-group has-feedback {{ $errors->has('school') ? 'has-error' : '' }}">
-								{{ Form::label('school', 'What school do you go to', ['class' => 'control-label']) }}
-								{{ Form::select('school', $schools,  old('school',(isset($school) ? $school : null)) , ['class' => 'form-control', 'placeholder' => 'select your school', 'data-width' => '100%']) }}
-								@include('partials.elems.formerrors', ['tag' => 'school'])
+							<div class="form-group has-feedback {{ $errors->has('schoolcode') ? 'has-error' : '' }}">
+								{{ Form::label('schoolcode', 'What school do you go to', ['class' => 'control-label']) }}
+								{{ Form::select('schoolcode', $schools,  old('schoolcode',(isset($profile) ? $profile->schoolcode : null)) , ['class' => 'form-control', 'placeholder' => 'select your school', 'data-width' => '100%']) }}
+								@include('partials.elems.formerrors', ['tag' => 'schoolcode'])
 							</div>
 
 							@if( false )

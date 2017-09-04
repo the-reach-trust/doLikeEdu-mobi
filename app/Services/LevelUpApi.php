@@ -330,6 +330,35 @@ class LevelUpApi {
     }
 
     /**
+     *  "Mode" (Integer) indicates the type of authentication mechanism that will be used:
+     *  "Credentials" (String) are the authentication credentials applicable to the "mode".
+     *  @return if users exsists
+     */
+    public function credentials($mode,$credentials){
+        $this->token_checker();
+        if(!is_int ($mode))
+        {
+            throw new Exception('Unsupported mode');
+        }
+
+        $this->_api_headers();
+        $url = $this->_apiUrl ."credentials";
+
+        $credentials = trim($credentials);
+
+        $params = array(
+            'mode'              => $mode,
+            'credentials'       => $credentials
+        );
+
+         $this->_call_api($url, 'POST', json_encode($params));
+
+        $result = $this->result;
+
+        return $result;
+    }
+
+    /**
      *   Retrieve the user profile.
      *
      *   Url: http://levelup.mxit.com/profile

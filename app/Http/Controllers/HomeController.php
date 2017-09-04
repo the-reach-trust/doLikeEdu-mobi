@@ -25,7 +25,7 @@ class HomeController extends AppController
 
         //TODO: Please Not Chris, I needed the points and dailys complete on other pages, so I'm calling it from a global function in Helpers.php for now.
         //Check user profile is complete and completed all challenges for today
-        $dailys_complete = rand(0,1) == 1;
+        $dailys_complete = 0;
 
         return view('home.index',compact('content','profile','dailys_complete','points'));
     }
