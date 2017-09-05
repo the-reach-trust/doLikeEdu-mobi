@@ -20,13 +20,13 @@
 
                             <span class="space"></span>
 
-                            @if( $challenge->remaining_attempts != 0 && (rand( 0, 1 ) == 1 ) ) <!-- TODO: == when using real user !-->
-                                No attempts left you get <b>{{ '50' }}</b> points!
+                            @if( $challenge->remaining_attempts == 0 )
+                                No attempts left you get <b>{{ $challenge->points }}</b> points!
                                 <span class="space"></span>
                                 <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-danger btn-block"> More {{ $challenge->category_name }} Quizzes </a><br/>
                             @else
                                 It's okay, it happens sometimes.<br/>
-                                You have <b>{{ '1' }}</b> more try left. Good luck!<br/>
+                                You have <b>{{ $challenge->remaining_attempts }}</b> more try left. Good luck!<br/>
                                 <span class="space"></span>
                                 <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-lg btn-danger btn-block">Try Again</a>
                             @endif
@@ -35,7 +35,7 @@
 
                             <a href="#" class="theme-primary">Learn more about this on Khan Academy</a>
                             <!-- Should normaly only be one page/solution !-->
-                            @if(!empty($page->child) && $challenge->remaining_attempts != 0 ) <!-- TODO: == when using real user !-->
+                            @if(!empty($page->child) && $challenge->remaining_attempts == 0 )
                                 <div class="list">
                                     @foreach ($page->child as $child)
                                         <a href="{{ route('quizzes.page', $child->id) }}" class="theme-primary">

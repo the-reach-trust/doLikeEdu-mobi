@@ -10,11 +10,25 @@
 		<div class="inner">
 			<div id="quizcategoriespanel">
 				<div class="container">
+					<div class="row">
+						<div class="{{ get_body_class() }}">
+							<h1> {{$category->name}} </h1>
+							<span class="space-4"></span>
+							<ul class="list quiz-categories">
+								@foreach ($categories as $category)
+									@include( 'quizzes.list-category' )
+								@endforeach
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="quizcategoriespanel">
+				<div class="container">
 					<div class="row">			
 						<div class="{{ get_body_class() }}">
-							
 							<h1>Topics</h1>
-							<span class="space-4"></span>
+							<a href="{{ route('quizzes.category', $category->category) }}" style="color: #FFF"> < Back to All {{$category->name}} Quizzes</a>
 							<ul class="list quiz-categories">
 								@foreach ($category->topics as $topic)
 									@include( 'quizzes.list-topic' )

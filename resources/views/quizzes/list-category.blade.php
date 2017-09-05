@@ -3,6 +3,6 @@
 		<figure>									
 			<img src="/images/ic-{{ strtolower($category->name) }}.svg" alt="{{ $category->name }}">	
 		</figure>
-		<span>{{ $category->name }} ({{ $category->amount }})</span>
+		<span>{{ $category->name }}</span>
 	</a>
 </li>

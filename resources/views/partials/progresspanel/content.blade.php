@@ -7,8 +7,8 @@
 
 <div class="row">
 	<div class="col-xs-4"><p class="h1">{{ get_tokens() }}</p></div>
-	<div class="col-xs-4"><p class="h1">{{ get_level() }}</p></div>
 	<div class="col-xs-4"><p class="h1">{{ get_points() }}</p></div>
+	<div class="col-xs-4"><p class="h1">{{ get_level() }}</p></div>
 </div>
 <div class="row">
 	<div class="col-xs-4"><h5>QUIZZES/Tokens</h5></div>

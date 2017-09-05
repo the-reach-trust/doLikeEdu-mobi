@@ -19,6 +19,9 @@
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:description" content="DoLikeEdu is a mobile learning service brought to Namibian learners by the Government of Namibia." />
 
+	<!--  jquery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<!-- Select 2 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" defer></script>
@@ -30,7 +33,6 @@
 	<!-- Vendors -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/intlTelInput.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
 	<script src="/js/intlTelInput.min.js"></script>
 
 	<!-- App inclusions -->

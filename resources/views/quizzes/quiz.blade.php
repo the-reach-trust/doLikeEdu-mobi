@@ -43,9 +43,12 @@
 						<!-- quiz content/form -->
 						{!! $page->content !!}
 
+						@if(!empty($page->child) && $challenge->remaining_attempts != 0)
+							You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for {{ $challenge->points_available }} points
+						@endif
 					</div>
 				</div>
-				@if(!empty($page->child) && $challenge->remaining_attempts != 0) <!-- TODO: == when using real user !-->
+				@if(!empty($page->child) && $challenge->remaining_attempts == 0)
 				<div class="row">
 					<!-- Should normaly only be one page/solution !-->
                         <div class="list">
@@ -62,8 +65,19 @@
 		</div>
 	</div>
 
-	<!-- Page info -->
-	<!--
-	{{ print_r($page) }}
-	-->
+	<script type="text/javascript">
+	@foreach ($challenge->user_answers as $user_answer)
+		@if($user_answer == $challenge->answer)
+			$( "input[value='{{$user_answer}}']" ).addClass( "correct" );
+		@else
+			$( "input[value='{{$user_answer}}']" ).addClass( "incorrect" );
+		@endif
+	@endforeach
+
+	@if($challenge->remaining_attempts == 0)
+		$( "input[value='{{$challenge->answer}}']" ).addClass( "correct" );
+		$( "input[type='submit']" ).attr('disabled',true);
+		$( "input[type='submit']" ).hide();
+	@endif
+	</script>
 @stop

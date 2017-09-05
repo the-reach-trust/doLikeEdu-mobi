@@ -11,14 +11,13 @@
 			<div>
 				<h2>
 					<span class="theme-primary">{{ $pages[$challenge->content_page]->heading }}</span>
-					<small class="theme-body-text">({{ $challenge->remaining_attempts }})</small>
 				</h2>
 				<p>{{ $challenge->points_max }} Points</p>
 			</div>
 		</a>
 	</td>
 	<td>
-		@if( rand(0,1) ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+		@if( $challenge->remaining_attempts == 0 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
 		@else &nbsp; @endif
 	</td>
 </tr>
