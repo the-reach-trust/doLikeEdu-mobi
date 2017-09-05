@@ -45,6 +45,8 @@
 
 						@if(!empty($page->child) && $challenge->remaining_attempts != 0)
 							You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for {{ $challenge->points_available }} points
+						@else
+							{{ $challenge->points }} points
 						@endif
 					</div>
 				</div>

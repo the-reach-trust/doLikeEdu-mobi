@@ -42,7 +42,7 @@
 
 							<div class="form-group has-feedback {{ $errors->has('grade') ? 'has-error' : '' }}">
 								{{ Form::label('grade', 'What grade are you in?', ['class' => 'control-label']) }}
-								{{ Form::select('grade', AppUser::GRADES,  old('grade',(isset($profile) ? null : null)) , ['class' => 'form-control', 'placeholder' => 'select your grade', 'data-width' => '100%']) }}
+								{{ Form::select('grade', AppUser::GRADES,  old('grade',(isset($profile->grade) ? $profile->grade : null)) , ['class' => 'form-control', 'placeholder' => 'select your grade', 'data-width' => '100%']) }}
 								@include('partials.elems.formerrors', ['tag' => 'grade'])
 							</div>
 

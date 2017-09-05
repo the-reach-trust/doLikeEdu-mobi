@@ -39,7 +39,7 @@ class ProfileController extends AppController
         $profile['firstname']   = $request->firstname;
         $profile['lastname']   = $request->lastname;
         $profile['gender']      = (int)$request->gender;
-        //$profile['grade']       = (int)$request->grade; TODO: no grade in api yet
+        $profile['grade']       = (int)$request->grade;
         $profile['schoolcode']  = (int)$request->schoolcode;
 
         $this->levelup->set_profile($profile);
