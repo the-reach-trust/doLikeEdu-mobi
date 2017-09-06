@@ -12,7 +12,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="{{ get_body_class() }}">
-							<h1> {{$category->name}} </h1>
+							<h1> {{$category_current->name}} </h1>
 							<span class="space-4"></span>
 							<ul class="list quiz-categories">
 								@foreach ($categories as $category)
@@ -28,9 +28,9 @@
 					<div class="row">			
 						<div class="{{ get_body_class() }}">
 							<h1>Topics</h1>
-							<a href="{{ route('quizzes.category', $category->category) }}" style="color: #FFF"> < Back to All {{$category->name}} Quizzes</a>
+							<a href="{{ route('quizzes.category', $category_current->category) }}" style="color: #FFF"> < Back to All {{$category_current->name}} Quizzes</a>
 							<ul class="list quiz-categories">
-								@foreach ($category->topics as $topic)
+								@foreach ($category_current->topics as $topic)
 									@include( 'quizzes.list-topic' )
 								@endforeach
 							</ul>
