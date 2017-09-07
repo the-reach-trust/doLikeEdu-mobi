@@ -11,8 +11,8 @@
 			<div id="quizcategoriespanel">
 				<div class="container">
 					<div class="row">			
-						<div class="{{ get_body_class() }}">							
-							<h1> {{$category->name}} </h1>
+						<div class="{{ get_body_class() }}">
+							<h1> {{$category_current->name}} </h1>
 							<span class="space-4"></span>
 							<ul class="list quiz-categories">
 								@foreach ($categories as $category)
@@ -23,10 +23,24 @@
 					</div>
 				</div>
 			</div>
+			<div id="quizcategoriespanel">
+				<div class="container">
+					<div class="row">
+						<div class="{{ get_body_class() }}">
+							<h1>Topics</h1>
+							<ul class="list quiz-categories">
+								@foreach ($category_current->topics as $topic)
+									@include( 'quizzes.list-topic' )
+								@endforeach
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="pattern-title">
 				<div class="container">
 					<div class="row">
-						<div class="{{ get_body_class() }}">				
+						<div class="{{ get_body_class() }}">
 							<h1>Quizzes</h1>
 						</div>
 					</div>
