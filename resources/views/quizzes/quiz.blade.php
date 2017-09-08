@@ -10,7 +10,7 @@
 
 	@include( 'partials.progresspanel.lg' )
 
-	<div id="page">
+	<div id="page" class="wider">
 		<div class="inner">
 			<div id="quizinfopanel">
 				<div class="container">
