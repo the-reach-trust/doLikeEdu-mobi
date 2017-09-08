@@ -238,6 +238,7 @@ return [
         // Models
         'AppUser' => App\Models\AppUser::class,
         'ChallengeType' => App\Models\ChallengeType::class,
+        'HttpCodes' => App\Models\HttpCodes::class,
     ],
 
 ];

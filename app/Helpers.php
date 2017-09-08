@@ -48,13 +48,10 @@ function get_user_level() {
 }
 
 function get_points_object() {
-	return (object) array(
-		'points' => 0,
-		'tokens' => 1,
-		'level' => 1
-	);
+	return Session::get('levelup_points');
 }
 function get_dailys_complete()	{ return ( rand( 0, 1 ) == 1 ); }
 function get_points() 			{ $points = get_points_object(); return $points->points; }
 function get_tokens() 			{ $points = get_points_object(); return $points->tokens; }
 function get_level()  			{ $points = get_points_object(); return $points->level; }
+function get_firstname()		{ return Session::get('levelup_firstname'); }

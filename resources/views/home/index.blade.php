@@ -28,7 +28,7 @@
 							<div class="list earn-points">
 								<a href="{{ route('quizzes.index') }}">
 									<figure>
-										@if( true ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+										@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
 										@else &nbsp; @endif
 									</figure>
 									<span class="h2">Finish 1 quiz</span>

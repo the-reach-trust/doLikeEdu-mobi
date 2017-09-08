@@ -17,18 +17,15 @@ class HomeController extends AppController
     public function index()
     {
         $content = $this->levelup->get_content();
-		//$profile = $levelup->get_profile();
-		
-		//TODO: Please Not Chris, I needed the points and dailys complete on other pages, so I'm calling it from a global function in Helpers.php for now.
-
-        //TODO: Faking it for now
-        $points = (object) array('points' => 0);
-        $points->tokens = 0;
-        $points->level = mt_rand(1,4);
+		$profile = $this->levelup->get_profile();
+		$points = $this->levelup->get_points();
 
         Session::put('levelup_points', $points);
+        Session::put('levelup_firstname', $profile->firstname);
 
-        $dailys_complete = rand(0,1) == 1;
+        //TODO: Please Not Chris, I needed the points and dailys complete on other pages, so I'm calling it from a global function in Helpers.php for now.
+        //Check user profile is complete and completed all challenges for today
+        $dailys_complete = 0;
 
         return view('home.index',compact('content','profile','dailys_complete','points'));
     }

@@ -199,7 +199,7 @@
 							<p>A certificate signed by the administrator responsible for maintaining DoLikeEdu will be proof of the date of publication and content of the current version and all previous versions of the conditions.</p>
 						</li>
 						<li>
-							<p style="margin-bottom: 0.1in; line-height: 100%"><a id="_GoBack" name="_GoBack"></a> <font color="#333333"><font face="Helvetica, serif"><font size="2" style="font-size: 10pt">The <font face="Helvetica, serif"><font size="2" style="font-size: 10pt">laws of the Namibia</font></font> <font color="#333333"><font face="Helvetica, serif"><font size="2" style="font-size: 10pt">to the Terms of Use.</p>
+							<p><font color="#333333"><font face="Helvetica, serif"><font size="2" style="font-size: 10pt">The <font face="Helvetica, serif"><font size="2" style="font-size: 10pt">laws of the Namibia</font></font> <font color="#333333"><font face="Helvetica, serif"><font size="2" style="font-size: 10pt">to the Terms of Use.</font></font></font></font></font></font></p>
 						</li>
 						<li>
 							<p>Any breach by you of the Terms of Use entitles us to suspend your access to DoLikeEdu.</p>

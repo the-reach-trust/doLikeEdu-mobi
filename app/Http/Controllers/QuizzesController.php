@@ -49,11 +49,11 @@ class QuizzesController extends AppController
 
         // Loop through all the categories again and grab the name of the matching id
         $categories = $this->levelup->get_challengecategories();
-        $category = null;
+        $category_current = null;
 
          foreach($categories as $categorynum){
             if ($categorynum->category == $category_id){
-                $category = $categorynum;
+                $category_current = $categorynum;
                 break;
             }
         }
@@ -64,7 +64,7 @@ class QuizzesController extends AppController
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.category',compact('category_id','category','categories','challenges','pages','offset','challenge_count'));
+        return view('quizzes.category',compact('category_id','category_current','categories','challenges','pages','offset','challenge_count'));
     }
 
     public function topic($category_id,$topic_id,$offset=0,$sort='popular')
@@ -79,12 +79,12 @@ class QuizzesController extends AppController
                                 'count' => $challenge_count);
 
         // Loop through all the categories again and grab the name of the matching id
-        $challengescategories = $this->levelup->get_challengecategories();
-        $category = null;
+        $categories = $this->levelup->get_challengecategories();
+        $category_current = null;
 
-         foreach($challengescategories as $categorynum){
+         foreach($categories as $categorynum){
             if ($categorynum->category == $category_id){
-                $category = $categorynum;
+                $category_current = $categorynum;
                 break;
             }
         }
@@ -96,7 +96,7 @@ class QuizzesController extends AppController
             $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
         }
 
-        return view('quizzes.topic',compact('category_id','topic_id','category','challengescategories','challenges','pages','offset','challenge_count'));
+        return view('quizzes.topic',compact('category_id','topic_id','category_current','categories','challenges','pages','offset','challenge_count'));
     }
 
     public function quiz($id)
@@ -122,9 +122,14 @@ class QuizzesController extends AppController
 
     public function quiz_post(Request $request,$id)
     {
-        return redirect()->route('quizzes.result',[$id,rand(0,1)]);
-        dd($request);
-        $quiz_result = $this->levelup->answer_challenge($id,$request);
+        $challenge = $this->levelup->get_challenge($id);
+
+        if($challenge->remaining_attempts == 0){
+            \Session::flash('flash_error', 'You have no attempts left');
+            return redirect()->back()->withInput();
+        }
+
+        $quiz_result = $this->levelup->answer_challenge($id,$request->all());
 
         if($this->levelup->get_last_http_status() == Challenge::CHALLENGE_EXPIRED || $this->levelup->get_last_http_status() == Challenge::CHALLENGE_NOT_FOUND)
         {
@@ -132,12 +137,14 @@ class QuizzesController extends AppController
             redirect()->route('quizzes.index');
         }
 
-        //check if answer is correct
-        if($quiz_result){
-            return redirect()->route('quizzes.result',[$id,true]);
+        foreach ($quiz_result->user_answers as $user_answer) {
+            if($user_answer == $quiz_result->answer)
+            {
+                return redirect()->route('quizzes.result',[$id,true]);
+            }
         }
 
-        return redirect()->route('quizzes.result',[$id,false]);
+        return redirect()->route('quizzes.result',[$id,0]);
     }
 
     public function quiz_result($id = 0,$correct = false)
@@ -163,5 +170,16 @@ class QuizzesController extends AppController
         }
 
         return view('quizzes.incorrect',compact('challenge','page'));
+    }
+
+    public function page($id)
+    {
+        $page = $this->levelup->get_page($id);
+
+        if($this->levelup->get_last_http_status() == Page::PAGE_MISSING)
+        {
+            return abort(404,'Missing Page');
+        }
+        return view('quizzes.page',compact('page'));
     }
 }

@@ -150,7 +150,10 @@ class LevelUpApi {
         if ($this->http_status != 200) {
             // Problem with API call, we received an HTTP status code other than 200
             $this->error = TRUE;
-            error_log($url.': http_status'.$this->http_status .' result - '.$result);
+            error_log($url.': http_status'.$this->http_status .' result - '.$result.' curl_info'.print_r($this->curl_info,true) );
+            if(getenv('APP_ENV') == 'local'){
+                dd($this->curl_info);
+            }
         }
         $this->result = (($decode === TRUE) && (is_json($result) === TRUE)) ? json_decode($result) : $result;
     }
@@ -239,7 +242,69 @@ class LevelUpApi {
     }
 
     /**
-     *   Used to register a new account or re-activate an existing account.
+     *  "Mode" (Integer) indicates the type of authentication mechanism that will be used:
+     *  "Credentials" (String) are the authentication credentials applicable to the "mode".
+     *  @return if users exsists
+     */
+    public function authcheck($mode,$credentials){
+        if(!is_int ($mode))
+        {
+            throw new Exception('Unsupported mode');
+        }
+        $url = $this->_apiUrl ."authcheck";
+
+        $credentials = trim($credentials);
+
+        $this->_headers = array();
+        $this->_headers[] = 'LU-Ver: Mobi/'. $this->_version;
+        $this->_headers[] = "Content-Type: application/json";
+        $this->_headers[] = 'LU-Cookie: '. $this->_browser_token;
+        $this->_headers[] = 'X-Forwarded-For: '. $this->_ip;
+
+        $params = array(
+            'mode'              => $mode,
+            'credentials'       => $credentials
+        );
+
+        $this->_call_api($url, 'POST', json_encode($params));
+
+        $result = $this->result;
+
+        return $result;
+    }
+
+    /**
+     *   Used to register a user.
+     */
+    public function register($mode,$credentials){
+        if(!is_int ($mode))
+        {
+            throw new Exception('Unsupported mode');
+        }
+        $url = $this->_apiUrl ."register";
+
+        $credentials = trim($credentials);
+
+        $this->_headers = array();
+        $this->_headers[] = 'LU-Ver: Mobi/'. $this->_version;
+        $this->_headers[] = "Content-Type: application/json";
+        $this->_headers[] = 'LU-Cookie: '. $this->_browser_token;
+        $this->_headers[] = 'X-Forwarded-For: '. $this->_ip;
+
+        $params = array(
+            'mode'              => $mode,
+            'credentials'       => $credentials
+        );
+
+        $this->_call_api($url, 'POST', json_encode($params));
+
+        $result = $this->result;
+
+        return $result;
+    }
+
+    /**
+     *   Used to login or re-activate an existing account.
      */
     public function authenticate($mode,$credentials)
     {
@@ -261,6 +326,35 @@ class LevelUpApi {
         );
 
         $this->_call_api($url, 'POST', json_encode($params));
+
+        $result = $this->result;
+
+        return $result;
+    }
+
+    /**
+     *  "Mode" (Integer) indicates the type of authentication mechanism that will be used:
+     *  "Credentials" (String) are the authentication credentials applicable to the "mode".
+     *  @return if users exsists
+     */
+    public function credentials($mode,$credentials){
+        $this->token_checker();
+        if(!is_int ($mode))
+        {
+            throw new Exception('Unsupported mode');
+        }
+
+        $this->_api_headers();
+        $url = $this->_apiUrl ."credentials";
+
+        $credentials = trim($credentials);
+
+        $params = array(
+            'mode'              => $mode,
+            'credentials'       => $credentials
+        );
+
+         $this->_call_api($url, 'POST', json_encode($params));
 
         $result = $this->result;
 

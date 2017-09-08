@@ -10,6 +10,8 @@ use Session;
 use App\Http\Requests\LoginPostRequest;
 use App\Http\Requests\RegisterPostRequest;
 use App\Models\AccessMode;
+use App\Models\AppUser;
+use App\Models\HttpCodes;
 use App\Services\LevelUpApi;
 
 class AuthController extends Controller
@@ -33,16 +35,26 @@ class AuthController extends Controller
         $levelup = new LevelUpApi;
 
         $access_token = $request->mobilenumber.":".$request->password;
-        $mode = AccessMode::GUEST_ACCESS;
+        $mode = AccessMode::MOBILE_NUMBER_ACCESS;
 
-        $levelup_authentication = $levelup->authenticate($mode,$access_token);
+        if(AppUser::exists($levelup,$mode,$request->mobilenumber)){
+            return redirect()->back()->withErrors(['mobilenumber' =>'Mobile Number already exists'])->withInput();
+        }
 
-        Session::put('levelup_authentication', $levelup_authentication);
-        Session::put("levelup_hashcode",md5('LevelUp-'.$levelup_authentication->userid));
-        Session::put('access_token', $access_token);
-        Session::put('mode', $mode);
+        $levelup_authentication = $levelup->register($mode,$access_token);
 
-        Session::flash('flash_success', 'Successfully logged in!');
+        if($levelup->get_last_http_status() != HttpCodes::HTTP_OK){
+            Session::flash('flash_error', 'Error with creating account please try again!');
+            return redirect()->back()->withInput();
+        }
+
+        $profile = array(
+                            'firstname' => $request->firstname,
+                            'lastname' => $request->lastname,
+                        );
+        $this->levelup_setup($levelup_authentication,$access_token,$mode,$profile);
+
+        Session::flash('flash_success', 'Successfully created an account!');
         return \Redirect::route('home.index');
     }
 
@@ -56,21 +68,20 @@ class AuthController extends Controller
         $levelup = new LevelUpApi;
 
         $access_token = $request->mobilenumber.":".$request->password;
-        $mode = AccessMode::GUEST_ACCESS;
+        $mode = AccessMode::MOBILE_NUMBER_ACCESS;
+
+        if(!AppUser::exists($levelup,$mode,$request->mobilenumber)){
+            return redirect()->back()->withErrors(['mobilenumber' =>'Mobile Number not found'])->withInput();
+        }
 
         $levelup_authentication = $levelup->authenticate($mode,$access_token);
 
-        Session::put('levelup_authentication', $levelup_authentication);
-        Session::put("levelup_hashcode",md5('LevelUp-'.$levelup_authentication->userid));
-        Session::put('access_token', $access_token);
-        Session::put('mode', $mode);
+        if($levelup->get_last_http_status() != HttpCodes::HTTP_OK){
+            Session::flash('flash_error', 'Error with authorizing account please try again!');
+            return redirect()->back()->withInput();
+        }
 
-        //TODO: Faking it for now
-        $points = (object) array('points' => 0);
-        $points->tokens = 0;
-        $points->level = 1;
-
-        Session::put('levelup_points', $points);
+        $this->levelup_setup($levelup_authentication,$access_token,$mode);
 
         Session::flash('flash_success', 'Successfully logged in!');
         return \Redirect::route('home.index');
@@ -81,5 +92,25 @@ class AuthController extends Controller
 
         Session::flash('flash_success', 'Successfully logged out!');
         return \Redirect::to('/');
+    }
+
+    public function levelup_setup($levelup_authentication,$access_token,$mode,$profile=null)
+    {
+        $levelup_hashcode = md5('LevelUp-'.$levelup_authentication->userid);
+        Session::put('levelup_authentication', $levelup_authentication);
+        Session::put("levelup_hashcode",$levelup_hashcode);
+        Session::put('access_token', $access_token);
+        Session::put('mode', $mode);
+
+        $levelup = new LevelUpApi;
+        $levelup->set_token($levelup_authentication->token);
+        $levelup->set_hashcode($levelup_hashcode);
+        if(!is_null($profile) ){
+            $levelup->set_profile($profile);
+        }
+        $points = $levelup->get_points();
+        $profile = $levelup->get_profile();
+        Session::put('levelup_points', $points);
+        Session::put('levelup_firstname', $profile->firstname);
     }
 }
