@@ -55,3 +55,14 @@ function get_points() 			{ $points = get_points_object(); return $points->points
 function get_tokens() 			{ $points = get_points_object(); return $points->tokens; }
 function get_level()  			{ $points = get_points_object(); return $points->level; }
 function get_firstname()		{ return Session::get('levelup_firstname'); }
+
+function is_topic_page( $topic_id ) {
+	return ( array_values(array_slice(explode( '/', Request::path()), -2))[0] != 'category' && $topic_id == array_values(array_slice(explode( '/', Request::path()), -1))[0] );
+}
+
+function is_category_page( $category_id ) {
+	if ( array_values(array_slice(explode( '/', Request::path()), -2))[0] != 'category'  )
+		return ( $category_id == array_values(array_slice(explode( '/', Request::path()), -2))[0] );
+	else
+		return ( $category_id == array_values(array_slice(explode( '/', Request::path()), -1))[0] );
+}
