@@ -6,6 +6,7 @@ var resizeTimer = null;
 		activateTels();
 		removeAlerts();
 		loginFormPreSubmit();
+		radioButtonEvents();
 	});
 
 	// $( window ).resize( windowRezizeActions );
@@ -50,6 +51,22 @@ var resizeTimer = null;
 				field.val( code + field.val() );
 			});
 		});
+	}
+
+	function radioButtonEvents() {
+		$( '[type="radio"]' ).each( function() {
+			var field = $( this );
+			if ( field.is( ':checked' ) ) activateLabel( field.closest( 'label' ) );
+		});
+
+		$( '[type="radio"]' ).click( function() {
+			var label = $( this ).closest( 'label' );
+			activateLabel( label );
+		});
+	}
+
+	function activateLabel( label ) {
+		label.addClass( 'active' ).siblings().removeClass( 'active' );
 	}
 
 })( jQuery );

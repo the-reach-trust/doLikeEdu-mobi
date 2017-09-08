@@ -1,4 +1,11 @@
 /*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Buttons  */
+/*--------------------------------------------------------------------------------------*/
+.btn-secondary {
+	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Branding  */
 /*--------------------------------------------------------------------------------------*/
 #branding {
@@ -139,5 +146,50 @@
 	border-bottom: 1px solid $gray;
 	h1 {
 		margin: 14px 0;
+	}
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Quizzess  */
+/*--------------------------------------------------------------------------------------*/
+#quiz-single {
+	padding-bottom: 30px;
+	h3, h4 { color: $brand-success; }
+	.question { margin-top: 26px; }
+	.challenge {
+		margin-top: 26px;
+		input {
+			&[type="radio"] {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;			
+			}
+			&[type="submit"] {
+				@extend .btn;
+				@extend .btn-secondary;
+				@extend .btn-block;	
+				font-size: 1.2em;
+				padding: 12px;			
+			}
+		}
+		label {
+			cursor: pointer;
+			display: block;
+			border: 1px solid $brand-secondary;
+			padding: 14px;
+			margin-bottom: 0;
+			&:hover, &.active {
+				@extend .color-success-fill;
+			}
+			&.correct {
+				@extend .color-info-fill;
+			}
+		}
+	}
+	.attempts { text-align: center; }
+	.blocked-points {
+		color: $brand-primary;
+		border: 1px solid $brand-primary;
+		padding: 2px 5px;
 	}
 }

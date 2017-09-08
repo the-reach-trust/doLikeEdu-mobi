@@ -21,3 +21,18 @@
 }
 .space { @extend .space-6; }
 .header-displacement { margin-top: -20px; }
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Colors  */
+/*--------------------------------------------------------------------------------------*/
+.color-success-fill {
+	color: $state-success-text !important;
+	background: $state-success-bg;
+	border: 1px solid $state-success-border;
+}
+
+.color-info-fill {
+	color: $state-info-text !important;
+	background: $state-info-bg;
+	border: 1px solid $state-info-border;
+}

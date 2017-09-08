@@ -18,8 +18,8 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 $brand-primary:         #2a919b !default; // #337ab7
 $brand-secondary:		#1c6468 !default;
 $brand-accent: 			#fc636b !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
+$brand-success:         #AFAEFD !default;
+$brand-info:            #EB98A7 !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
@@ -158,6 +158,10 @@ $btn-default-border:             #ccc !default;
 $btn-primary-color:              $white !default;
 $btn-primary-bg:                 $brand-accent !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-secondary-color:            $white !default;
+$btn-secondary-bg:               $brand-primary !default;
+$btn-secondary-border:           darken($btn-secondary-bg, 5%) !default;
 
 $btn-success-color:              $white !default;
 $btn-success-bg:                 $brand-success !default;
@@ -503,16 +507,16 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             #3c763d !default;
-$state-success-bg:               #dff0d8 !default;
+$state-success-text:             $white !default;
+$state-success-bg:               $brand-success !default;
 $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
 
-$state-info-text:                #31708f !default;
-$state-info-bg:                  #d9edf7 !default;
+$state-info-text:                $white !default;
+$state-info-bg:                  $brand-info !default;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
-$state-warning-text:             #8a6d3b !default;
-$state-warning-bg:               #fcf8e3 !default;
+$state-warning-text:             $white !default;
+$state-warning-bg:               $brand-warning !default;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 
 $state-danger-text:              #a94442 !default;
