@@ -5,6 +5,7 @@ var resizeTimer = null;
 		activateSelects();
 		activateTels();
 		removeAlerts();
+		loginFormPreSubmit();
 	});
 
 	// $( window ).resize( windowRezizeActions );
@@ -38,6 +39,17 @@ var resizeTimer = null;
 		resizeTimer = window.setTimeout( function() {
 			
 		}, 100 );
+	}
+
+	function loginFormPreSubmit() {
+		$( '[type="tel"]' ).each( function() {
+			$( this ).closest( 'form' ).submit( function() {
+				var form = $( this );
+				var field = form.find( '[type="tel"]' );
+				var code = form.find( '.selected-dial-code' ).html();
+				field.val( code + field.val() );
+			});
+		});
 	}
 
 })( jQuery );
