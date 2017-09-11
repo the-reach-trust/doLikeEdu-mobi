@@ -16,15 +16,15 @@
 
                         <div class="text-center">
                                 <img src="/images/crown.png" width="200"> <br/>
-                                <h1> Congrats </h1>
+                                <h1 class="text-primary"> Congrats </h1>
 
                                 <span class="space-3"></span>
 
-                                <div>That is the right answer... You get <b>{{ '50' }}</b> points!</div>
+                                <p class="text-primary">That is the right answer...<br />You get <b>{{ '50' }}</b> points!</p>
 
                                 <span class="space"></span>
 
-                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-danger btn-block"> More {{ $challenge->category_name }} Quizzes </a>
+                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-primary"> More {{ $challenge->category_name }} Quizzes </a>
 
                                 <span class="space"></span>
 

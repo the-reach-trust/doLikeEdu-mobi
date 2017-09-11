@@ -21,7 +21,12 @@
 							@endif
 						</ol>
 
-                        <h1> {{$page->heading}} </h1>
+						@php
+							if ( $page->heading == 'Edu Shows you' ) $class = "edu";
+							else $class = "";
+						@endphp
+
+                        <h1 class="{{$class}}"> {{$page->heading}} </h1>
 						<span class="space-3"></span>
 
                         @include( 'partials.progresspanel.lg' )

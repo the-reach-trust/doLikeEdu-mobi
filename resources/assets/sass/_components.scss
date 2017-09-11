@@ -1,4 +1,11 @@
 /*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Buttons  */
+/*--------------------------------------------------------------------------------------*/
+.btn-secondary {
+	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Branding  */
 /*--------------------------------------------------------------------------------------*/
 #branding {
@@ -28,6 +35,19 @@
 	}
 }
 
+h1.edu:before {
+	content: ' ';
+	background: url("/images/edu.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 45px;
+	height: 45px;
+	display: inline-block;
+	margin-right: 6px;
+	position: relative;
+	top: 12px;
+}
+
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Panels  */
 /*--------------------------------------------------------------------------------------*/
@@ -37,6 +57,55 @@
 	color: $white;
 	padding-bottom: 0px;
 	h5 { margin-top: 0; }
+	&.alt {
+		padding: 20px 0;
+		background: lighten( $brand-primary, 7.5% );
+		h3, ul, li { margin: 0; }
+		h3 {
+			@media screen and ( min-width: 520px ) {
+				float: left;
+			}
+		}
+		ul {
+			@media screen and ( max-width: 519px ) {
+				text-align: left;
+			}
+			li {
+				width: auto;
+				margin-right: 18px;
+				max-width: none;
+				@media screen and ( max-width: 519px ) {
+					margin-top: 12px;
+					margin-bottom: 6px;
+				}
+				*:last-child {
+					margin-right: 0;
+				}
+				&:hover, &.active {		
+					a {
+						position: relative;
+						&:after {
+							content: ' ';
+							position: absolute;
+							display: block;
+							width: 100%;
+							bottom: -7px;
+							left: 0;
+							height: 3px;
+							background: $white;
+						}
+					}
+				}
+			}
+		}
+		li.active {
+			font-weight: normal;
+			-webkit-transform: none;
+			-moz-transform: none;
+			-o-transform: none;
+			transform: none;
+		}
+	}
 }
 
 #idprogresspanel-alt {
@@ -84,11 +153,14 @@
 		}
 	}
 }
-
-#quizinfopanel {
-	
+.back-to-topics {
+	color: $white;
+    margin-top: 10px;
+	display: inline-block;
+	&:hover {
+		color: $white;
+	}
 }
-
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Frame for desktop  */
 /*--------------------------------------------------------------------------------------*/
@@ -139,5 +211,55 @@
 	border-bottom: 1px solid $gray;
 	h1 {
 		margin: 14px 0;
+	}
+}
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Quizzess  */
+/*--------------------------------------------------------------------------------------*/
+#quiz-single {
+	padding-bottom: 30px;
+	.question { margin-top: 26px; }
+	.challenge {
+		margin-top: 26px;
+		input {
+			&[type="radio"] {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;			
+			}
+			&[type="submit"] {
+				margin-top: 20px;
+				@extend .btn;
+				@extend .btn-primary;
+				@extend .btn-block;	
+				font-size: 1.2em;
+				padding: 12px;			
+			}
+		}
+		label {
+			cursor: pointer;
+			display: block;
+			border: 1px solid #ccc;
+			border-bottom: 0;
+			padding: 14px;
+			margin-bottom: 0;
+			&:last-of-type {
+				border-bottom: 1px solid #ccc;
+			}
+			&:hover, &.active {
+				@extend .color-success-fill;
+			}
+			&.correct {
+				@extend .color-info-fill;
+			}
+		}
+		br { display: none; }
+	}
+	.attempts { text-align: center; }
+	.blocked-points {
+		color: $brand-primary;
+		border: 1px solid $brand-primary;
+		padding: 2px 5px;
 	}
 }

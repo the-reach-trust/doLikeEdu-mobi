@@ -6,7 +6,7 @@
 
 	@include( 'partials.progresspanel.lg' )
 	
-	<div id="page">
+	<div id="page" class="wider">
 		<div class="inner">
 			<div id="quizcategoriespanel">
 				<div class="container">
@@ -23,11 +23,11 @@
 					</div>
 				</div>
 			</div>
-			<div id="quizcategoriespanel">
+			<div id="quizcategoriespanel" class="alt">
 				<div class="container">
 					<div class="row">
 						<div class="{{ get_body_class() }}">
-							<h1>Topics</h1>
+							<h3>Topics</h3>
 							<ul class="list quiz-categories">
 								@foreach ($category_current->topics as $topic)
 									@include( 'quizzes.list-topic' )

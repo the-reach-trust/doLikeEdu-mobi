@@ -18,17 +18,17 @@
                             <img src="/images/cloud.png" width="200"> <br/>
                             <h1>Keep Trying...</h1>
 
-                            <span class="space"></span>
+                            <span class="space-3"></span>
 
                             @if( $challenge->remaining_attempts == 0 )
-                                No attempts left you get <b>{{ $challenge->points }}</b> points!
+                                <p class="text-primary">No attempts left you get <b>{{ $challenge->points }}</b> points!</p>
                                 <span class="space"></span>
-                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-danger btn-block"> More {{ $challenge->category_name }} Quizzes </a><br/>
+                                <a href="{{ route('quizzes.category', $challenge->category) }}" class="btn btn-lg btn-primary"> More {{ $challenge->category_name }} Quizzes </a><br/>
                             @else
-                                It's okay, it happens sometimes.<br/>
-                                You have <b>{{ $challenge->remaining_attempts }}</b> more try left. Good luck!<br/>
+								<p class="text-primary">It's okay, it happens sometimes.<br/>
+                                You have <b>{{ $challenge->remaining_attempts }}</b> more try left. Good luck!<br/></p>
                                 <span class="space"></span>
-                                <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-lg btn-danger btn-block">Try Again</a>
+                                <a href="{{ route('quizzes.quiz', $challenge->id) }}"  class="btn btn-lg btn-primary">Try Again</a>
                             @endif
 
                             <span class="space"></span>

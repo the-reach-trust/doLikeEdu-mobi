@@ -10,7 +10,7 @@
 
 	@include( 'partials.progresspanel.lg' )
 
-	<div id="page">
+	<div id="page" class="wider">
 		<div class="inner">
 			<div id="quizinfopanel">
 				<div class="container">
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="container">
+			<div id="quiz-single" class="container">
 				<div class="row">
 					<div class="{{ get_body_class() }}">
 
@@ -43,11 +43,13 @@
 						<!-- quiz content/form -->
 						{!! $page->content !!}
 
-						@if($challenge->remaining_attempts != 0)
-							You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for {{ $challenge->points_available }} points
-						@else
-							{{ $challenge->points }} points
-						@endif
+						<div class="attempts">
+							@if($challenge->remaining_attempts != 0)
+								You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for <span class="blocked-points">{{ $challenge->points_available }}</span> points
+							@else
+								{{ $challenge->points }} points
+							@endif
+						</div>
 					</div>
 				</div>
 				@if(!empty($page->child) && $challenge->remaining_attempts == 0)
@@ -77,7 +79,7 @@
 	@endforeach
 
 	@if($challenge->remaining_attempts == 0)
-		$( "input[value='{{$challenge->answer}}']" ).addClass( "correct" );
+		$( "input[value='{{$challenge->answer}}']" ).addClass( "correct" ).closest( "label" ).addClass( "correct" );
 		$( "input[type='submit']" ).attr('disabled',true);
 		$( "input[type='submit']" ).hide();
 	@endif

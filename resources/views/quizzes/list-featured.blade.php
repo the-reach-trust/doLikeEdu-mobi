@@ -16,7 +16,7 @@
 			</div>
 		</a>
 	</td>
-	<td>
+	<td class="text-center" width="72">
 		@if( $challenge->remaining_attempts == 0 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
 		@else &nbsp; @endif
 	</td>

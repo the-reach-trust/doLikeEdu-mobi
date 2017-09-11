@@ -54,7 +54,8 @@ body {
 				#idprogresspanel,
 				#idprogresspanel-alt,
 				#quizcategoriespanel,
-				#quizinfopanel { background: $color-primary; }		
+				#quizinfopanel { background: $color-primary; }
+				#quizcategoriespanel.alt { background: lighten( $color-primary, 7.5% ); }
 			}
 			@else if $hover-state = "style-b" {				
 				/*----------------------------------------ARDCOZA---------------------------------------*/
@@ -81,7 +82,8 @@ body {
 				#quizcategoriespanel,
 				#quizinfopanel {
 					background: $color-background;
-				}				
+				}		
+				#quizcategoriespanel.alt { background: lighten( $color-background, 7.5% ); }		
 				$color-background: $white;
 			}	
 
@@ -106,8 +108,15 @@ body {
 				}
 				&.quiz-categories {
 					li {
-						figure { background: $color-background;	}
+						figure {
+							background: $color-background;
+						}
 						a { color: $color-background; }
+						&.active {
+							figure {
+								border: 8px solid $color-accent;
+							}
+						}
 					}
 				}
 				&.quiz-list {
@@ -139,6 +148,31 @@ body {
 				&[title^="select"] {
 					color: $color-input;
 				}
+			}
+
+			#quiz-single {
+				h3, h4, label { color: $color-primary; }
+			}
+
+			/*----------------------------------------ARDCOZA---------------------------------------*/
+			/*      More Components  */
+			/*--------------------------------------------------------------------------------------*/
+
+			
+			.color-success-fill {
+				@if nth( $theme, 1 ) == 'level-3' {
+					color: $white !important;
+					background: $color-primary;
+				}
+				@else {
+					color: $color-primary !important;
+					background: $color-accent;
+				}
+			}
+
+			.color-info-fill {
+				color: $white !important;
+				background: $brand-accent;
 			}
 
 			/*----------------------------------------ARDCOZA---------------------------------------*/
