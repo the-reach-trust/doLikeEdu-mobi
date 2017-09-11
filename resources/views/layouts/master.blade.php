@@ -87,5 +87,7 @@
 	@if(Session::has('levelup_authentication'))
 		@include('layouts.footer')
 	@endif
+
+@yield('js')
 </body>
 </html>
