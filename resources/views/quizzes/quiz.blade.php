@@ -72,9 +72,9 @@
 	<script type="text/javascript">
 	@foreach ($challenge->user_answers as $user_answer)
 		@if($user_answer == $challenge->answer)
-			$( "input[value='{{$user_answer}}']" ).addClass( "correct" );
+			$( "input[value='{{$user_answer}}']" ).addClass( "correct" ).closest( "label" ).addClass( "correct" );
 		@else
-			$( "input[value='{{$user_answer}}']" ).addClass( "incorrect" );
+			$( "input[value='{{$user_answer}}']" ).addClass( "incorrect" ).closest( "label" ).addClass( "incorrect" );
 		@endif
 	@endforeach
 
