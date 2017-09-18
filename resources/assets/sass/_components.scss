@@ -1,9 +1,7 @@
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Buttons  */
 /*--------------------------------------------------------------------------------------*/
-.btn-secondary {
-	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
-}
+.btn-secondary { @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border); }
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Branding  */
@@ -219,7 +217,13 @@ h1.edu:before {
 /*--------------------------------------------------------------------------------------*/
 #quiz-single {
 	padding-bottom: 30px;
-	.question { margin-top: 26px; }
+	.question {
+		margin-top: 26px;
+		img {
+			max-width: 100%;
+			margin: 12px 0;
+		}
+	}
 	.challenge {
 		margin-top: 26px;
 		input {
@@ -247,11 +251,17 @@ h1.edu:before {
 			&:last-of-type {
 				border-bottom: 1px solid #ccc;
 			}
-			&:hover, &.active {
-				@extend .color-success-fill;
+			&:hover:not(.incorrect):not(.correct), 
+			&.active:not(.incorrect):not(.correct) {
+				font-weight: bold;
+				border-left-width: 3px;
+				border-right-width: 3px;
+			}
+			&.incorrect {
+				@extend .color-info-fill;
 			}
 			&.correct {
-				@extend .color-info-fill;
+				@extend .color-success-fill;
 			}
 		}
 		br { display: none; }

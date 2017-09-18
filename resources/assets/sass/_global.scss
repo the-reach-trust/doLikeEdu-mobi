@@ -165,10 +165,16 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 			padding: 20px;
 			margin-bottom: 10px;
 			border: 1px solid $gray;
+			img {
+				float: left;
+				width: 46px;
+				margin-right: 20px;
+			}
 			h2 { margin: 0 0 4px; }
 			p { margin-bottom: 0; }
 			.progress {
-				margin: 13px 0 0;
+				clear: both;
+				margin: 20px 0 0;
 				height: 11px;
 				-webkit-box-shadow: none;
 				-moz-box-shadow: none;

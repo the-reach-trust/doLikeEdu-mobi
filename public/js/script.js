@@ -2,11 +2,12 @@ var resizeTimer = null;
 
 ( function( $ ) {
 	$( document ).ready( function() {
-		activateSelects();
-		activateTels();
+		activateSelects();		
 		removeAlerts();
-		loginFormPreSubmit();
 		radioButtonEvents();
+		//activateTels();
+		//loginFormPreSubmit();
+		
 	});
 
 	// $( window ).resize( windowRezizeActions );
