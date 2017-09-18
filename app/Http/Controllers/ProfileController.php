@@ -50,7 +50,7 @@ class ProfileController extends AppController
 
         //Update session data
         $points = $levelup->get_points();
-        Session::put('levelup_firstname', $request->firstname;
+        Session::put('levelup_firstname', $request->firstname);
         Session::put('levelup_points', $points);
 
         return view('profile.complete');
