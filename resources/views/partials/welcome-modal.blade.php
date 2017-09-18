@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="bg-theme-primary theme-background message">
-					<p>Hi, I am EDU and I am a healthy,
+					<p>Hi, I am EDU and I am a healthy, happy,
 					ﬁt and smart learner. I am here to
 					show you how to <strong class="theme-accent">‘do like EDU’</strong>
 					because if you <strong class="theme-accent">‘do like EDU’</strong> you
