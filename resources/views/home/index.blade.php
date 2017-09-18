@@ -17,7 +17,7 @@
 					@include( 'partials.progresspanel.lg' )
 
 					<div class="{{ get_body_class( Request::route(), true ) }}">
-						@if( $dailys_complete || true )
+						@if( get_dailys_complete() || true )
 							<div class="text-center">
 								<img src="images/icon-balloon.png" width="200"> <br/>
 								<p class="h2">You finished all of today's featured quizzes. Nice work!</p>
