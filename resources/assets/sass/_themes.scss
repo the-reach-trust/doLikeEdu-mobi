@@ -90,6 +90,13 @@ body {
 			/*----------------------------------------ARDCOZA---------------------------------------*/
 			/*      Generic  */
 			/*--------------------------------------------------------------------------------------*/
+
+			$btn-accent-color:				 $color-primary !default;
+			$btn-accent-bg:					 $color-accent !default;
+			$btn-accent-border:				 darken($btn-accent-bg, 5%) !default;
+
+			.btn-accent { @include button-variant($btn-accent-color, $btn-accent-bg, $btn-accent-border); }
+
 			#quizinfopanel {
 				color: $white;
 				padding: 20px 0;

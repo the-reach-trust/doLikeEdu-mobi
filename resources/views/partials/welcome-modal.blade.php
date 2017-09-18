@@ -22,7 +22,7 @@
 			</div>
 			<div class="modal-footer">
 				<figure><img src="images/edu.png" alt="Edu" /></figure>
-				<button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Lets Go!</button>
+				<button type="button" class="btn btn-accent btn-lg" data-dismiss="modal">Lets Go!</button>
 			</div>
 		</div>
 	</div>
