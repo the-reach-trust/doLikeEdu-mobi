@@ -33,7 +33,7 @@
 						<div class="list earn-points">
 							<a href="{{ route('help.about') }}">
 								<figure><i class="fa fa-question-circle" aria-hidden="true"></i></figure>
-								<span class="h2">The Basics</span>
+								<span class="h2">What's do Like Edu?</span>
 							</a>
 							<a href="{{ route('quizzes.index') }}">
 								<figure>
@@ -48,13 +48,6 @@
 									@else &nbsp; @endif
 								</figure>
 								<span class="h2">Finish your profile</span>
-							</a>
-							<a href="{{ route('quizzes.index') }}">
-								<figure>
-									@if( get_quiz_completed() > 2 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
-									@else &nbsp; @endif
-								</figure>
-								<span class="h2">Finish 2 more quizzes</span>
 							</a>
 						</div>
 						<span class="space-5"></span>
