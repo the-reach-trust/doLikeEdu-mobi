@@ -70,7 +70,7 @@
 	</div>
 @stop
 
-@if(Session::has('flash_welcome_msg'))
+@if(Session::has('flash_welcome_msg') || true)
 	@section('js')
 		<script type="text/javascript">
 			$(window).on('load',function(){

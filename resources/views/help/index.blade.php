@@ -24,7 +24,7 @@
 							</a>
 
 							<a href="{{ route('help.terms') }}">
-								<span class="h2">Terms</span>
+								<span class="h2">Terms &amp; Conditions</span>
 							</a>
 						</div>
 					</div>
