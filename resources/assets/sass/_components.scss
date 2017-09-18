@@ -217,7 +217,13 @@ h1.edu:before {
 /*--------------------------------------------------------------------------------------*/
 #quiz-single {
 	padding-bottom: 30px;
-	.question { margin-top: 26px; }
+	.question {
+		margin-top: 26px;
+		img {
+			max-width: 100%;
+			margin: 12px 0;
+		}
+	}
 	.challenge {
 		margin-top: 26px;
 		input {

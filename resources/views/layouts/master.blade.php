@@ -32,8 +32,10 @@
 
 	<!-- Vendors -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/css/intlTelInput.css">
-	<script src="/js/intlTelInput.min.js"></script>
+	@if ( false )
+		<link rel="stylesheet" href="/css/intlTelInput.css"> -->
+		<script src="/js/intlTelInput.min.js"></script>
+	@endif
 
 	<!-- App inclusions -->
 	<script src="/js/script.min.js"></script>
