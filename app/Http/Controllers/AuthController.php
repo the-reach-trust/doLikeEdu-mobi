@@ -12,6 +12,7 @@ use App\Http\Requests\RegisterPostRequest;
 use App\Models\AccessMode;
 use App\Models\AppUser;
 use App\Models\HttpCodes;
+use App\Models\Challenge;
 use App\Services\LevelUpApi;
 
 class AuthController extends Controller
@@ -116,7 +117,7 @@ class AuthController extends Controller
             $quiz_completed+= $category->completed;
         }
 
-        $dailys_complete = Challenge::completed_featured_challenges($this->levelup);
+        $dailys_complete = Challenge::completed_featured_challenges($levelup);
 
         Session::put('levelup_firstname', $profile->firstname);
 

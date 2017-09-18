@@ -28,33 +28,35 @@
 								<a href="{{ route('quizzes.index') }}" class="theme-primary"> <p class="h2">Check out today’s featured quizzes</p> </a>
 							</div>
 						@endif
-						@if (get_quiz_completed() <= 2 || true /* profile_complete */)
-							<p class="text-center">Here's a list of things you can do today to earn points.</p>
-							<span class="space-2"></span>
-							<div class="list earn-points">
-								<a href="{{ route('quizzes.index') }}">
-									<figure>
-										@if( get_quiz_completed() > 0 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
-										@else &nbsp; @endif
-									</figure>
-									<span class="h2">Finish 1 quiz</span>
-								</a>
-								<a href="{{ route('profile.index') }}">
-									<figure>
-										@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
-										@else &nbsp; @endif
-									</figure>
-									<span class="h2">Finish your profile</span>
-								</a>
-								<a href="{{ route('quizzes.index') }}">
-									<figure>
-										@if( get_quiz_completed() > 2 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
-										@else &nbsp; @endif
-									</figure>
-									<span class="h2">Finish 2 more quizzes</span>
-								</a>
-							</div>
-						@endif
+						<p class="text-center">Here's a list of things you can do today to earn points.</p>
+						<span class="space-2"></span>
+						<div class="list earn-points">
+							<a href="{{ route('help.about') }}">
+								<figure><i class="fa fa-question-circle" aria-hidden="true"></i></figure>
+								<span class="h2">The Basics</span>
+							</a>
+							<a href="{{ route('quizzes.index') }}">
+								<figure>
+									@if( get_quiz_completed() > 0 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+									@else &nbsp; @endif
+								</figure>
+								<span class="h2">Finish 1 quiz</span>
+							</a>
+							<a href="{{ route('profile.index') }}">
+								<figure>
+									@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+									@else &nbsp; @endif
+								</figure>
+								<span class="h2">Finish your profile</span>
+							</a>
+							<a href="{{ route('quizzes.index') }}">
+								<figure>
+									@if( get_quiz_completed() > 2 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+									@else &nbsp; @endif
+								</figure>
+								<span class="h2">Finish 2 more quizzes</span>
+							</a>
+						</div>
 						<span class="space-5"></span>
 
 						<!-- hardcodded for testing now -->
