@@ -27,7 +27,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="{{ get_body_class() }}">
-							<h3>Topics</h3>
+							<h1>Topics</h1>
 							<ul class="list quiz-categories">
 								@foreach ($category_current->topics as $topic)
 									@include( 'quizzes.list-topic' )

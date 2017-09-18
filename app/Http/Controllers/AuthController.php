@@ -112,5 +112,6 @@ class AuthController extends Controller
         $profile = $levelup->get_profile();
         Session::put('levelup_points', $points);
         Session::put('levelup_firstname', $profile->firstname);
+        Session::flash('flash_welcome_msg', true);
     }
 }
