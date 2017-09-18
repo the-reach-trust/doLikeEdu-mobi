@@ -263,3 +263,44 @@ h1.edu:before {
 		padding: 2px 5px;
 	}
 }
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Modals  */
+/*--------------------------------------------------------------------------------------*/
+.compact-footer {
+	.modal-body { padding-bottom: 0; }
+	.modal-footer { padding-top: 8px; border: 0; }
+}
+#welcomeModal {
+	.message {
+		padding: 12px 15px 4px;
+		border-radius: 4px;
+		position: relative;
+		&:after {
+			position: absolute;
+			content: ' ';
+			left: 60px;
+			bottom: -16px;
+			display: block;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 16px 16px 0 0;
+		}
+	}
+	.modal-footer {
+		text-align: right;
+		figure {
+			float: left;
+			border-radius: 50%;
+			border: 1px solid #ccc;
+			width: 60px;
+			img { width: 100%; }
+		}
+		button {
+			float: left;
+			margin: 8px 0 0 15px;
+
+		}
+	}
+}

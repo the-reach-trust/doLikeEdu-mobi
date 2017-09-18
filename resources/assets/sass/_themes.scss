@@ -175,6 +175,14 @@ body {
 				background: $brand-accent;
 			}
 
+			#welcomeModal {
+				.message {
+					&:after {
+						border-color: $color-primary transparent transparent transparent;			
+					}
+				}
+			}
+
 			/*----------------------------------------ARDCOZA---------------------------------------*/
 			/*      Utility Classes  */
 			/*--------------------------------------------------------------------------------------*/

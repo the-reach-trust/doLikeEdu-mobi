@@ -11,9 +11,8 @@ var resizeTimer = null;
 
 	// $( window ).resize( windowRezizeActions );
 
-	function activateSelects() {
-		$( 'select' ).select2( { minimumResultsForSearch: Infinity } );
-	}
+	function activateSelects() { $( 'select' ).select2( { minimumResultsForSearch: Infinity } ); }
+	function activateLabel( label ) { label.addClass( 'active' ).siblings().removeClass( 'active' ); }
 
 	function activateTels() {
 		$( "input[type='tel']" ).intlTelInput( {
@@ -63,10 +62,6 @@ var resizeTimer = null;
 			var label = $( this ).closest( 'label' );
 			activateLabel( label );
 		});
-	}
-
-	function activateLabel( label ) {
-		label.addClass( 'active' ).siblings().removeClass( 'active' );
-	}
+	}	
 
 })( jQuery );

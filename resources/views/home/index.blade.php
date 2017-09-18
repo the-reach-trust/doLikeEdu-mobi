@@ -4,29 +4,7 @@
 
 @section('content')
 
-	<!-- Welcome Modal -->
-	<div id="welcomeModal" class="modal fade" tabindex="-1" role="dialog" data-show="True">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
-				</div>
-				<div class="modal-body">
-					<p>
-						Hi, I am EDU and I am a healthy, happy, fit and smart learner. I am here to show you how to ’do like EDU’ because if you ‘do like EDU’ you will do well at school.
-					</p>
-					<p>
-						I did not always do well at school, but a friend taught me 10 things that will make me a better learner. So now, I want to share the secret to success with you, so remember to ‘do like EDU’.
-					</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Lets Go!</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	@include( 'partials.welcome-modal' )
 
 	@include( 'partials.progresspanel.max-md' )
 

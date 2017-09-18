@@ -22,7 +22,7 @@
 						</ol>
 
 						@php
-							if ( $page->heading == 'Edu Shows you' ) $class = "edu";
+							if ( !strcasecmp( $page->heading, 'Edu Shows You' ) ) $class = "edu";
 							else $class = "";
 						@endphp
 
