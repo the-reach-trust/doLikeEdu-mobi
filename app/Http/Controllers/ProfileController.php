@@ -47,6 +47,12 @@ class ProfileController extends AppController
             Session::flash('flash_error', 'Error with updating profile please try again!');
             return redirect()->back()->withInput();
         }
+
+        //Update session data
+        $points = $levelup->get_points();
+        Session::put('levelup_firstname', $request->firstname;
+        Session::put('levelup_points', $points);
+
         return view('profile.complete');
     }
 

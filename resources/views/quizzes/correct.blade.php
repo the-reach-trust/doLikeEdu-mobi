@@ -20,7 +20,7 @@
 
                                 <span class="space-3"></span>
 
-                                <p class="text-primary">That is the right answer...<br />You get <b>{{ '50' }}</b> points!</p>
+                                <p class="text-primary">That is the right answer...<br />You get <b>{{ $challenge->points  }}</b> points!</p>
 
                                 <span class="space"></span>
 
