@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
+use App\Models\Challenge;
+
 use Session;
 
 class HomeController extends AppController
@@ -20,13 +22,15 @@ class HomeController extends AppController
 		$profile = $this->levelup->get_profile();
 		$points = $this->levelup->get_points();
 
+        $challenges_param = array('type'=>"featured",'count'=>1);
+        $challenges_featured = $this->levelup->get_challenges($challenges_param);
+        //Completed all challenges for today
+        $dailys_complete = Challenge::completed_featured_challenges($this->levelup);
+
         Session::put('levelup_points', $points);
         Session::put('levelup_firstname', $profile->firstname);
+        Session::put('levelup_dailys_complete', $dailys_complete);
 
-        //TODO: Please Not Chris, I needed the points and dailys complete on other pages, so I'm calling it from a global function in Helpers.php for now.
-        //Check user profile is complete and completed all challenges for today
-        $dailys_complete = 0;
-
-        return view('home.index',compact('content','profile','dailys_complete','points'));
+        return view('home.index',compact('content','profile','dailys_complete','challenges_featured'));
     }
 }

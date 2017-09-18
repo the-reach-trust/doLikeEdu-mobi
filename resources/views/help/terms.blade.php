@@ -16,7 +16,6 @@
 
 				<div class="{{ get_body_class( Request::route(), true ) }}">
 					<p lang="en-US">
-						<a name="_GoBack"></a>
 						<strong>Terms &amp; Conditions</strong>
 					</p>
 					<p lang="en-US">
@@ -51,27 +50,28 @@
 								<strong>Product terms and conditions</strong>
 							</p>
 						</li>
-						<li>
+						<ol>
 							<p lang="en-US">
-								<strong>"If there is a conflict between the DoLikeEdu Terms of Use and the
-								terms and conditions of a third party that is involved in rendering
-								the DoLikeEdu services to you, these Terms of Use will overrule the
-								third party's terms and conditions."</strong>
+								"If there is a conflict between the DoLikeEdu Terms of Use and the terms
+								and conditions of a third party that is involved in rendering the DoLikeEdu
+								services to you, these Terms of Use will overrule the third party's terms
+								and conditions."
 							</p>
 							<ol>
 								<li>
 									<p lang="en-US">
 										We sometimes refer to information that is available outside
-										DoLikeEdu. It is your responsibility to familiarise
-										yourself with external information.
+										DoLikeEdu. It is your responsibility to familiarise yourself with
+										external information.
 									</p>
 								</li>
 							</ol>
-						</li>
+						</ol>
 					</ol>
-					<ol start="4">
+										<ol start="3">
 						<li>
 							<p lang="en-US">
+								<a name="_GoBack"></a>
 								<strong>Content</strong>
 							</p>
 							<ol>
@@ -99,7 +99,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="5">
+					<ol start="4">
 						<li>
 							<p lang="en-US">
 								<strong>Points</strong>
@@ -121,7 +121,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="6">
+					<ol start="5">
 						<li>
 							<p lang="en-US">
 								<strong>Password and Security</strong>
@@ -172,7 +172,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="7">
+					<ol start="6">
 						<li>
 							<p lang="en-US">
 								<strong>Privacy</strong>
@@ -203,7 +203,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="8">
+					<ol start="7">
 						<li>
 							<p lang="en-US">
 								<strong>Availability</strong>
@@ -225,7 +225,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="9">
+					<ol start="8">
 						<li>
 							<p lang="en-US">
 								<strong>Intellectual Property Rights</strong>
@@ -272,7 +272,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="10">
+					<ol start="9">
 						<li>
 							<p lang="en-US">
 								<strong>Disclaimer</strong>
@@ -289,7 +289,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="11">
+					<ol start="10">
 						<li>
 							<p lang="en-US">
 								<strong>Notices</strong>
@@ -308,7 +308,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="12">
+					<ol start="11">
 						<li>
 							<p lang="en-US">
 								<strong>Liability</strong>
@@ -362,7 +362,7 @@
 							</ol>
 						</li>
 					</ol>
-					<ol start="13">
+					<ol start="12">
 						<li>
 							<p lang="en-US">
 								<strong>General</strong>
