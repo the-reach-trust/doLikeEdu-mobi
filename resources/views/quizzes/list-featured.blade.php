@@ -12,7 +12,7 @@
 				<h2>
 					<span class="theme-primary">{{ $pages[$challenge->content_page]->heading }}</span>
 				</h2>
-				<p>{{ $challenge->points_max }} Points</p>
+				<p>{{ $challenge->points_max }} Points @if($challenge->type == ChallengeType::FEATURED) <span class="btn btn-danger btn-xs"> FEATURED </span> @endif </p>
 			</div>
 		</a>
 	</td>
