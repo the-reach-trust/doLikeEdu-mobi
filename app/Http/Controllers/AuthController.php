@@ -110,7 +110,14 @@ class AuthController extends Controller
         }
         $points = $levelup->get_points();
         $profile = $levelup->get_profile();
+        $quiz_completed = 0;
+
+        foreach ($levelup->get_challenge_progress() as $category) {
+            $quiz_completed+= $category->completed;
+        }
+
         Session::put('levelup_points', $points);
+        Session::put('levelup_quiz_completed', $quiz_completed);
         Session::put('levelup_firstname', $profile->firstname);
         Session::flash('flash_welcome_msg', true);
     }

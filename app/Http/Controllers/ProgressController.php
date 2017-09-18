@@ -14,7 +14,7 @@ class ProgressController extends AppController
      */
     public function index()
     {
-		$categories = $this->levelup->get_challengecategories();
+		$categories = $this->levelup->get_challenge_progress();
 
 		return view('progress.index',compact('categories'));
     }

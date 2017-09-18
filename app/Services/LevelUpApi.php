@@ -968,6 +968,33 @@ class LevelUpApi {
         return $this->result;
     }
 
+    /*
+     *   It returns an array of all the challenge categories, with total number of challenges for the category, and how many the user has completed.
+     *
+     *   Url: http://levelup.mxit.com/progress
+     *
+     *   NOTE: This method requires the user's token
+     */
+    public function get_challenge_progress()
+    {
+        $this->token_checker();
+
+        $call = "progress";
+        $key = ($call.$this->_hash);
+        $result = $this->_get_cache($key);
+
+        if(!$result)
+        {
+            $this->_api_headers();
+            $url = $this->_apiUrl .$call;
+            $this->_call_api($url, 'GET');
+            $result = $this->result;
+
+            $this->_set_cache($key,$result);
+        }
+        return $result;
+    }
+
     /**
      *   Retrieve a content page.
      *
