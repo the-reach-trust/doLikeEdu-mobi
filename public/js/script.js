@@ -7,12 +7,10 @@ var resizeTimer = null;
 		removeAlerts();
 		loginFormPreSubmit();
 		radioButtonEvents();
-		openModalOnHomePageLoad()
 	});
 
 	// $( window ).resize( windowRezizeActions );
 
-	function openModalOnHomePageLoad() { $( '#welcomeModal' ).modal( 'show' ); }
 	function activateSelects() { $( 'select' ).select2( { minimumResultsForSearch: Infinity } ); }
 	function activateLabel( label ) { label.addClass( 'active' ).siblings().removeClass( 'active' ); }
 

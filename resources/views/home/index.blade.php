@@ -4,7 +4,7 @@
 
 @section('content')
 
-	@if( true ) @include( 'partials.welcome-modal' ) @endif
+	@include( 'partials.welcome-modal' )
 
 	@include( 'partials.progresspanel.max-md' )
 

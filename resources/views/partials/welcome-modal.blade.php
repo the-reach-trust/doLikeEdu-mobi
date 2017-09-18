@@ -7,8 +7,8 @@
 				<div class="bg-theme-primary theme-background message">
 					<p>Hi, I am EDU and I am a healthy,
 					ﬁt and smart learner. I am here to
-					show you how to ‘do like EDU’
-					because if you ‘do like EDU’you
+					show you how to <strong class="theme-accent">‘do like EDU’</strong>
+					because if you <strong class="theme-accent">‘do like EDU’</strong> you
 					will do well at school.
 					</p>
 
@@ -17,7 +17,7 @@
 					that will make me a better learner.
 					So now, I want to share the secret
 					to success with you, so
-					remember to ‘do like EDU’.</p>
+					remember to <strong class="theme-accent">‘do like EDU’</strong>.</p>
 				</div>
 			</div>
 			<div class="modal-footer">
