@@ -40,6 +40,12 @@ Route::get('/userAccounts', [
         return view('help.accounts');
     }
 ]);
+Route::get('/reportProblem', [
+    'as' => 'help.report',
+    function () {
+        return view('help.report');
+    }
+]);
 
 Route::get('auth/register', [
     'as' => 'auth.register',

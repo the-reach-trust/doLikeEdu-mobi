@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
+use App\Models\ChallengeType;
 use App\Models\Challenge;
 use App\Models\Page;
+
+use Session;
 
 class QuizzesController extends AppController
 {
@@ -162,6 +165,23 @@ class QuizzesController extends AppController
         if(empty($page) || $this->levelup->get_last_http_status() == Page::PAGE_MISSING)
         {
             return abort(404,'Missing Page');
+        }
+
+        //
+        if($challenge->remaining_attempts == 0){
+            //Update session data
+            $quiz_completed = 0;
+            foreach ($this->levelup->get_challenge_progress() as $category) {
+                $quiz_completed+= $category->completed;
+            }
+            $points = $this->levelup->get_points();
+            Session::put('levelup_points', $points);
+            Session::put('levelup_quiz_completed', $quiz_completed);
+
+            if($challenge->type == ChallengeType::FEATURED){
+                $dailys_complete = Challenge::completed_featured_challenges($this->levelup);
+                Session::put('levelup_dailys_complete', $dailys_complete);
+            }
         }
 
         if($correct)

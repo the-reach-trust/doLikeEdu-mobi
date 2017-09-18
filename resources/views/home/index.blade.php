@@ -17,19 +17,24 @@
 					@include( 'partials.progresspanel.lg' )
 
 					<div class="{{ get_body_class( Request::route(), true ) }}">
-						@if( $dailys_complete )
+						@if( get_dailys_complete() || true )
 							<div class="text-center">
 								<img src="images/icon-balloon.png" width="200"> <br/>
 								<p class="h2">You finished all of today's featured quizzes. Nice work!</p>
 								<a href="{{ route('quizzes.index') }}" class="theme-primary">Click here if you want to do a few more.</a>
 							</div>
 						@else
+							<div class="text-center">
+								<a href="{{ route('quizzes.index') }}" class="theme-primary"> <p class="h2">Check out today’s featured quizzes</p> </a>
+							</div>
+						@endif
+						@if (get_quiz_completed() <= 2 || true /* profile_complete */)
 							<p class="text-center">Here's a list of things you can do today to earn points.</p>
 							<span class="space-2"></span>
 							<div class="list earn-points">
 								<a href="{{ route('quizzes.index') }}">
 									<figure>
-										@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+										@if( get_quiz_completed() > 0 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
 										@else &nbsp; @endif
 									</figure>
 									<span class="h2">Finish 1 quiz</span>
@@ -43,14 +48,13 @@
 								</a>
 								<a href="{{ route('quizzes.index') }}">
 									<figure>
-										@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+										@if( get_quiz_completed() > 2 ) <i class="fa fa-check-circle" aria-hidden="true"></i>
 										@else &nbsp; @endif
 									</figure>
 									<span class="h2">Finish 2 more quizzes</span>
 								</a>
 							</div>
 						@endif
-
 						<span class="space-5"></span>
 
 						<!-- hardcodded for testing now -->
@@ -70,7 +74,7 @@
 	</div>
 @stop
 
-@if(Session::has('flash_welcome_msg') || true)
+@if(Session::has('flash_welcome_msg'))
 	@section('js')
 		<script type="text/javascript">
 			$(window).on('load',function(){
