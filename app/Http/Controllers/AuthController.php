@@ -128,7 +128,7 @@ class AuthController extends Controller
         $dailys_complete = Challenge::completed_featured_challenges($levelup);
 
         Session::put('levelup_firstname', $profile->firstname);
-        Session::put('levelup_profile_completed', $profile->completed);
+        Session::put('levelup_profile_completed', $profile->complete);
 
         Session::put('levelup_points', $points);
         Session::put('levelup_quiz_completed', $quiz_completed);
