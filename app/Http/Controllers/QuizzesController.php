@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Models\ChallengeType;
 use App\Models\Challenge;
 use App\Models\Page;
+use App\Http\Requests\ChallengePostRequest;
 
 use Session;
 
@@ -123,7 +124,7 @@ class QuizzesController extends AppController
         return view('quizzes.quiz',compact('challenge','page'));
     }
 
-    public function quiz_post(Request $request,$id)
+    public function quiz_post(ChallengePostRequest $request,$id)
     {
         $challenge = $this->levelup->get_challenge($id);
 

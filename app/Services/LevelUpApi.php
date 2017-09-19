@@ -152,7 +152,7 @@ class LevelUpApi {
             $this->error = TRUE;
             error_log($url.': http_status'.$this->http_status .' result - '.$result.' curl_info'.print_r($this->curl_info,true) );
             if(getenv('APP_ENV') == 'local'){
-                dd($this->curl_info);
+                //dd($this->curl_info);
             }
         }
         $this->result = (($decode === TRUE) && (is_json($result) === TRUE)) ? json_decode($result) : $result;

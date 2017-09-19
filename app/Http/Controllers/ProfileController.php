@@ -55,10 +55,11 @@ class ProfileController extends AppController
         Session::put('levelup_points', $points);
 
         Session::flash('flash_success', 'Successfully updated profile!');
-        if(/*$profile->complete*/ false){
-            return \Redirect::route('profile.complete');
-        }else{
+        if(Session::get('levelup_profile_completed') == true){
             return redirect()->back();
+        }else{
+            Session::put('levelup_profile_completed', true);
+            return \Redirect::route('profile.complete');
         }
     }
 

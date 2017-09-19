@@ -44,7 +44,7 @@
 							</a>
 							<a href="{{ route('profile.index') }}">
 								<figure>
-									@if( false ) <i class="fa fa-check-circle" aria-hidden="true"></i>
+									@if( get_profile_completed() ) <i class="fa fa-check-circle" aria-hidden="true"></i>
 									@else &nbsp; @endif
 								</figure>
 								<span class="h2">Finish your profile</span>

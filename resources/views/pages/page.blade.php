@@ -2,6 +2,10 @@
 
 @section('title', config('app.name').' - Page')
 
+@section('meta_tags')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@stop
+
 @section('content')
 
     <div id="page">
@@ -38,11 +42,27 @@
                         @endif
                         @if(!empty($page->child))
                             <div class="list earn-points earn-points-image">
+                                @php $next_not_completed = true; @endphp
                                 @foreach ($page->child as $child)
-                                    <a href="{{ route('pages.page', $child->id) }}">
-                                        @if(!empty($child->logo)) <img src="{{ $child->logo }}" width="40"> @endif
-                                        <span class="h2">{{ $child->heading }}</span>
-                                    </a>
+                                    @if($child->completed == false)
+                                        @if($next_not_completed == true)
+                                            <a href="{{ route('pages.page', $child->id) }}">
+                                                @if(!empty($child->logo)) <img src="{{ $child->logo }}" width="40"> @endif
+                                                <span class="h2">{{ $child->heading }}</span>
+                                            </a>
+                                            @php $next_not_completed = false; @endphp
+                                        @else
+                                            <a href="{{ route('pages.page', $child->id) }}" class="disable-link">
+                                                @if(!empty($child->logo)) <img src="{{ $child->logo }}" width="40"> @endif
+                                                <span class="h2">{{ $child->heading }}</span>
+                                            </a>
+                                        @endif
+                                    @else
+                                        <a href="{{ route('pages.page', $child->id) }}">
+                                            @if(!empty($child->logo)) <img src="{{ $child->logo }}" width="40"> @endif
+                                            <span class="h2">{{ $child->heading }}</span>
+                                        </a>
+                                    @endif
                                 @endforeach
                             </div>
                         @endif
@@ -50,7 +70,7 @@
                 </div>
             </div>
 
-            @if(!empty($page_next) )
+            @if(!empty($page_next) && empty($page->child) && $page->completed == true)
                 <span class="space"></span>
                 <div class="container">
                     <div class="row">
@@ -67,7 +87,11 @@
         </div>
     </div>
 
-    <!--
-    {{ print_r($page) }}
-    -->
+    <script type="text/javascript">
+    @if($page->completed == true && !empty($page->content) && $page->content->find('form') != null)
+        $( "input[value='{{$page->answer}}']" ).addClass( "correct" ).closest( "label" ).addClass( "correct" );
+        $( "input[type='submit']" ).attr('disabled',true);
+        $( "input[type='submit']" ).hide();
+    @endif
+    </script>
 @stop
