@@ -52,11 +52,4 @@
             <span class="space"></span>
         </div>
     </div>
-
-    <!--
-        {{ print_r($challenge) }}
-    !-->
-    <!--
-        {{ print_r($page) }}
-    -->
 @stop

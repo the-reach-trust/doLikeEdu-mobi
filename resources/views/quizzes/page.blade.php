@@ -47,8 +47,4 @@
             <span class="space"></span>
         </div>
     </div>
-
-    <!--
-    {{ print_r($page) }}
-    -->
 @stop
