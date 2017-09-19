@@ -92,6 +92,10 @@ Route::post('profile/password', [
     'as' => 'profile.password',
     'uses' => 'ProfileController@password_update',
 ]);
+Route::get('profile/complete', [
+    'as' => 'profile.complete',
+    'uses' => 'ProfileController@complete',
+]);
 
 Route::get('quizzes', [
     'as' => 'quizzes.index',
