@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterPostRequest extends FormRequest
@@ -15,7 +16,7 @@ class RegisterPostRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
             'firstname' => 'required|min:3|max:50',

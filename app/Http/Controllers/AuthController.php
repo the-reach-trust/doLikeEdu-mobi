@@ -35,6 +35,10 @@ class AuthController extends Controller
     {
         $levelup = new LevelUpApi;
 
+        if(isset($request->mobilenumber)){
+            trim($request->mobilenumber = str_replace(' ', '', $request->mobilenumber));
+        }
+
         $access_token = $request->mobilenumber.":".$request->password;
         $mode = AccessMode::MOBILE_NUMBER_ACCESS;
 
@@ -67,6 +71,10 @@ class AuthController extends Controller
     public function login_post(LoginPostRequest $request)
     {
         $levelup = new LevelUpApi;
+
+        if(isset($request->mobilenumber)){
+            trim($request->mobilenumber = str_replace(' ', '', $request->mobilenumber));
+        }
 
         $access_token = $request->mobilenumber.":".$request->password;
         $mode = AccessMode::MOBILE_NUMBER_ACCESS;
