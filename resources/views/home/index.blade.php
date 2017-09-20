@@ -57,10 +57,6 @@
 							Need some help or advice ? <br/>
 							<a href="{{ route('pages.index') }}" class="theme-body-text">Click here for <b>TalkTo</b>Edu</a> <br/>
 						</div>
-						<!-- Content call -->
-						<!--
-						{{ print_r($content) }}
-						-->
 					</div>
 				</div>
 			</div>

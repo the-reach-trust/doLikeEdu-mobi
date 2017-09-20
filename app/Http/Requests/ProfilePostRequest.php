@@ -37,9 +37,9 @@ class ProfilePostRequest extends FormRequest
         return [
             'firstname' => 'required|min:3|max:50',
             'lastname' => 'required|min:3|max:50',
-            'gender' => 'numeric|in:' . implode(',', array_keys(AppUser::GENDERS)),
-            'grade' => 'numeric|in:' . implode(',', array_keys(AppUser::GRADES)),
-            'schoolcode' => 'numeric|in:' . implode(',', array_keys($schools))
+            'gender' => 'nullable|in:' . implode(',', array_keys(AppUser::GENDERS)),
+            'grade' => 'nullable|in:' . implode(',', array_keys(AppUser::GRADES)),
+            'schoolcode' => 'nullable|in:' . implode(',', array_keys($schools))
         ];
     }
 }

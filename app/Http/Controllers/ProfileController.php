@@ -38,9 +38,9 @@ class ProfileController extends AppController
     {
         $profile['firstname']   = $request->firstname;
         $profile['lastname']   = $request->lastname;
-        $profile['gender']      = (int)$request->gender;
-        $profile['grade']       = (int)$request->grade;
-        $profile['schoolcode']  = (int)$request->schoolcode;
+        $profile['gender']      = is_null($request->gender) ? null : (int)$request->gender;
+        $profile['grade']       = is_null($request->grade) ? null : (int)$request->grade;
+        $profile['schoolcode']  = is_null($request->schoolcode) ? null : (int)$request->schoolcode;;
 
         $this->levelup->set_profile($profile);
         if($this->levelup->get_last_http_status() != HttpCodes::HTTP_OK){
