@@ -136,4 +136,9 @@ class AuthController extends Controller
 
         Session::flash('flash_welcome_msg', true);
     }
+
+    public function version(){
+        $levelup = new LevelUpApi;
+        dd($levelup->get_version());
+    }
 }

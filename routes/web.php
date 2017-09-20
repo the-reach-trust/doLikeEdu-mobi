@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('version', [
+    'as' => 'version',
+    'uses' => 'AuthController@version',
+]);
 Route::get('/help',[
     'as' => 'help.index',
     function () {
