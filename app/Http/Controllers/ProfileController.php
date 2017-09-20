@@ -49,10 +49,8 @@ class ProfileController extends AppController
         }
 
         //Update session data
-        $points = $this->levelup->get_points();
         $profile = $this->levelup->get_profile();
         Session::put('levelup_firstname', $profile->firstname);
-        Session::put('levelup_points', $points);
 
         Session::flash('flash_success', 'Successfully updated profile!');
         if(Session::get('levelup_profile_completed') == true){
@@ -65,6 +63,9 @@ class ProfileController extends AppController
 
     public function complete()
     {
+        $points = $this->levelup->get_points();
+        Session::put('levelup_points', $points);
+
         return view('profile.complete');
     }
 
