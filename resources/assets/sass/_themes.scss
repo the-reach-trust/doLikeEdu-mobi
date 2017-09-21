@@ -143,13 +143,14 @@ body {
 							}
 						}
 					}
-				}
+				}				
 			}
 
 			[id="page"] {
 				color: $color-body-text;
 				a:not(.btn), label { color: $color-primary; }
 			}
+
 			.select2-container--default .select2-selection--single .select2-selection__rendered {
 				color: $color-primary;
 				&[title^="select"] {
@@ -165,7 +166,10 @@ body {
 			/*      More Components  */
 			/*--------------------------------------------------------------------------------------*/
 
-			
+			.back-to-topics {
+				color: $color-background !important;
+			}
+
 			.color-success-fill {
 				@if nth( $theme, 1 ) == 'level-3' {
 					color: $white !important;

@@ -74,6 +74,11 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 				&:last-child { font-size: 2.5em; }
 			}
 		}
+		.btn.btn-danger.btn-xs {
+			position: relative;
+			left: 4px;
+			top: 4px;
+		}
 	}
 	&.earn-points {
 		border: 1px solid $black;
@@ -83,7 +88,7 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 		a { 
 			display: block;
 			text-decoration: none;
-			padding: 15px 2px;
+			padding: 15px 20px 15px 2px;
 			position: relative;
 			&:hover { color: $brand-primary; }
 			&:not(:last-child) { border-bottom: 1px solid $black; }
@@ -115,15 +120,19 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 		}
 	}
 	&.earn-points-image {
-		img { margin-right: 12px; }
-		span {
-			position: relative;
-			top: 2px;
-		}
 		a {
-			&:after { top: 1.3em; }
+			display: table;
+			width: 100%;
+			&:after { top: calc(50% - 11px); }
+			> div {
+				display: table-cell;
+				vertical-align: middle;
+				&:first-child:not(:last-child) {
+					padding-right: 15px;
+					width: 40px;
+				}
+			}
 		}
-
 	}
 	&.quiz-categories {
 		text-align: center;

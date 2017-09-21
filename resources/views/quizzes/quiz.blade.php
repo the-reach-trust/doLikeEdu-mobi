@@ -47,25 +47,29 @@
 						{!! $page->content !!}
 
 						<div class="attempts">
+							<div class="space-1"></div>
 							@if($challenge->remaining_attempts != 0)
-								You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for <span class="blocked-points">{{ $challenge->points_available }}</span> points
+								<p>You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for <span class="blocked-points">{{ $challenge->points_available }}</span> points</p>
 							@else
-								{{ $challenge->points }} points
+								<p>{{ $challenge->points }} points</p>
 							@endif
 						</div>
 					</div>
 				</div>
 				@if(!empty($page->child) && $challenge->remaining_attempts == 0)
+				<div class="space"></div>
 				<div class="row">
+					<div class="{{ get_body_class( Request::route(), true ) }}">
 					<!-- Should normaly only be one page/solution !-->
-                        <div class="list">
+						<div class="list earn-points earn-points-image">
                             @foreach ($page->child as $child)
                                 <a href="{{ route('quizzes.page', $child->id) }}">
-                                    <span class="h2">{{ $child->heading }}</span>
+                                    <div><span class="h2">{{ $child->heading }}</span></div>
                                 </a>
                                 @break
                             @endforeach
-                        </div>
+						</div>
+					</div>
 				</div>
 				@endif
 			</div>
@@ -73,6 +77,7 @@
 	</div>
 
 	<script type="text/javascript">
+	$('input[type="submit"]').addClass('btn btn-block btn-primary');
 	@foreach ($challenge->user_answers as $user_answer)
 		@if($user_answer == $challenge->answer)
 			$( "input[value='{{$user_answer}}']" ).addClass( "correct" ).closest( "label" ).addClass( "correct" );
