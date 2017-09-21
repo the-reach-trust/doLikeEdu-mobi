@@ -58,10 +58,13 @@ h1.edu:before {
 	&.alt {
 		padding: 20px 0;
 		background: lighten( $brand-primary, 7.5% );
-		h3, ul, li { margin: 0; }
-		h3 {
+		h1, ul, li { margin: 0; }
+		h1 {
 			@media screen and ( min-width: 520px ) {
 				float: left;
+				+ ul {
+					margin-top: 6px;
+				}
 			}
 		}
 		ul {
@@ -215,7 +218,8 @@ h1.edu:before {
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Quizzess  */
 /*--------------------------------------------------------------------------------------*/
-#quiz-single {
+#quiz-single,
+#page.dolikeedu {
 	padding-bottom: 30px;
 	.question {
 		margin-top: 26px;
@@ -224,7 +228,7 @@ h1.edu:before {
 			margin: 12px 0;
 		}
 	}
-	.challenge {
+	.inner.dolikeedu, .challenge {
 		margin-top: 26px;
 		input {
 			&[type="radio"] {
@@ -234,9 +238,6 @@ h1.edu:before {
 			}
 			&[type="submit"] {
 				margin-top: 20px;
-				@extend .btn;
-				@extend .btn-primary;
-				@extend .btn-block;	
 				font-size: 1.2em;
 				padding: 12px;			
 			}
@@ -273,6 +274,13 @@ h1.edu:before {
 		padding: 2px 5px;
 	}
 }
+
+.disable-link {
+	pointer-events: none;
+	opacity: 0.5;
+	&:after { content: '' !important; display: none !important; }
+}
+
 
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Modals  */
