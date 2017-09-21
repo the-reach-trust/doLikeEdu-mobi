@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Sunra\PhpSimple\HtmlDomParser;
+
 use App\Models\ChallengeType;
 use App\Models\Challenge;
 use App\Models\Page;
+use App\Http\Requests\ChallengePostRequest;
 
 use Session;
 
@@ -120,10 +123,17 @@ class QuizzesController extends AppController
             return abort(404,'Missing Page');
         }
 
+        //Make sure form is post
+        $page_html = HtmlDomParser::str_get_html($page->content);
+        if($page_html == true && $page_html->find('form') != null){
+            $page_html->find('form', 0)->method = 'post';
+        }
+        $page->content = $page_html;
+
         return view('quizzes.quiz',compact('challenge','page'));
     }
 
-    public function quiz_post(Request $request,$id)
+    public function quiz_post(ChallengePostRequest $request,$id)
     {
         $challenge = $this->levelup->get_challenge($id);
 

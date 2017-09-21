@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterPostRequest extends FormRequest
+class ChallengePostRequest extends FormRequest
 {
     public function authorize()
     {
@@ -19,10 +19,7 @@ class RegisterPostRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'firstname' => 'required|min:3|max:50',
-            'lastname' => 'required|min:3|max:50',
-            'mobilenumber' => 'required|phone:AUTO,NA',
-            'password' => 'required|max:100',
+            'answer' => 'required|numeric',
         ];
     }
 }

@@ -23,12 +23,12 @@
 								<span class="h2">User Accounts</span>
 							</a>
 
-							<a href="{{ route('help.terms') }}">
-								<span class="h2">Terms &amp; Conditions</span>
-							</a>
-
 							<a href="{{ route('help.report') }}">
 								<span class="h2">Report a Problem</span>
+							</a>
+
+							<a href="{{ route('help.terms') }}">
+								<span class="h2">Terms &amp; Conditions</span>
 							</a>
 						</div>
 					</div>

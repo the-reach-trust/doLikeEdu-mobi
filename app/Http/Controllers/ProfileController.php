@@ -38,9 +38,9 @@ class ProfileController extends AppController
     {
         $profile['firstname']   = $request->firstname;
         $profile['lastname']   = $request->lastname;
-        $profile['gender']      = (int)$request->gender;
-        $profile['grade']       = (int)$request->grade;
-        $profile['schoolcode']  = (int)$request->schoolcode;
+        $profile['gender']      = is_null($request->gender) ? null : (int)$request->gender;
+        $profile['grade']       = is_null($request->grade) ? null : (int)$request->grade;
+        $profile['schoolcode']  = is_null($request->schoolcode) ? null : (int)$request->schoolcode;;
 
         $this->levelup->set_profile($profile);
         if($this->levelup->get_last_http_status() != HttpCodes::HTTP_OK){
@@ -49,16 +49,24 @@ class ProfileController extends AppController
         }
 
         //Update session data
-        $points = $levelup->get_points();
-        Session::put('levelup_firstname', $request->firstname;
+        $profile = $this->levelup->get_profile();
+        Session::put('levelup_firstname', $profile->firstname);
+
+        Session::flash('flash_success', 'Successfully updated profile!');
+        if(Session::get('levelup_profile_completed') == true){
+            return redirect()->back();
+        }else{
+            Session::put('levelup_profile_completed', true);
+            return \Redirect::route('profile.complete');
+        }
+    }
+
+    public function complete()
+    {
+        $points = $this->levelup->get_points();
         Session::put('levelup_points', $points);
 
         return view('profile.complete');
-    }
-
-    public function school()
-    {
-
     }
 
     public function password()

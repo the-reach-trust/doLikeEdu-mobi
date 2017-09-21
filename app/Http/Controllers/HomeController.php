@@ -20,6 +20,9 @@ class HomeController extends AppController
     {
         $content = $this->levelup->get_content();
 
+        $dailys_complete = Challenge::completed_featured_challenges($this->levelup);
+        Session::put('levelup_dailys_complete', $dailys_complete);
+
         return view('home.index',compact('content'));
     }
 }

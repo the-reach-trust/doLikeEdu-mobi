@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('version', [
+    'as' => 'version',
+    'uses' => 'AuthController@version',
+]);
 Route::get('/help',[
     'as' => 'help.index',
     function () {
@@ -55,7 +59,6 @@ Route::post('auth/register', [
     'as' => 'auth.register',
     'uses' => 'AuthController@register_post'
 ]);
-
 Route::get('auth/login', [
     'as' => 'auth.login',
     'uses' => 'AuthController@login',
@@ -64,7 +67,6 @@ Route::post('auth/login', [
     'as' => 'auth.login',
     'uses' => 'AuthController@login_post',
 ]);
-
 Route::get('auth/logout', [
     'as' => 'auth.logout',
     'uses' => 'AuthController@logout',
@@ -92,32 +94,31 @@ Route::post('profile/password', [
     'as' => 'profile.password',
     'uses' => 'ProfileController@password_update',
 ]);
+Route::get('profile/complete', [
+    'as' => 'profile.complete',
+    'uses' => 'ProfileController@complete',
+]);
 
 Route::get('quizzes', [
     'as' => 'quizzes.index',
     'uses' => 'QuizzesController@index',
 ]);
-
 Route::get('quizzes/category/{id}/{offset?}', [
     'as' => 'quizzes.category',
     'uses' => 'QuizzesController@category',
 ]);
-
 Route::get('quizzes/topic/{category}/{topic}/{offset?}', [
     'as' => 'quizzes.topic',
     'uses' => 'QuizzesController@topic',
 ]);
-
 Route::get('quizzes/quiz/{id}', [
     'as' => 'quizzes.quiz',
     'uses' => 'QuizzesController@quiz',
 ]);
-
 Route::post('quizzes/quiz/{id}', [
     'as' => 'quizzes.quiz',
     'uses' => 'QuizzesController@quiz_post',
 ]);
-
 Route::get('quizzes/result/{id}/{result}', [
     'as' => 'quizzes.result',
     'uses' => 'QuizzesController@quiz_result',
@@ -136,8 +137,11 @@ Route::get('pages/', [
     'as' => 'pages.index',
     'uses' => 'PagesController@page',
 ]);
-
-Route::get('pages/page/{id}', [
+Route::get('page/{id}', [
     'as' => 'pages.page',
     'uses' => 'PagesController@page',
+]);
+Route::post('page/{id}', [
+    'as' => 'pages.page',
+    'uses' => 'PagesController@answer',
 ]);

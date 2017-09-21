@@ -12,6 +12,7 @@ use App\Http\Requests\RegisterPostRequest;
 use App\Models\AccessMode;
 use App\Models\AppUser;
 use App\Models\HttpCodes;
+use App\Models\Challenge;
 use App\Services\LevelUpApi;
 
 class AuthController extends Controller
@@ -33,6 +34,10 @@ class AuthController extends Controller
     public function register_post(RegisterPostRequest $request)
     {
         $levelup = new LevelUpApi;
+
+        if(isset($request->mobilenumber)){
+            trim($request->mobilenumber = str_replace(' ', '', $request->mobilenumber));
+        }
 
         $access_token = $request->mobilenumber.":".$request->password;
         $mode = AccessMode::MOBILE_NUMBER_ACCESS;
@@ -66,6 +71,10 @@ class AuthController extends Controller
     public function login_post(LoginPostRequest $request)
     {
         $levelup = new LevelUpApi;
+
+        if(isset($request->mobilenumber)){
+            trim($request->mobilenumber = str_replace(' ', '', $request->mobilenumber));
+        }
 
         $access_token = $request->mobilenumber.":".$request->password;
         $mode = AccessMode::MOBILE_NUMBER_ACCESS;
@@ -116,14 +125,20 @@ class AuthController extends Controller
             $quiz_completed+= $category->completed;
         }
 
-        $dailys_complete = Challenge::completed_featured_challenges($this->levelup);
+        $dailys_complete = Challenge::completed_featured_challenges($levelup);
 
         Session::put('levelup_firstname', $profile->firstname);
+        Session::put('levelup_profile_completed', $profile->complete);
 
         Session::put('levelup_points', $points);
         Session::put('levelup_quiz_completed', $quiz_completed);
         Session::put('levelup_dailys_complete', $dailys_complete);
 
         Session::flash('flash_welcome_msg', true);
+    }
+
+    public function version(){
+        $levelup = new LevelUpApi;
+        dd($levelup->get_version());
     }
 }

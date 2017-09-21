@@ -2,6 +2,10 @@
 
 @section('title', config('app.name').' - Quiz')
 
+@section('meta_tags')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@stop
+
 @section('content')
 	<!-- Challenge info -->
 	<!--
@@ -38,8 +42,7 @@
 					<div class="{{ get_body_class() }}">
 
 						<h3>{{ $page->heading }}</h3>
-				
-						{{ csrf_field() }}
+
 						<!-- quiz content/form -->
 						{!! $page->content !!}
 
