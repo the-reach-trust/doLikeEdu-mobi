@@ -215,7 +215,8 @@ h1.edu:before {
 /*----------------------------------------ARDCOZA---------------------------------------*/
 /*      Quizzess  */
 /*--------------------------------------------------------------------------------------*/
-#quiz-single {
+#quiz-single,
+#page.dolikeedu {
 	padding-bottom: 30px;
 	.question {
 		margin-top: 26px;
@@ -224,7 +225,7 @@ h1.edu:before {
 			margin: 12px 0;
 		}
 	}
-	.challenge {
+	.inner.dolikeedu, .challenge {
 		margin-top: 26px;
 		input {
 			&[type="radio"] {

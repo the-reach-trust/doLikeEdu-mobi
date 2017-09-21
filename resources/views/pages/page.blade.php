@@ -8,8 +8,8 @@
 
 @section('content')
 
-    <div id="page">
-        <div class="inner">
+    <div id="page" class="dolikeedu">
+        <div class="inner dolikeedu">
             <div class="space"></div>
             <div class="container">
                 <div class="row">
@@ -74,10 +74,8 @@
                 <span class="space"></span>
                 <div class="container">
                     <div class="row">
-                        <div class="{{ get_body_class() }}">
-                            <div class="btn-group">
-                                <a href="{{ route('pages.page', $page_next->id) }}" class="btn btn-default next">Next</a>
-                            </div>
+                        <div class="{{ get_body_class( Request::route(), true ) }}">
+							<a href="{{ route('pages.page', $page_next->id) }}" class="btn btn-block btn-lg btn-primary next">Next</a></div>
                         </div>
                     </div>
                 </div>
