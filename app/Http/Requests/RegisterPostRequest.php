@@ -22,7 +22,7 @@ class RegisterPostRequest extends FormRequest
             'firstname' => 'required|min:3|max:50',
             'lastname' => 'required|min:3|max:50',
             'mobilenumber' => 'required|phone:AUTO,NA',
-            'password' => 'required|max:100',
+            'password' => 'required|min:6|max:100',
         ];
     }
 }

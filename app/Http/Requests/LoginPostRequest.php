@@ -20,7 +20,7 @@ class LoginPostRequest extends FormRequest
     {
         return [
             'mobilenumber' => 'required|phone:AUTO,NA',
-            'password' => 'required|max:100',
+            'password' => 'required|min:6|max:100',
         ];
     }
 }
