@@ -33,7 +33,7 @@
 						<div class="list earn-points">
 							<a href="{{ route('help.about') }}">
 								<figure><i class="fa fa-question-circle" aria-hidden="true"></i></figure>
-								<span class="h2">What's do Like Edu?</span>
+								<span class="h2">What's Do Like Edu?</span>
 							</a>
 							<a href="{{ route('quizzes.index') }}">
 								<figure>
