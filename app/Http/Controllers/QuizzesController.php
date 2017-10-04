@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Carbon\Carbon;
+
 use Sunra\PhpSimple\HtmlDomParser;
 
 use App\Models\ChallengeType;
@@ -130,6 +132,9 @@ class QuizzesController extends AppController
         }
         $page->content = $page_html;
 
+        //Start timer for page viewing
+        \Session::put('levelup_quiz_start', Carbon::now() );
+
         return view('quizzes.quiz',compact('challenge','page'));
     }
 
@@ -141,8 +146,18 @@ class QuizzesController extends AppController
             \Session::flash('flash_error', 'You have no attempts left');
             return redirect()->back()->withInput();
         }
+        if(!\Session::has('levelup_quiz_start')){
+            \Session::flash('flash_error', 'Ops... something went wrong try again ?');
+            return redirect()->back()->withInput();
+        }
 
-        $quiz_result = $this->levelup->answer_challenge($id,$request->all());
+        $quiz_start_time = \Session::get('levelup_quiz_start');
+        $duration = $quiz_start_time->diffInSeconds(Carbon::now());
+
+        $answer_post['answer'] = $request->answer;
+        $answer_post['duration'] = $duration;
+
+        $quiz_result = $this->levelup->answer_challenge($id,$answer_post);
 
         if($this->levelup->get_last_http_status() == Challenge::CHALLENGE_EXPIRED || $this->levelup->get_last_http_status() == Challenge::CHALLENGE_NOT_FOUND)
         {
