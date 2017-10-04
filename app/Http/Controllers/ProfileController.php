@@ -63,7 +63,7 @@ class ProfileController extends AppController
 
     public function complete()
     {
-        $points = $this->levelup->get_points();
+        $points = $this->levelup->get_v2_points();
         Session::put('levelup_points', $points);
 
         return view('profile.complete');

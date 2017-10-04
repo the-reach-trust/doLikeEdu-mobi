@@ -117,7 +117,7 @@ class AuthController extends Controller
         if(!is_null($profile) ){
             $levelup->set_profile($profile);
         }
-        $points = $levelup->get_points();
+        $points = $levelup->get_v2_points();
         $profile = $levelup->get_profile();
         $quiz_completed = 0;
 

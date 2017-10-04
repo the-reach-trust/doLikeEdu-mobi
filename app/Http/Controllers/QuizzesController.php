@@ -199,7 +199,7 @@ class QuizzesController extends AppController
             foreach ($this->levelup->get_challenge_progress() as $category) {
                 $quiz_completed+= $category->completed;
             }
-            $points = $this->levelup->get_points();
+            $points = $this->levelup->get_v2_points();
             Session::put('levelup_points', $points);
             Session::put('levelup_quiz_completed', $quiz_completed);
 
