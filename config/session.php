@@ -102,8 +102,6 @@ return [
             'driver' => 'memcached',
             'options' => [
                 Memcached::OPT_BINARY_PROTOCOL => TRUE,
-                Memcached::OPT_DISTRIBUTION,
-                Memcached::DISTRIBUTION_CONSISTENT,
                 Memcached::OPT_PREFIX_KEY => 'LU_NM',
                 // Memcached::OPT_CONNECT_TIMEOUT  => 2000,
             ],
