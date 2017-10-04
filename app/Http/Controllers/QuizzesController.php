@@ -152,7 +152,7 @@ class QuizzesController extends AppController
         }
 
         $quiz_start_time = \Session::get('levelup_quiz_start');
-        $duration = $quiz_start_time->diffInSeconds(Carbon::now());
+        $duration = max(0, $quiz_start_time->diffInSeconds(Carbon::now()));
 
         $answer_post['answer'] = $request->answer;
         $answer_post['duration'] = $duration;

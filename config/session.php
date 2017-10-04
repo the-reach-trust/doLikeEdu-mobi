@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => env('SESSION_DRIVER', 'memcached'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,28 @@ return [
     |
     */
 
-    'store' => null,
+    'stores' => [
+        'memcached' => [
+            'driver' => 'memcached',
+            'options' => [
+                Memcached::OPT_BINARY_PROTOCOL => TRUE,
+                Memcached::OPT_DISTRIBUTION,
+                Memcached::DISTRIBUTION_CONSISTENT,
+                Memcached::OPT_PREFIX_KEY => 'LU_NM',
+                // Memcached::OPT_CONNECT_TIMEOUT  => 2000,
+            ],
+            'servers' => [
+                [
+                    'host' => env('MEMCACHED_HOST', 'cache1.mylevelup.org'),
+                    'port' => env('MEMCACHED_PORT', 11211)
+                ],
+                [
+                    'host' => env('MEMCACHED_HOST1', 'cache2.mylevelup.org'),
+                    'port' => env('MEMCACHED_PORT', 11211)
+                ],
+            ],
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -177,4 +198,16 @@ return [
 
     'http_only' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Session Key Prefix
+    |--------------------------------------------------------------------------
+    |
+    | When utilizing a RAM based store such as APC or Memcached, there might
+    | be other applications utilizing the same cache. So, we'll specify a
+    | value to get prefixed to all our keys so we can avoid collisions.
+    |
+    */
+
+    'prefix' => 'LU_NM',
 ];
