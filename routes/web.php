@@ -77,6 +77,10 @@ Route::get('home', [
     'as' => 'home.index',
     'uses' => 'HomeController@index',
 ]);
+Route::get('survey', [
+    'as' => 'survey',
+    'uses' => 'HomeController@survey',
+]);
 
 Route::get('profile', [
     'as' => 'profile.index',

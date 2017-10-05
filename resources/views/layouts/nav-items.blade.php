@@ -18,3 +18,8 @@
 		<i class="fa fa-tasks" aria-hidden="true"></i>Progress
 	</a>
 </li>
+<li class="@activeif('survey')">
+	<a href="{{ route('survey') }}">
+		<i class="fa fa-wpforms" aria-hidden="true"></i>Survey
+	</a>
+</li>

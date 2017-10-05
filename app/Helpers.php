@@ -6,8 +6,11 @@ function get_body_class( $route = null, $sidebar = false ) {
 		'route-auth-register'
 	);
 	if ( $route ) {
-		if ( in_array( trim( get_route_class( $route ) ), $defaultClasses  ) )
-			 return config( 'front.dfltBodyClass' );
+		if ( in_array( trim( get_route_class( $route ) ), $defaultClasses  ) ){
+			return config( 'front.dfltBodyClass' );
+		}elseif( stripos(trim(get_route_class($route)), 'route-survey') !== false){
+			return 'dfltBodyClass';
+		}
 	}
 
 	if ( config( 'front.progressiveDesktop' ) ) {
