@@ -31,9 +31,9 @@
 				<span class="space-2"></span>
 
 				<p class="mb-0">Have an account?</p>
-				<a href="{{ route('auth.login') }}" class="no-decorate body-text">Click here to login</a>
+				<a href="{{ route('auth.login') }}" class="btn btn-secondary btn-lg" role="button">Welcome Back</a>
 				<br>
 			</div>
 		</div>
-	</div>	
+	</div>
 @stop

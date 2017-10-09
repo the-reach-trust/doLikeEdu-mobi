@@ -15,6 +15,10 @@
 
 					@include('partials.forms.auth-login')
 
+					<div>
+						<a href="mailto: {{ getenv("MAIL_SUPPORT_EMAIL") }}" class="body-text">Forgot your password?</a>
+					</div>
+
 					<span class="space-12"></span>
 					<div class="text-center">
 						{{ Form::submit('Login', array('class' => 'btn btn-primary btn-lg')) }}

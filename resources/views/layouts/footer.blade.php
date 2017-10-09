@@ -19,6 +19,9 @@
 						<li class="@activeif('survey*')">
 							<a href="{{ route('survey') }}">Survey</a>
 						</li>
+						<li>
+							<a href="{{ route('auth.logout') }}">Logout</a>
+						</li>
 					</ul>
 				</nav>
 			</div>
