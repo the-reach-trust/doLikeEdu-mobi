@@ -13,7 +13,7 @@
 						'route' => ['auth.register'],
 					]) }}
 
-					@include('partials.forms.auth-register')
+					@include('partials.forms.auth-register', ['mobilenumber_tooltip' => 'E.g  061 201 9211'])
 
 					<span class="space-7"></span>
 					<div class="text-center">

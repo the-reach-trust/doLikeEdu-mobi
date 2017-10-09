@@ -15,7 +15,6 @@
 					<div class="{{ get_body_class( Request::route(), true ) }}">
 					
 						<h3>Userid: {{ $userid }}</h3>
-						<h4>Phone number: {{ $mobile_number }}</h4>
 
 						<div class="space-2"></div>
 
