@@ -127,8 +127,16 @@ class QuizzesController extends AppController
 
         //Make sure form is post
         $page_html = HtmlDomParser::str_get_html($page->content);
-        if($page_html == true && $page_html->find('form') != null){
-            $page_html->find('form', 0)->method = 'post';
+        if($page_html == true){
+            //Make sure it's a post
+            if($page_html->find('form') != null){
+                $page_html->find('form', 0)->method = 'post';
+            }
+
+            //Hide links if not completed
+            if($page_html->find('div[class=links]') != null){
+                $page_html->find('div[class=links]', 0)->innertext = '</div>';
+            }
         }
         $page->content = $page_html;
 
@@ -209,12 +217,22 @@ class QuizzesController extends AppController
             }
         }
 
+        //Get academy link
+        $academy_link = env("ACADEMY_LINK", "https://www.khanacademy.org");
+
         if($correct)
         {
             return view('quizzes.correct',compact('challenge','page'));
         }
 
-        return view('quizzes.incorrect',compact('challenge','page'));
+        if($challenge->remaining_attempts == 0){
+            $page_html = HtmlDomParser::str_get_html($page->content);
+            if($page_html == true && $page_html->find('div[class=links] a') != null){
+                $academy_link = $page_html->find('div[class=links] a', 0)->href;
+            }
+        }
+
+        return view('quizzes.incorrect',compact('challenge','page','academy_link'));
     }
 
     public function page($id)

@@ -7,11 +7,6 @@
 @stop
 
 @section('content')
-	<!-- Challenge info -->
-	<!--
-	{{ print_r($challenge) }}
-	-->
-
 	@include( 'partials.progresspanel.lg' )
 
 	<div id="page" class="wider">

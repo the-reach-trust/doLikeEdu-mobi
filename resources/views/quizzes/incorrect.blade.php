@@ -33,7 +33,7 @@
 
                             <span class="space"></span>
 
-                            <a href="{{ env('ACADEMY_LINK') }}" class="theme-primary" target="_blank">Learn more about this on Khan Academy</a>
+                            <a href="{{ $academy_link }}" class="theme-primary" target="_blank">Learn more about this on Khan Academy</a>
                             <!-- Should normaly only be one page/solution !-->
                             @if(!empty($page->child) && $challenge->remaining_attempts == 0 )
                                 <div class="list">
