@@ -225,11 +225,9 @@ class QuizzesController extends AppController
             return view('quizzes.correct',compact('challenge','page'));
         }
 
-        if($challenge->remaining_attempts == 0){
-            $page_html = HtmlDomParser::str_get_html($page->content);
-            if($page_html == true && $page_html->find('div[class=links] a') != null){
-                $academy_link = $page_html->find('div[class=links] a', 0)->href;
-            }
+        $page_html = HtmlDomParser::str_get_html($page->content);
+        if($page_html == true && $page_html->find('div[class=links] a') != null){
+            $academy_link = $page_html->find('div[class=links] a', 0)->href;
         }
 
         return view('quizzes.incorrect',compact('challenge','page','academy_link'));
