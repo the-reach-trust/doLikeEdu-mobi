@@ -22,8 +22,7 @@
 					<span class="space-1"></span>
 				</figure>
 
-				<h1>Welcome</h1>
-				<p>Practice makes perfect.</p>
+				<h2>Practice makes perfect.</h2>
 				<span class="space"></span>
 
 				<a href="{{ route('auth.register') }}" class="btn btn-primary btn-lg" role="button">Join DoLikeEdu</a>
