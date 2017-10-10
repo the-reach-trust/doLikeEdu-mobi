@@ -21,8 +21,10 @@ class Controller extends BaseController
         $levelup_authentication = Session::get('levelup_authentication');
         $levelup_hashcode = Session::get('levelup_hashcode');
         if(empty($levelup_authentication) || empty($levelup_hashcode)){
-            //TODO: rewrite
-            dd($levelup_hashcode);
+            Session::flush();
+
+            Session::flash('flash_error', 'Your session has expired');
+            \Redirect::to('/')->send();;
         }
 
         $levelupapi = new LevelUpApi;
