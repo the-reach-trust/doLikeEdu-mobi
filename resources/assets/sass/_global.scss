@@ -174,12 +174,32 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 			padding: 20px;
 			margin-bottom: 10px;
 			border: 1px solid $gray;
+			position: relative;
+			@media screen and ( max-width: 399px ) {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
 			img {
 				float: left;
 				width: 46px;
 				margin-right: 20px;
+				@media screen and ( max-width: 399px ) {
+					// display: none;
+				}
 			}
-			h2 { margin: 0 0 4px; }
+			h2 {
+				margin: 0 0 4px;
+				padding-right: 58px;
+				@media screen and ( max-width: 399px ) {
+					padding-right: 48px;
+				}
+				a {
+					display: block;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
 			p { margin-bottom: 0; }
 			.progress {
 				clear: both;
@@ -198,6 +218,14 @@ a.no-decorate, .no-decorate { text-decoration: none; }
 					-moz-box-shadow: none;
 					-o-box-shadow: none;
 					box-shadow: none;
+				}
+			}
+			figure {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				@media screen and ( max-width: 399px ) {
+					right: 10px;
 				}
 			}
 		}
