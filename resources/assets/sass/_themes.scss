@@ -217,3 +217,16 @@ body {
 		}
 	}
 }
+
+// Temporary approach
+$bg: #f2f2f2;
+$fg: #d8e152;
+.pie-wrapper--solid {
+  
+	@for $i from 0 through 100 {
+		&.progress-#{$i} {
+			@include draw-progress--solid($i, $fg, $bg);
+			@include draw-progress--solid--before($i, $fg, $bg);
+		}
+	}
+}

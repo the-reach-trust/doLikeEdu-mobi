@@ -322,3 +322,55 @@ h1.edu:before {
 		}
 	}
 }
+
+/*----------------------------------------ARDCOZA---------------------------------------*/
+/*      Pie Progress  */
+/*--------------------------------------------------------------------------------------*/
+
+// Variables
+$size: 3em;
+
+// Mixins
+@mixin size($w, $h) {
+	height: $h;
+	width: $w;
+}
+
+@mixin draw-progress--solid--before($progress, $color, $bg) {
+	@if $progress <= 50 {
+		&:before {
+			background: $bg;
+			transform: rotate((100 - (50 - $progress)) / 100 * 360deg * -1);
+		}
+	}
+	@if $progress > 50 {
+		&:before {
+			background: $color;
+			transform: rotate((100 - $progress) / 100 * 360deg);
+		}
+	}
+}
+
+@mixin draw-progress--solid($progress, $color, $bg) {
+	background: linear-gradient(to right, $color 50%, $bg 50%);
+}
+
+// Structure
+.pie-wrapper {
+	@include size($size, $size);
+	transform: scaleX(-1);
+}
+
+.pie-wrapper--solid {
+	border-radius: 50%;
+	overflow: hidden;
+
+	&:before {
+		border-radius: 0 100% 100% 0 / 50%;
+		content: '';
+		display: block;
+		height: 100%;
+		margin-left: 50%;
+		transform-origin: left;
+	}
+}
