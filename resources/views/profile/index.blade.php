@@ -16,6 +16,8 @@
 					
 						<h3>Userid: {{ $userid }}</h3>
 
+						<div class="space-2"></div>
+
 						<div class="box-body">
 							{{ Form::open([
 								'method' => 'POST',

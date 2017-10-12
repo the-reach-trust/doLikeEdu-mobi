@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Carbon\Carbon;
+
 use Sunra\PhpSimple\HtmlDomParser;
 
 use App\Models\ChallengeType;
@@ -125,10 +127,21 @@ class QuizzesController extends AppController
 
         //Make sure form is post
         $page_html = HtmlDomParser::str_get_html($page->content);
-        if($page_html == true && $page_html->find('form') != null){
-            $page_html->find('form', 0)->method = 'post';
+        if($page_html == true){
+            //Make sure it's a post
+            if($page_html->find('form') != null){
+                $page_html->find('form', 0)->method = 'post';
+            }
+
+            //Hide links if not completed
+            if($page_html->find('div[class=links]') != null){
+                $page_html->find('div[class=links]', 0)->innertext = '</div>';
+            }
         }
         $page->content = $page_html;
+
+        //Start timer for page viewing
+        \Session::put('levelup_quiz_start', Carbon::now() );
 
         return view('quizzes.quiz',compact('challenge','page'));
     }
@@ -141,8 +154,18 @@ class QuizzesController extends AppController
             \Session::flash('flash_error', 'You have no attempts left');
             return redirect()->back()->withInput();
         }
+        if(!\Session::has('levelup_quiz_start')){
+            \Session::flash('flash_error', 'Ops... something went wrong try again ?');
+            return redirect()->back()->withInput();
+        }
 
-        $quiz_result = $this->levelup->answer_challenge($id,$request->all());
+        $quiz_start_time = \Session::get('levelup_quiz_start');
+        $duration = max(0, $quiz_start_time->diffInSeconds(Carbon::now()));
+
+        $answer_post['answer'] = $request->answer;
+        $answer_post['duration'] = $duration;
+
+        $quiz_result = $this->levelup->answer_challenge($id,$answer_post);
 
         if($this->levelup->get_last_http_status() == Challenge::CHALLENGE_EXPIRED || $this->levelup->get_last_http_status() == Challenge::CHALLENGE_NOT_FOUND)
         {
@@ -184,7 +207,7 @@ class QuizzesController extends AppController
             foreach ($this->levelup->get_challenge_progress() as $category) {
                 $quiz_completed+= $category->completed;
             }
-            $points = $this->levelup->get_points();
+            $points = $this->levelup->get_v2_points();
             Session::put('levelup_points', $points);
             Session::put('levelup_quiz_completed', $quiz_completed);
 
@@ -194,12 +217,20 @@ class QuizzesController extends AppController
             }
         }
 
+        //Get academy link
+        $academy_link = env("ACADEMY_LINK", "https://www.khanacademy.org");
+
         if($correct)
         {
             return view('quizzes.correct',compact('challenge','page'));
         }
 
-        return view('quizzes.incorrect',compact('challenge','page'));
+        $page_html = HtmlDomParser::str_get_html($page->content);
+        if($page_html == true && $page_html->find('div[class=links] a') != null){
+            $academy_link = $page_html->find('div[class=links] a', 0)->href;
+        }
+
+        return view('quizzes.incorrect',compact('challenge','page','academy_link'));
     }
 
     public function page($id)

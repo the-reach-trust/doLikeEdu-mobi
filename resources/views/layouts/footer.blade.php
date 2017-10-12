@@ -13,8 +13,14 @@
 						<li class="@activeif('help*')">
 							<a href="{{ route('help.index') }}">Help &amp; Terms</a>
 						</li>
-						<li>
+						<li class="@activeif('pages*')">
 							<a href="{{ route('pages.index') }}">TalkToEdu</a>
+						</li>
+						<li class="@activeif('survey*')">
+							<a href="{{ route('survey') }}">Survey</a>
+						</li>
+						<li>
+							<a href="{{ route('auth.logout') }}">Logout</a>
 						</li>
 					</ul>
 				</nav>

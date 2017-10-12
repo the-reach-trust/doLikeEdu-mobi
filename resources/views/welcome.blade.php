@@ -22,8 +22,7 @@
 					<span class="space-1"></span>
 				</figure>
 
-				<h1>Welcome</h1>
-				<p>Pratice makes perfect.</p>
+				<h2>Practice makes perfect.</h2>
 				<span class="space"></span>
 
 				<a href="{{ route('auth.register') }}" class="btn btn-primary btn-lg" role="button">Join DoLikeEdu</a>
@@ -31,9 +30,9 @@
 				<span class="space-2"></span>
 
 				<p class="mb-0">Have an account?</p>
-				<a href="{{ route('auth.login') }}" class="no-decorate body-text">Click here to login</a>
+				<a href="{{ route('auth.login') }}" class="btn btn-secondary btn-lg" role="button">Welcome Back</a>
 				<br>
 			</div>
 		</div>
-	</div>	
+	</div>
 @stop

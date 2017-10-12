@@ -7,11 +7,6 @@
 @stop
 
 @section('content')
-	<!-- Challenge info -->
-	<!--
-	{{ print_r($challenge) }}
-	-->
-
 	@include( 'partials.progresspanel.lg' )
 
 	<div id="page" class="wider">
@@ -51,7 +46,7 @@
 							@if($challenge->remaining_attempts != 0)
 								<p>You are on try <b>{{ $challenge->attempts + 1 }}</b> of <b>{{ $challenge->remaining_attempts + $challenge->attempts }}</b> for <span class="blocked-points">{{ $challenge->points_available }}</span> points</p>
 							@else
-								<p>{{ $challenge->points }} points</p>
+								You earned <b>{{ $challenge->points }}</b> points for this quiz
 							@endif
 						</div>
 					</div>

@@ -18,7 +18,7 @@ class ProfilePasswordPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|min:6|max:100',
         ];
     }
 }

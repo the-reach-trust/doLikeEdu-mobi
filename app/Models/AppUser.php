@@ -7,8 +7,8 @@ class AppUser {
     const MALE = 1;
 
     const GENDERS = [
-    	AppUser::FEMALE => 'Female',
-    	AppUser::MALE => 'Male'
+        AppUser::FEMALE => 'Girl',
+        AppUser::MALE => 'Boy'
     ];
 
     const GRADES = [

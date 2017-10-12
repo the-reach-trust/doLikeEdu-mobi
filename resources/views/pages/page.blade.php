@@ -44,7 +44,7 @@
                             <div class="list earn-points earn-points-image">
                                 @php $next_not_completed = true; @endphp
                                 @foreach ($page->child as $child)
-                                    @if($child->completed == false)
+                                    @if($child->completed == false && !empty($page->parent) )
                                         @if($next_not_completed == true)
                                             <a href="{{ route('pages.page', $child->id) }}">
                                                 @if(!empty($child->logo))<div><img src="{{ $child->logo }}" width="40"></div>@endif

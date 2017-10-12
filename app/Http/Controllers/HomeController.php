@@ -25,4 +25,9 @@ class HomeController extends AppController
 
         return view('home.index',compact('content'));
     }
+
+    public function survey()
+    {
+        return view('home.survey');
+    }
 }

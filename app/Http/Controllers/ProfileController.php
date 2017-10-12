@@ -31,7 +31,11 @@ class ProfileController extends AppController
             $schools[$school->schoolcode] = $school->school;
         }
 
-        return view('profile.index',compact('profile','schools','userid'));
+        //Get usermobile number aka username
+        $access_token = explode(":", session::get("access_token"),2);
+        $mobile_number = $access_token[0];
+
+        return view('profile.index',compact('profile','schools','userid','mobile_number'));
     }
 
     public function update(ProfilePostRequest $request)
@@ -63,7 +67,7 @@ class ProfileController extends AppController
 
     public function complete()
     {
-        $points = $this->levelup->get_points();
+        $points = $this->levelup->get_v2_points();
         Session::put('levelup_points', $points);
 
         return view('profile.complete');

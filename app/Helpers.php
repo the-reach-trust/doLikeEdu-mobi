@@ -6,8 +6,11 @@ function get_body_class( $route = null, $sidebar = false ) {
 		'route-auth-register'
 	);
 	if ( $route ) {
-		if ( in_array( trim( get_route_class( $route ) ), $defaultClasses  ) )
-			 return config( 'front.dfltBodyClass' );
+		if ( in_array( trim( get_route_class( $route ) ), $defaultClasses  ) ){
+			return config( 'front.dfltBodyClass' );
+		}elseif( stripos(trim(get_route_class($route)), 'route-survey') !== false){
+			return 'dfltBodyClass';
+		}
 	}
 
 	if ( config( 'front.progressiveDesktop' ) ) {
@@ -50,7 +53,7 @@ function get_user_level() {
 function get_points_object() {
 	return Session::get('levelup_points');
 }
-function get_points() 			{ $points = get_points_object(); return $points->points; }
+function get_points() 			{ $points = get_points_object(); return $points->tokens; } //Points are tokens for doLikeEdu
 function get_level()  			{ $points = get_points_object(); return $points->level; }
 function get_firstname()		{ return Session::get('levelup_firstname'); }
 function get_quiz_completed() 	{ return Session::get('levelup_quiz_completed'); }
