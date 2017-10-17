@@ -16,9 +16,11 @@
 						<li class="@activeif('pages*')">
 							<a href="{{ route('pages.index') }}">TalkToEdu</a>
 						</li>
-						<li class="@activeif('survey*')">
-							<a href="{{ route('survey') }}">Survey</a>
-						</li>
+						@if(getenv('GOOGLE_SURVEY_ID') != "false")
+							<li class="@activeif('survey*')">
+								<a href="{{ route('survey') }}">Survey</a>
+							</li>
+						@endif
 						<li>
 							<a href="{{ route('auth.logout') }}">Logout</a>
 						</li>

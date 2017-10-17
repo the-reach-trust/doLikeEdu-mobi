@@ -28,6 +28,10 @@ class HomeController extends AppController
 
     public function survey()
     {
+        if(getenv('GOOGLE_SURVEY_ID') == "false"){
+            Session::flash('flash_error', 'The survery has expired');
+            return redirect()->route('home.index');
+        }
         return view('home.survey');
     }
 }

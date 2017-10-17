@@ -24,7 +24,7 @@ class Controller extends BaseController
             Session::flush();
 
             Session::flash('flash_error', 'Your session has expired');
-            \Redirect::to('/')->send();;
+            \Redirect::to('/')->send();
         }
 
         $levelupapi = new LevelUpApi;

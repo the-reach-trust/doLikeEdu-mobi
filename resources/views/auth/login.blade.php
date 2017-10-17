@@ -16,7 +16,7 @@
 					@include('partials.forms.auth-login')
 
 					<div>
-						<a href="mailto: {{ getenv("MAIL_SUPPORT_EMAIL") }}?subject=Password Recovery&body=Please recovery my password. My login cell phone number is " class="body-text">Forgot your password?</a>
+						<a href="mailto: {{ getenv("MAIL_SUPPORT_EMAIL") }}?subject=Password Recovery&body=Please recover my password. My login cell phone number is " class="body-text">Forgot your password?</a>
 					</div>
 
 					<span class="space-12"></span>
