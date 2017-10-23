@@ -2,6 +2,11 @@
 	<td>
 		<a class="" title="" href="{{ route('quizzes.quiz', $challenge->id) }}">
 			<figure>
+				@if(isset($counter) && $counter == true)
+					<figcaption>
+						{{ $loop->iteration }}
+					</figcaption>
+				@endif
 				<img src="{{ !empty($pages[$challenge->content_page]->logo) ? $pages[$challenge->content_page]->logo : $pages[$challenge->content_page]->coverimage }}" class="img-responsive">
 			</figure>
 		</a>

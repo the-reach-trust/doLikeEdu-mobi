@@ -26,8 +26,8 @@
 			<div class="pattern-title">
 				<div class="container">
 					<div class="row">
-						<div class="{{ get_body_class() }}">				
-							<h1>Featured quizzes</h1>
+						<div class="{{ get_body_class() }}">
+							<h1>Weekly {{ $featured_name }} Quiz</h1>
 						</div>
 					</div>
 				</div>
@@ -38,7 +38,7 @@
 						@if ( !empty( $challenges_featured ) )
 							<table class="list quiz-list">
 								@foreach ($challenges_featured as $challenge)
-									@include( 'quizzes.list-featured' )
+									@include( 'quizzes.list-featured', ['counter' => true] )
 								@endforeach
 							</table>
 						@else

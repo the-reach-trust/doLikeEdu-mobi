@@ -35,14 +35,19 @@ class QuizzesController extends AppController
                                 'count' => 3);
 
         $challenges_featured = $this->levelup->get_challenges($challenges_param);
+        $featured_name = '';
+
         if(!empty($challenges_featured)){
             //Get pages for set challenge
             foreach ($challenges_featured as $challenge) {
                 $pages[$challenge->content_page] = $this->levelup->get_page($challenge->content_page,false,3600);
             }
+            $first_quiz = reset($challenges_featured);
+            $featured_name = $this->levelup->get_challenge($first_quiz->id)->category_name;
+
         }
 
-        return view('quizzes.index',compact('pages','categories','challenges_featured'));
+        return view('quizzes.index',compact('pages','categories','challenges_featured','featured_name'));
     }
 
     public function category($category_id,$offset=0,$sort='popular')
