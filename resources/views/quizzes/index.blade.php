@@ -12,7 +12,7 @@
 				<div class="container">
 					<div class="row">			
 						<div class="{{ get_body_class() }}">
-							<h1>Quiz categories</h1>
+							<h1>Quiz Categories</h1>
 							<span class="space-4"></span>
 							<ul class="list quiz-categories">
 								@foreach ($categories as $category)
