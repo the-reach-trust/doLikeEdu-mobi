@@ -57,7 +57,7 @@ body {
 				#quizinfopanel { background: $color-primary; }
 				#quizcategoriespanel.alt { background: lighten( $color-primary, 7.5% ); }
 			}
-			@else if $hover-state = "style-b" {				
+			@else if $hover-state == "style-b" {
 				/*----------------------------------------ARDCOZA---------------------------------------*/
 				/*      Style B here  */
 				/*--------------------------------------------------------------------------------------*/

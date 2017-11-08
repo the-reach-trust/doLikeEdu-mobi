@@ -2,7 +2,7 @@ var resizeTimer = null;
 
 ( function( $ ) {
 	$( document ).ready( function() {
-		activateSelects();		
+		//activateSelects();
 		removeAlerts();
 		radioButtonEvents();
 		//activateTels();
