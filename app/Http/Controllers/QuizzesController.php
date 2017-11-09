@@ -140,7 +140,7 @@ class QuizzesController extends AppController
 
             //Hide links if not completed
             if($page_html->find('div[class=links]') != null){
-                $page_html->find('div[class=links]', 0)->innertext = '</div>';
+                $page_html->find('div[class=links]', 0)->innertext = '';
             }
         }
         $page->content = $page_html;
