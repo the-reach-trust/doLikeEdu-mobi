@@ -34,7 +34,7 @@ Prod: Setup
 then edit the env vairables on there
 
 ## Authors
-list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+list of [contributors](https://github.com/the-reach-trust/doLikeEdu-mobi/graphs/contributors) who participated in this project.
 
 ## License
 
