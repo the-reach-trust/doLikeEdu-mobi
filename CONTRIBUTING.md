@@ -35,7 +35,7 @@ Before you submit your pull request consider the following guidelines:
     git checkout -b my-fix-branch master
     ```
 
-* Create your patch and run appropriate tests.
+* Create your patch and create/run appropriate tests.
 * Commit your changes using a descriptive commit message that uses the imperative, present tense: "change" not "changed" nor "changes".
 
     ```shell
@@ -53,7 +53,6 @@ In GitHub, send a pull request to `doLikeEdu-mobi:master`.
 If we suggest changes, then:
 
 * Make the required updates.
-* Re-run runelite and make sure any and all tests are still passing.
 * Commit your changes to your branch (e.g. `my-fix-branch`).
 * Push the changes to your GitHub repository (this will update your Pull Request).
 
