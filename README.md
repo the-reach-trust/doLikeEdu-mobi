@@ -40,6 +40,10 @@ list of [contributors](https://github.com/the-reach-trust/doLikeEdu-mobi/graphs/
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details
 
+## Contribute and Develop
+
+We've set up a separate document for our [contribution guidelines](https://github.com/the-reach-trust/doLikeEdu-mobi/blob/master/CONTRIBUTING.md).
+
 [composer]: <https://getcomposer.org/>
 [php]: <http://php.net/releases/5_6_4.php>
 [apache]: <https://httpd.apache.org/>
