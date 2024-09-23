@@ -1,4 +1,6 @@
- DoLikeEdu-mobi
+# IMPORTANT!! Repository moved to [Gitlab](https://gitlab.com/the-reach-trust/doLikeEdu-mobi).
+
+DoLikeEdu-mobi
 ======
 The Mobi web client for DoLikeEdu
 
